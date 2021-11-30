@@ -18,9 +18,10 @@ export default function Post({ frontmatter, source }: PostProps) {
   return (
     <>
       <MDXRemote {...source} />
-      {/* <article>{content}</article> */}
       <Script
+        strategy="beforeInteractive"
         src="https://utteranc.es/client.js"
+        // @ts-expect-error
         repo="morooLee/github-pages"
         issue-term="pathname"
         label="Comment"
