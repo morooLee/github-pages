@@ -1,16 +1,17 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@layer base {
+  :root {
+    --color-fg-default: #c9d1d9;
+    --color-fg-muted: #c9d1d9;
+    --color-border-default: #30363d;
+    --color-border-muted: #21262d;
+  }
+  .dark {
+    --color-fg-default: #c9d1d9;
+    --color-fg-muted: #c9d1d9;
+    --color-border-default: #30363d;
+    --color-border-muted: #21262d;
+  }
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
+@tailwind components;
+@tailwind utilities;

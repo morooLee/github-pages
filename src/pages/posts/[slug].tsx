@@ -5,11 +5,13 @@ import Script from 'next/script';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Blog, { Frontmatter } from '../../lib/blog';
 import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote } from 'next-mdx-remote';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import Head from 'next/head';
+import MarkdownStyledComponents from '../../components/Markdown';
 
 interface PostProps {
   frontmatter: Frontmatter;
-  source: any;
+  source: MDXRemoteSerializeResult;
 }
 export default function Post({ frontmatter, source }: PostProps) {
   const router = useRouter();
@@ -17,7 +19,12 @@ export default function Post({ frontmatter, source }: PostProps) {
 
   return (
     <>
-      <MDXRemote {...source} />
+      <Head>
+        <title>{`Moroo - ${frontmatter.title}`}</title>
+      </Head>
+      <MarkdownStyledComponents.body>
+        <MDXRemote {...source} components={MarkdownStyledComponents} />
+      </MarkdownStyledComponents.body>
       <Script
         strategy="afterInteractive"
         src="https://utteranc.es/client.js"
@@ -33,7 +40,7 @@ export default function Post({ frontmatter, source }: PostProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   if (!params) {
     return {
       redirect: {
@@ -42,8 +49,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       },
     };
   }
-  const post = Blog.getPost(params.slug as string);
+  const post = Blog.getPost(params.slug);
   // const content = await markdownToHtml(post.content || '');
+  // const post = blog.posts.find((_post: any) => _post.slug === params.slug);
   if (!post) {
     return {
       redirect: {
@@ -53,7 +61,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
-  const mdxSource = await serialize(post.content, {
+  const mdxSource: MDXRemoteSerializeResult = await serialize(post.content, {
     scope: { ...post.frontmatter },
   });
 
