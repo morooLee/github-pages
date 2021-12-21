@@ -51,7 +51,12 @@ const Home: NextPage = () => {
         >
           Powered by{' '}
           <span>
-            <img src="/moroo.svg" alt="Vercel Logo" width={72} height={16} />
+            <img
+              src="/assets/moroo.svg"
+              alt="Vercel Logo"
+              width={72}
+              height={16}
+            />
           </span>
         </a>
       </footer>

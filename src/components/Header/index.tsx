@@ -14,7 +14,7 @@ export default function Header({ menuOnclick }: Props) {
     <div className="h-full lg:max-w-content px-4 py-3 mx-auto flex flex-row items-center justify-items-stretch gap-4 bg-header text-header-logo text-base font-semibold">
       <Link href="/">
         <a className="h-10 w-10 justify-self-start relative cursor-pointer">
-          <img src="/moroo.png" alt="Moroo Logo" />
+          <img src="/assets/moroo.png" alt="Moroo Logo" />
         </a>
       </Link>
       <nav className="h-10 flex-auto justify-self-start flex flex-row items-center gap-5">

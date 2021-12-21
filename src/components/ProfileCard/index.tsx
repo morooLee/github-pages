@@ -31,7 +31,7 @@ export default function ProfileCard() {
     return (
       <div className="flex flex-col gap-8 lg:gap-5 items-center pt-8 lg:pt-5 2xl:pt-8">
         <img
-          src="/moroo.jpg"
+          src="/assets/moroo.jpg"
           alt="me"
           width="200"
           height="200"

@@ -9,7 +9,7 @@ export default function Footer() {
       <p>@moroo</p>
       <Link href="/">
         <a className="h-10 w-10 relative cursor-pointer">
-          <img src="/moroo.png" alt="Moroo Logo" />
+          <img src="/assets/moroo.png" alt="Moroo Logo" />
         </a>
       </Link>
     </div>
