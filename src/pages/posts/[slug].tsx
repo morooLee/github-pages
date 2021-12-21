@@ -86,10 +86,6 @@ export default function Post({
     <>
       <Head>
         <title>{frontmatter.title}</title>
-        <meta
-          name="naver-site-verification"
-          content="c8645f283130591e63818a3861d76a25f1ebffc0"
-        />
         <meta property="og:type" content="blog" />
         <meta
           property="og:url"

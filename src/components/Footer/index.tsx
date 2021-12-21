@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import ContactList from '../ContactList';
 
 export default function Footer() {
@@ -10,7 +9,7 @@ export default function Footer() {
       <p>@moroo</p>
       <Link href="/">
         <a className="h-10 w-10 relative cursor-pointer">
-          <Image src="/moroo.png" alt="Moroo Logo" layout="fill" />
+          <img src="/moroo.png" alt="Moroo Logo" />
         </a>
       </Link>
     </div>

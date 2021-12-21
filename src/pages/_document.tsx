@@ -21,6 +21,10 @@ class MyDocument extends Document {
     return (
       <Html lang="ko-KR">
         <Head>
+          <meta
+            name="naver-site-verification"
+            content="c8645f283130591e63818a3861d76a25f1ebffc0"
+          />
           <link rel="icon" href="/favicon.png" />
           <style
             data-emotion-css={(this.props as any).ids.join(' ')}
