@@ -7,12 +7,20 @@ export default function ContactList() {
   return (
     <ul className="list-none flex flex-row gap-3 items-center text-2xl">
       <ContactItem>
-        <a href="https://github.com/morooLee" target="_blank">
+        <a
+          href="https://github.com/morooLee"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <RiGithubFill />
         </a>
       </ContactItem>
       <ContactItem>
-        <a href="https://www.linkedin.com/in/moroolee" target="_blank">
+        <a
+          href="https://www.linkedin.com/in/moroolee"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <RiLinkedinBoxFill />
         </a>
       </ContactItem>
@@ -22,7 +30,11 @@ export default function ContactList() {
         </a>
       </ContactItem>
       <ContactItem>
-        <a href="https://tistory.moroo.dev" target="_blank">
+        <a
+          href="https://tistory.moroo.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Tistory className="text-xl" />
         </a>
       </ContactItem>

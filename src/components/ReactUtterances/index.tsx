@@ -59,6 +59,7 @@ export default function ReactUtterances(props: Props) {
   };
 
   useEffect(() => {
+    const rootElement = scriptRef.current;
     const scriptElement = document.createElement('script');
     scriptElement.src = src ?? 'https://utteranc.es/client.js';
     scriptElement.async = async ?? true;
@@ -95,13 +96,13 @@ export default function ReactUtterances(props: Props) {
         };
       }
     };
-    if (scriptRef.current) {
-      scriptRef.current.appendChild(scriptElement);
+    if (rootElement) {
+      rootElement.appendChild(scriptElement);
     }
 
     return () => {
-      if (scriptRef.current) {
-        scriptRef.current.removeChild(scriptElement);
+      if (rootElement) {
+        rootElement.removeChild(scriptElement);
       }
     };
   }, []);
