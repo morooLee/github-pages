@@ -1,3 +1,7 @@
-import * as MarkdownStyledComponents from './styled';
+import Code from './Code';
 
-export default MarkdownStyledComponents;
+const MarkdownComponents = {
+  code: Code,
+  inlineCode: Code,
+};
+export default MarkdownComponents;

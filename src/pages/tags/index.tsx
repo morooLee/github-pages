@@ -8,24 +8,17 @@ interface CategoriesProps {
   categories: Category[];
   tags: string[];
 }
-export default function Categories({ categories }: CategoriesProps) {
+export default function Tags({ tags }: CategoriesProps) {
   const router = useRouter();
   const { slug } = router.query;
 
   return (
     <>
       <ul>
-        {categories.map((category) => {
+        {tags.map((tag) => {
           return (
-            <li key={category.name}>
-              <p>{category.name}</p>
-              {category.sub.length > 0 && (
-                <ul>
-                  {category.sub.map((subCategory) => (
-                    <li key={subCategory.name}>{subCategory.name}</li>
-                  ))}
-                </ul>
-              )}
+            <li key={tag}>
+              <p>{tag}</p>
             </li>
           );
         })}

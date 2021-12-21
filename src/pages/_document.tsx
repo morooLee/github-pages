@@ -19,8 +19,9 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="ko-kr">
+      <Html lang="ko-KR">
         <Head>
+          <link rel="icon" href="/favicon.png" />
           <style
             data-emotion-css={(this.props as any).ids.join(' ')}
             dangerouslySetInnerHTML={{ __html: (this.props as any).css }}

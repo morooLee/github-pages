@@ -1,6 +1,8 @@
 import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
+import { createContext, useContext } from 'react';
+import getRandomPastelColor from './getRandomPastelColor';
 
 export interface BlogData {
   posts: Post[];
@@ -15,6 +17,9 @@ export interface Category {
 export interface Frontmatter {
   slug: string;
   title: string;
+  description: string;
+  coverImageUrl?: string;
+  coverBackgroundColor?: string;
   date: Date;
   mainCategory: string;
   subCategory: string;
@@ -23,6 +28,7 @@ export interface Frontmatter {
 export interface Post {
   frontmatter: Frontmatter;
   content: string;
+  originalSource: string;
 }
 
 export default class Blog {
@@ -63,20 +69,27 @@ export default class Blog {
   private static getPostByFileName(fileName: string) {
     const slug = fileName.replace(/\.md$/, '');
     const fullPath = join(Blog._postsDirectory, `${slug}.md`);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const { data, content } = matter(fileContents);
-
+    const originalSource = fs.readFileSync(fullPath, 'utf8');
+    const { data, content } = matter(originalSource) as any as {
+      data: Frontmatter;
+      content: string;
+    };
+    const coverBackgroundColor = getRandomPastelColor();
     return {
       frontmatter: {
         title: data.title,
+        description: data.description,
         slug,
+        coverImageUrl: data.coverImageUrl,
+        coverBackgroundColor,
         date: new Date(data.date),
         mainCategory: data.mainCategory,
         subCategory: data.subCategory,
         tags: [...data.tags],
-        series: data.series || null,
+        // series: data.series || null,
       },
       content,
+      originalSource,
     } as Post;
   }
   private static addCategory(
@@ -137,7 +150,7 @@ export default class Blog {
     }
     return Blog.posts.find((post) => post.frontmatter.slug === slug);
   }
-  static getBlog() {
+  static getBlog(): BlogData {
     if (!Blog.isInit) {
       Blog.init();
     }
@@ -148,3 +161,9 @@ export default class Blog {
     };
   }
 }
+
+type BlogContext = [BlogData];
+const initialState: BlogContext = [Blog.getBlog()];
+const BlogContext = createContext<BlogContext>(initialState);
+
+export const useBlogContext = (): BlogContext => useContext(BlogContext);
