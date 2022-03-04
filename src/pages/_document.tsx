@@ -5,12 +5,11 @@ import Document, {
   NextScript,
   DocumentContext,
 } from 'next/document';
-import Blog from '../lib/blog';
 import { extractCritical } from '@emotion/server';
+import { mediaStyles } from 'src/components/Media';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
-    Blog.init();
     const initialProps = await Document.getInitialProps(ctx);
     const page = await ctx.renderPage();
     const styles = extractCritical(page.html);
@@ -21,14 +20,14 @@ class MyDocument extends Document {
     return (
       <Html lang="ko-KR">
         <Head>
-          <meta
-            name="naver-site-verification"
-            content="c8645f283130591e63818a3861d76a25f1ebffc0"
-          />
-          <link rel="icon" href="/favicon.png" />
+          <link rel="icon" href="/assets/favicon.png" />
           <style
             data-emotion-css={(this.props as any).ids.join(' ')}
             dangerouslySetInnerHTML={{ __html: (this.props as any).css }}
+          />
+          <style
+            type="text/css"
+            dangerouslySetInnerHTML={{ __html: mediaStyles }}
           />
         </Head>
         <body>

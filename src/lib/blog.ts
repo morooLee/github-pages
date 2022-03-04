@@ -1,169 +1,167 @@
 import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
-import { createContext, useContext } from 'react';
 import getRandomPastelColor from './getRandomPastelColor';
 
-export interface BlogData {
-  posts: Post[];
-  categories: Category[];
-  tags: string[];
-}
-export interface Category {
-  name: string;
-  parent?: Category;
-  sub: Category[];
-}
-export interface Frontmatter {
-  slug: string;
-  title: string;
-  description: string;
-  coverImageUrl?: string;
-  coverBackgroundColor?: string;
-  date: Date;
-  mainCategory: string;
-  subCategory: string;
-  tags: string[];
-}
-export interface Post {
-  frontmatter: Frontmatter;
-  content: string;
-  originalSource: string;
-}
-
-export default class Blog {
-  private static _postsDirectory = join(process.cwd(), 'src/_posts');
-  private static _categories: Category[] = [];
-  private static _tags: string[] = [];
+export class Blog {
+  private static readonly _POST_DIR = join(process.cwd(), 'src/_posts');
+  private static _isInit: boolean = false;
   private static _posts: Post[] = [];
-  private static _isInit = false;
+  private static _categories: Category[] = [];
+  private static _tags: Tag[] = [];
+  private static _series: Series[] = [];
 
-  static get categories() {
-    return this._categories;
-  }
-  static get tags() {
-    return this._tags;
+  static get isInit() {
+    return this._isInit;
   }
   static get posts() {
     return this._posts;
   }
-  static get isInit() {
-    return this._isInit;
+  static get categories() {
+    return this._categories;
   }
-  static init() {
-    if (Blog.isInit) {
-      return;
+
+  static get tags() {
+    return this._tags;
+  }
+
+  static get series() {
+    return this._series;
+  }
+
+  static getBlog(): Blog {
+    if (!this._isInit) {
+      this.init();
     }
-
-    // Date.prototype.toJSON;
-    Blog._posts = [...Blog.getAllPosts()];
-    Blog.posts.forEach(({ frontmatter, content }) => {
-      Blog.addCategory(frontmatter.mainCategory, frontmatter.subCategory);
-      frontmatter.tags.forEach((tag) => {
-        Blog.addTag(tag);
-      });
-    });
-    Blog._isInit = true;
+    return {
+      posts: this._posts,
+      categories: this._categories,
+      tags: this._tags,
+      series: this._series,
+    };
   }
 
-  private static getPostByFileName(fileName: string) {
-    const slug = fileName.replace(/\.md$/, '');
-    const fullPath = join(Blog._postsDirectory, `${slug}.md`);
-    const originalSource = fs.readFileSync(fullPath, 'utf8');
-    const { data, content } = matter(originalSource) as any as {
+  static init() {
+    const fileNames = fs.readdirSync(this._POST_DIR);
+    fileNames.forEach((fileName) => {
+      const post = this.createPost(fileName);
+      this._posts.push(post);
+    });
+    this._isInit = true;
+  }
+  private static createPost(fileName: string): Post {
+    const prefix = fileName.replace(/\.(md|mdx)$/, '');
+    const [id, slug] = prefix.split('_');
+    const source = fs.readFileSync(join(this._POST_DIR, fileName), 'utf8');
+    const { data, content } = matter(source) as any as {
       data: Frontmatter;
       content: string;
     };
     const coverBackgroundColor = getRandomPastelColor();
+
+    this.addCategory(data.category, Number(id));
+    data.tags.forEach((tag) => {
+      this.addTag(tag, Number(id));
+    });
+    if (data.series) {
+      this.addSeries(data.series, Number(id));
+    }
+
     return {
-      frontmatter: {
-        title: data.title,
-        description: data.description,
-        slug,
-        coverImageUrl: data.coverImageUrl,
-        coverBackgroundColor,
-        date: new Date(data.date),
-        mainCategory: data.mainCategory,
-        subCategory: data.subCategory,
-        tags: [...data.tags],
-        // series: data.series || null,
-      },
+      id: Number(id),
+      slug,
+      title: data.title,
+      description: data.description,
+      coverImageUrl: data.coverImageUrl,
+      coverBackgroundColor,
+      createdAt: new Date(data.createdAt).toLocaleDateString('ko-KR'),
+      updatedAt: new Date(data.updatedAt).toLocaleDateString('ko-KR'),
+      category: data.category,
+      tags: data.tags,
       content,
-      originalSource,
-    } as Post;
+      series: data.series,
+    };
   }
   private static addCategory(
-    mainCategoryName: string,
-    subCategoryName: string
+    {
+      main: mainCategoryName,
+      sub: subCategoryName,
+    }: { main: string; sub: string },
+    postId: number
   ) {
-    const findMainCategory = Blog.categories.find(
-      (category) => category.name === mainCategoryName
-    );
+    const findMainCategory = this._categories.find((category) => {
+      return category.name === mainCategoryName;
+    });
 
     if (findMainCategory) {
-      const findSubCategory = findMainCategory.sub.find(
-        (subCategory) => subCategory.name === subCategoryName
-      );
-      if (!findSubCategory) {
+      findMainCategory.postIds.push(postId);
+
+      const findSubCategory = this._categories.find((category) => {
+        return category.name === subCategoryName;
+      });
+
+      if (findSubCategory) {
+        findSubCategory.postIds.push(postId);
+      } else {
         const newSubCategory: Category = {
           name: subCategoryName,
-          parent: findMainCategory,
-          sub: [],
+          parent: mainCategoryName,
+          children: [],
+          postIds: [postId],
         };
-        findMainCategory.sub.push(newSubCategory);
+        this._categories.push(newSubCategory);
+
+        findMainCategory.postIds.push(postId);
+        findMainCategory.children.push(subCategoryName);
       }
     } else {
       const newMainCategory: Category = {
         name: mainCategoryName,
-        sub: [],
+        parent: null,
+        children: [subCategoryName],
+        postIds: [postId],
       };
       const newSubCategory: Category = {
         name: subCategoryName,
-        parent: newMainCategory,
-        sub: [],
+        parent: mainCategoryName,
+        children: [],
+        postIds: [postId],
       };
-      newMainCategory.sub.push(newSubCategory);
-      Blog._categories.push(newMainCategory);
+      this._categories.push(newMainCategory);
+      this._categories.push(newSubCategory);
     }
   }
-  private static addTag(tag: string) {
-    const findTag = Blog.tags.find((_tag) => _tag === tag);
-    if (!findTag) {
-      Blog._tags.push(tag);
-    }
-  }
-  private static getAllPosts() {
-    const fileNames = fs.readdirSync(Blog._postsDirectory);
-    return (
-      fileNames
-        .map((fileName) => Blog.getPostByFileName(fileName))
-        // sort posts by date in descending order
-        .sort((post1, post2) =>
-          post1.frontmatter.date > post2.frontmatter.date ? -1 : 1
-        )
-    );
-  }
+  private static addTag(tagName: string, postId: number) {
+    const findTag = this._tags.find((tag) => {
+      return tag.name === tagName;
+    });
 
-  static getPost(slug: string) {
-    if (!Blog.isInit) {
-      Blog.init();
+    if (findTag) {
+      findTag.postIds.push(postId);
+    } else {
+      this._tags.push({ name: tagName, postIds: [postId] });
     }
-    return Blog.posts.find((post) => post.frontmatter.slug === slug);
   }
-  static getBlog(): BlogData {
-    if (!Blog.isInit) {
-      Blog.init();
+  private static addSeries(
+    {
+      name: seriesName,
+      number: seriesNumber,
+    }: { name: string; number: number },
+    postId: number
+  ) {
+    const findSeries = this._series.find((series) => {
+      return series.name === seriesName;
+    });
+
+    if (findSeries) {
+      if (findSeries.postIds.length < seriesNumber) {
+        findSeries.postIds.length = seriesNumber;
+      }
+      findSeries.postIds.splice(seriesNumber - 1, 1, postId);
+    } else {
+      const postIds = new Array(seriesNumber);
+      postIds.splice(seriesNumber - 1, 1, postId);
+      this._series.push({ name: seriesName, postIds });
     }
-    return {
-      posts: [...Blog.posts],
-      categories: [...Blog.categories],
-      tags: [...Blog.tags],
-    };
   }
 }
-
-type BlogContext = [BlogData];
-const initialState: BlogContext = [Blog.getBlog()];
-const BlogContext = createContext<BlogContext>(initialState);
-
-export const useBlogContext = (): BlogContext => useContext(BlogContext);

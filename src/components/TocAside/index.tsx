@@ -1,46 +1,77 @@
-import React, { useState } from 'react';
-import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import React, { useState, MouseEvent } from 'react';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { RiArrowUpCircleLine } from 'react-icons/ri';
-import CardSummary from '../CardSummary';
-import TocList from './TocList';
-import ActiveHeadingProvider from '../../lib/ActiveHeadingContext';
+import SectionSummary from '../SectionSummary';
+import SectionContent from '../SectionContent';
+import { TocLink } from './TocLink';
+import { TocItem } from './TocItem';
 
 interface Props {
-  toc: MDXRemoteSerializeResult | undefined;
+  toc?: MDXRemoteSerializeResult;
+  activeHeadingId?: string;
 }
-export default function TocAside({ toc }: Props) {
-  const [isFolding, handleFolding] = useState(false);
+export default function TocAside({ toc, activeHeadingId }: Props) {
+  const [isFolding, handleFolding] = useState<boolean>(false);
 
   function toggleFolding() {
     handleFolding(!isFolding);
   }
 
+  function handleOnClick(event: MouseEvent<HTMLDivElement>) {
+    const { target, currentTarget } = event;
+
+    if (target === currentTarget) {
+      toggleFolding();
+    }
+  }
+
   return (
     <div className="w-full pt-2 lg:py-5 flex flex-col gap-2">
-      {toc && (
-        <section className="w-full xl:w-62 2xl:w-80 bg-canvas border rounded-md p-5 divide-y">
-          <CardSummary
+      <section className="w-full xl:w-62 2xl:w-80 bg-canvas border rounded-md">
+        <SectionSummary
+          isFolding={isFolding}
+          toggleFolding={toggleFolding}
+          onClick={handleOnClick}
+        >
+          <p
+            className="text-accent text-xl font-semibold inline-block cursor-text"
             title="목차"
-            isFolding={isFolding}
-            toggleFolding={toggleFolding}
-          />
-          {!isFolding && (
-            <div className="mt-5 pt-5">
-              <a href="#" className="group">
-                <div>
-                  <RiArrowUpCircleLine className="inline-block text-2xl group-hover:text-link-accent" />
-                  <span className="ml-1 align-middle group-hover:underline group-hover:text-link-accent">
-                    맨위로
-                  </span>
-                </div>
-              </a>
-              <ActiveHeadingProvider>
-                <TocList toc={toc} />
-              </ActiveHeadingProvider>
-            </div>
-          )}
-        </section>
-      )}
+          >
+            목차
+          </p>
+        </SectionSummary>
+        <SectionContent isFolding={isFolding}>
+          <div className="p-5">
+            <a href="#" className="group inline-block">
+              <RiArrowUpCircleLine className="inline-block text-2xl group-hover:text-link-accent" />
+              <span className="inline-block ml-1 align-middle group-hover:underline group-hover:text-link-accent">
+                맨위로
+              </span>
+            </a>
+            {toc ? (
+              <MDXRemote
+                {...toc}
+                components={{
+                  a: (props: any) => (
+                    <TocLink
+                      className={`${props.className} ${
+                        activeHeadingId === props.href.replace('#', '')
+                          ? 'active'
+                          : ''
+                      }`}
+                      href={props.href}
+                      as={props.as}
+                    >
+                      {props.children}
+                    </TocLink>
+                  ),
+                  li: TocItem,
+                }}
+              />
+            ) : null}
+          </div>
+        </SectionContent>
+      </section>
     </div>
   );
 }

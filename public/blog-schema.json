@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Blog",
+  "description": "Blog Data",
+  "type": "object",
+  "properties": {
+    "posts": {
+      "type": "array",
+      "items": [{ "$ref": "#/definitions/Post" }]
+    },
+    "categories": {
+      "type": "array",
+      "items": [{ "$ref": "#/definitions/Category" }]
+    },
+    "tags": {
+      "type": "array",
+      "items": [{ "$ref": "#/definitions/Tag" }]
+    },
+    "series": {
+      "type": "array",
+      "items": [{ "$ref": "#/definitions/Series" }]
+    }
+  },
+  "required": ["posts", "categories", "tags", "series"],
+  "definitions": {
+    "Post": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "minimum": 1,
+          "exclusiveMinimum": false
+        },
+        "slug": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "coverImageUrl": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "coverBackgroundColor": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "category": {
+          "type": "object",
+          "properties": { "main": "string", "sub": "string" },
+          "required": ["main", "sub"]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "series": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": { "name": "string", "number": "integer" },
+              "required": ["name", "number"]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "content": { "type": "string" }
+      },
+      "required": [
+        "id",
+        "slug",
+        "title",
+        "description",
+        "coverImageUrl",
+        "coverBackgroundColor",
+        "createdAt",
+        "updatedAt",
+        "category",
+        "tags",
+        "series",
+        "content"
+      ]
+    },
+    "Category": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "parent": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "postIds": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      },
+      "required": ["name", "parent", "children", "postIds"]
+    },
+    "Tag": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "postIds": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      },
+      "required": ["name", "postIds"]
+    },
+    "Series": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "postIds": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      },
+      "required": ["name", "postIds"]
+    }
+  }
+}

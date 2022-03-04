@@ -1,44 +1,126 @@
-import React from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { GetStaticProps } from 'next';
-import Blog, { Category, Post } from '../../lib/blog';
+import { NextSeo } from 'next-seo';
+import MainLayout from '../../components/layouts/MainLayout';
+import MainCategoryList from '../../components/MainCategoryList';
+import Location from 'src/components/Location';
+import SearchInput from 'src/components/SearchInput';
+import FoldingArrow from 'src/components/FoldingArrow';
+import SortingList from 'src/components/SortingList';
 
-interface CategoriesProps {
-  posts: Post[];
-  categories: Category[];
-  tags: string[];
+interface Props {
+  blog: Blog;
 }
-export default function Categories({ categories }: CategoriesProps) {
+export default function Categories({ blog }: Props) {
   const router = useRouter();
-  const { slug } = router.query;
+  const title = "Moroo's Blog | Categories";
+  // const description = "Moroo's Blog Categories";
+  const url = `https://blog.moroo.dev${router.asPath}`;
+
+  const [searchCategories, setSearchCategories] = useState<Category[]>([
+    ...blog.categories,
+  ]);
+  const [isAllFolding, setIsAllFolding] = useState<boolean>(false);
+
+  function toggleAllFolding() {
+    setIsAllFolding(!isAllFolding);
+  }
+
+  function onSearchChange(event: ChangeEvent<HTMLInputElement>) {
+    const value = event.target.value;
+    if (value) {
+      const findCategories = blog.categories.filter(({ name, postIds }) => {
+        const categoryPosts = blog.posts.filter(({ id }) =>
+          postIds.includes(id)
+        );
+        const findPosts = categoryPosts.filter(
+          ({ title, content }) =>
+            title.includes(value) || content.includes(value)
+        );
+        return name.includes(value) || findPosts.length > 0;
+      });
+
+      if (findCategories.length) {
+        setSearchCategories([...findCategories]);
+      } else {
+        setSearchCategories([]);
+      }
+    } else {
+      setSearchCategories([...blog.categories]);
+    }
+  }
+
+  useEffect(() => {
+    setSearchCategories([...blog.categories]);
+  }, [blog.categories]);
 
   return (
     <>
-      <ul>
-        {categories.map((category) => {
-          return (
-            <li key={category.name}>
-              <p>{category.name}</p>
-              {category.sub.length > 0 && (
-                <ul>
-                  {category.sub.map((subCategory) => (
-                    <li key={subCategory.name}>{subCategory.name}</li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          );
-        })}
-      </ul>
+      <NextSeo
+        title={title}
+        // description={description}
+        openGraph={{
+          title,
+          // description,
+          url,
+        }}
+      />
+      <MainLayout blog={blog}>
+        <section>
+          <Location title="Categories" />
+        </section>
+        <section className="z-10 flex flex-wrap justify-between items-center gap-5 p-5 bg-canvas sticky top-16">
+          <div className="grow">
+            <SortingList
+              defaultSortType={'posts'}
+              useSortTypes={['posts', 'name']}
+              data={searchCategories}
+              handleDataSortingFunc={setSearchCategories}
+            />
+          </div>
+          <SearchInput
+            placeholder="이름 또는 내용 검색..."
+            dataList={blog.categories.map(({ name }) => {
+              return {
+                key: name,
+                value: name,
+                text: name,
+              };
+            })}
+            onChange={onSearchChange}
+          />
+          <div
+            onClick={toggleAllFolding}
+            className="ml-auto group hover:cursor-pointer"
+          >
+            <span className="inline-block text-sm group-hover:text-accent">
+              {isAllFolding ? '모두 펼치기' : '모두 접기'}
+            </span>
+            <FoldingArrow
+              isFolding={isAllFolding}
+              className="inline-block text-2xl group-hover:text-accent"
+            />
+          </div>
+        </section>
+        <section className="max-w-none px-5 pb-5">
+          <MainCategoryList
+            categories={searchCategories}
+            posts={blog.posts}
+            isAllFolding={isAllFolding}
+          />
+        </section>
+      </MainLayout>
     </>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const blog = Blog.getBlog();
+  const blog = (await import('public/blog.json')).default;
+
   return {
     props: {
-      ...blog,
+      blog,
     },
   };
 };

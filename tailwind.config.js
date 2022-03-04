@@ -1,3 +1,12 @@
+function withOpacityValue(variable) {
+  return ({ opacityValue }) => {
+    if (opacityValue === undefined) {
+      return `rgb(${variable})`;
+    }
+    return `rgb(${variable} / ${opacityValue})`;
+  };
+}
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
@@ -13,6 +22,13 @@ module.exports = {
         DEFAULT: 'var(--color-fg-default)',
         muted: 'var(--color-fg-muted)',
       },
+      boxShadowColor: {
+        DEFAULT: 'var(--color-border-default)',
+        canvas: 'var(--color-canvas-default)',
+        inset: 'var(--color-shadow-inset)',
+        button: 'var(--color-btn-shadow)',
+        muted: 'var(--color-fg-muted)',
+      },
       divideColor: {
         DEFAULT: 'var(--color-border-default)',
         muted: 'var(--color-border-muted)',
@@ -22,6 +38,8 @@ module.exports = {
         muted: 'var(--color-border-muted)',
         btn: 'var(--color-btn-border)',
         'btn-hover': 'var(--color-btn-hover-border)',
+        inset: 'var(--color-bg-inset)',
+        accent: 'var(--color-text-accent)',
       },
       backgroundColor: {
         DEFAULT: 'var(--color-canvas-default)',
@@ -31,6 +49,7 @@ module.exports = {
         btn: 'var(--color-btn-bg)',
         'btn-hover': 'var(--color-btn-hover-bg)',
         tag: 'var(--color-tag-bg)',
+        overlay: withOpacityValue('var(--color-bg-overlay)'),
       },
       textColor: {
         DEFAULT: 'var(--color-fg-default)',
@@ -55,6 +74,7 @@ module.exports = {
         content: '1408px',
         'screen-xs': '320px',
         '3xl': '48rem',
+        60: '15rem',
         62: '15.5rem',
       },
       maxWidth: {
@@ -63,6 +83,7 @@ module.exports = {
         screen: '100vw',
         '1/3': '33.333333%',
         '2/3': '66.666667%',
+        60: '15rem',
         62: '15.5rem',
       },
       height: {
@@ -88,6 +109,9 @@ module.exports = {
         62: '15.5rem',
         '-62': '-15.5rem',
       },
+      aspectRatio: {
+        'og-image': '1.91 / 1',
+      },
     },
   },
   variants: {
@@ -101,5 +125,6 @@ module.exports = {
       className: 'markdown',
     }),
     require('tailwind-scrollbar-hide'),
+    require('@neojp/tailwindcss-line-clamp-utilities'),
   ],
 };

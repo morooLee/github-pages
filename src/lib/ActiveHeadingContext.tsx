@@ -7,8 +7,8 @@ import React, {
   useState,
 } from 'react';
 
-type ActiveHeadingContext = [string];
-const initialState: ActiveHeadingContext = [''];
+type ActiveHeadingContext = string[];
+const initialState: ActiveHeadingContext = [];
 const ActiveHeadingContext = createContext<ActiveHeadingContext>(initialState);
 
 export function useActiveHeadingContext() {

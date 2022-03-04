@@ -53,7 +53,6 @@ export default function ReactUtterances(props: Props) {
       iframe.contentWindow.postMessage(
         { type: 'set-theme', theme },
         'https://utteranc.es'
-        // '*'
       );
     }
   };
@@ -101,8 +100,8 @@ export default function ReactUtterances(props: Props) {
     }
 
     return () => {
-      if (rootElement) {
-        rootElement.removeChild(scriptElement);
+      if (rootElement && rootElement.firstChild) {
+        rootElement.removeChild(rootElement.firstChild);
       }
     };
   }, []);
@@ -116,7 +115,7 @@ export default function ReactUtterances(props: Props) {
 
   return (
     <section className={`react-utterances ${theme}`} ref={scriptRef}>
-      {isLoading && <div>Loading script...</div>}
+      {isLoading ? <div>Loading script...</div> : null}
     </section>
   );
 }

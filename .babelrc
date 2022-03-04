@@ -13,13 +13,13 @@
   "plugins": [
     "@emotion/babel-plugin",
     "babel-plugin-macros",
-    "superjson-next",
+    ["superjson-next", { "exclude": [] }],
     [
       "module-resolver",
       {
         "root": ["."],
         "alias": {
-          "~": "./src"
+          "src": "./src"
         }
       }
     ]

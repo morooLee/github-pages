@@ -3,38 +3,81 @@
   * {
     @apply box-border;
   }
+
   body {
     @apply text-primary bg-canvas;
   }
-  a > p {
-    @apply hover:underline hover:text-link-accent;
+
+  mark {
+    @apply bg-inherit text-accent;
   }
-  a > svg,
-  button > svg {
-    @apply transform transition duration-200 hover:scale-125 hover:opacity-70;
+
+  .noscroll {
+    overflow: hidden;
   }
+
+  .main-menu {
+    max-height: calc(100vh - 5.25rem);
+  }
+
+  .card {
+    @apply transform transition-transform duration-200 hover:-translate-y-3 hover:cursor-pointer;
+    /* @apply hover:underline hover:text-link-accent; */
+  }
+
+  a:not(.card) > p,
+  a:not(.card) > i {
+    @apply group-hover:underline group-hover:text-link-accent hover:underline hover:text-link-accent;
+    /* @apply hover:underline hover:text-link-accent; */
+  }
+
+  a:not(.card) > svg:not(.no-scale),
+  button:not(.card) > svg:not(.no-scale) {
+    @apply transform transition-transform duration-200 hover:scale-125 hover:opacity-70;
+  }
+
   progress {
     -webkit-appearance: none;
   }
 
-  ::-webkit-progress-bar {
-    @apply bg-inset;
+  input::-webkit-calendar-picker-indicator {
+    @apply pb-1;
   }
 
-  ::-webkit-progress-value {
+  progress::-webkit-progress-bar {
+    @apply bg-black;
+  }
+
+  progress::-webkit-progress-value {
     @apply bg-red-500;
   }
+
   .markdown h1,
   .markdown h2,
   .markdown h3,
   .markdown h4,
   .markdown h5,
   .markdown h6 {
-    @apply scroll-mt-[5.25rem] flex items-center gap-2;
+    @apply scroll-mt-[5.25rem] flex gap-2 items-center;
+  }
+
+  .markdown h1 > a > svg,
+  .markdown h2 > a > svg,
+  .markdown h3 > a > svg,
+  .markdown h4 > a > svg,
+  .markdown h5 > a > svg,
+  .markdown h6 > a > svg {
+    @apply block;
+  }
+
+  .markdown br {
   }
   .markdown a,
   .markdown a > * {
     @apply text-link-accent;
+  }
+  .markdown a > span {
+    @apply mr-2;
   }
   .markdown pre {
     @apply rounded-lg border my-5 bg-inset overflow-y-auto;
@@ -42,12 +85,44 @@
   .markdown code {
     @apply rounded-md px-1 py-[2px] border bg-inset font-normal before:content-none after:content-none;
   }
+  .markdown blockquote > p {
+    @apply before:content-none after:content-none;
+  }
+  .markdown img,
+  .markdown svg {
+    @apply inline m-0;
+  }
+  .markdown p {
+    /* @apply m-0; */
+  }
   .toc {
     @apply pt-2;
   }
-  .toc .toc-level {
-    @apply list-decimal pl-2 lg:ml-1 lg:pl-1 2xl:ml-2 2xl:pl-2;
+  /* .toc .toc-level {
+    @apply list-none pl-2 lg:ml-1 lg:pl-1 2xl:ml-2 2xl:pl-2;
+  } */
+  .toc > ol ol {
+    @apply pl-2 2xl:pl-4;
   }
+  .toc li::maker {
+    @apply align-top;
+  }
+
+  .toc a[class~='active'] {
+    @apply text-accent font-semibold border-l-2 border-red-500;
+  }
+
+  summary::-webkit-details-marker {
+    @apply hidden;
+  }
+
+  details > summary::before {
+    @apply content-["▶"] mr-2 grow-0 text-base align-middle;
+  }
+  details[open] > summary::before {
+    @apply content-["▼"] mr-2 grow-0 text-base align-middle;
+  }
+
   /* .toc .toc-link {
     @apply;
   } */
@@ -86,6 +161,8 @@
     --color-btn-hover-bg: #f3f4f6;
     --color-btn-hover-border: rgba(27, 31, 36, 0.15);
     --color-tag-bg: rgba(254, 226, 226, 1);
+    --color-shadow-inset: #010409;
+    --color-bg-overlay: 0 0 0;
   }
 }
 @tailwind components;
@@ -110,5 +187,7 @@
   --color-btn-hover-bg: #30363d;
   --color-btn-hover-border: #8b949e;
   --color-tag-bg: rgba(127, 29, 29, 1);
+  --color-shadow-inset: #f6f8fa;
+  --color-bg-overlay: 94 96 99;
 }
 @tailwind utilities;

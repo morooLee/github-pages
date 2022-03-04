@@ -9,7 +9,7 @@ export function TocItem({ className, children }: TocItemProps) {
     ? children[0].props.href
     : children.props.href;
   return (
-    <li key={key.replace('#', '')} className={`${className}`}>
+    <li key={key.replace('#', '')} className={`${className} text-sm`}>
       {children}
     </li>
   );
