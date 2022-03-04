@@ -57,7 +57,7 @@ export default function Home({ blog }: Props) {
             {blog.series.map((series) => {
               return (
                 <li key={series.name}>
-                  <Link href="/series/[series]" as={`/series/${series.name}`}>
+                  <Link href="/series/[name]" as={`/series/${series.name}`}>
                     <a className="block text-xl font-semibold bg-btn p-2 border rounded-md transform transition-transform duration-200 hover:scale-105 hover:text-accent">
                       <span title={series.name}>{series.name}</span>
                     </a>

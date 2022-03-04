@@ -166,7 +166,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: blog.series.map((series) => {
       return {
         params: {
-          series: series.name,
+          name: series.name,
         },
       };
     }),

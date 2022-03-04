@@ -116,7 +116,7 @@ export default function AllSeries({ blog }: Props) {
                         return series.postIds.includes(post.id);
                       })}
                       isAllFolding={isAllFolding}
-                      href="/series/[series]"
+                      href="/series/[name]"
                       as={`/series/${series.name}`}
                     />
                   </li>

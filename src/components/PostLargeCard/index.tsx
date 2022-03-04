@@ -94,7 +94,7 @@ export default function PostLargeCard({ post }: Props) {
       ) : null}
       {post.series ? (
         <div className="text-2xl text-right mt-5">
-          <Link href="/series/[series]" as={`/series/${post.series.name}`}>
+          <Link href="/series/[name]" as={`/series/${post.series.name}`}>
             <a className="inline-block font-bold">
               <p>{post.series.name}</p>
             </a>

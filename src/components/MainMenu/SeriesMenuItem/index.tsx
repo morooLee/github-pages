@@ -53,7 +53,7 @@ export default function SeriesMenuItem({
           {seriesList.map(({ name }) => {
             return (
               <li key={name} className="group">
-                <Link href="/series/[series]" as={`/series/${name}`}>
+                <Link href="/series/[name]" as={`/series/${name}`}>
                   <a
                     className={`block py-2 leading-none text-xl font-bold${
                       name === series || name === currentPost?.series?.name
