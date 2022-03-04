@@ -26,7 +26,7 @@ export default function Location({ title, children }: Props) {
             .split('#')[0];
           const pathName = path.split('#')[0];
           return pathName ? (
-            <Link key={pathName} href={`/${link}`}>
+            <Link key={pathName} href={`/${link}`} as={`/${link}`}>
               <a className="before:content-['›'] before:text-muted before:mx-2">
                 <p title={pathName} className="inline">
                   {pathName}

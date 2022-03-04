@@ -82,13 +82,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const blog = (await import('public/blog.json')).default;
 
   return {
-    paths: blog.categories.map((category) => {
-      return {
-        params: {
-          main: category.name,
-        },
-      };
-    }),
+    paths: blog.categories
+      .filter(({ parent }) => parent == null)
+      .map((category) => {
+        return {
+          params: {
+            main: category.name,
+          },
+        };
+      }),
     fallback: false,
   };
 };

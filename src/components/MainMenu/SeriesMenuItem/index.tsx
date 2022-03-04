@@ -42,7 +42,7 @@ export default function SeriesMenuItem({
         toggleFolding={toggleFolding}
         onClick={handleOnClick}
       >
-        <Link href="/series">
+        <Link href="/series" as="/series">
           <a className="text-accent text-xl font-semibold">
             <p title="시리즈 전체">시리즈 전체</p>
           </a>

@@ -41,7 +41,7 @@ export default function CategoriesMenuItem({
         toggleFolding={toggleFolding}
         onClick={handleOnClick}
       >
-        <Link href="/categories">
+        <Link href="/categories" as="/categories">
           <a className="text-accent text-xl font-semibold">
             <p title="카테고리 전체">카테고리 전체</p>
           </a>

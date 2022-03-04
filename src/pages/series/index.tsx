@@ -10,6 +10,7 @@ import SearchInput from 'src/components/SearchInput';
 import DataListContainer from 'src/components/DataListContainer';
 import SortingList from 'src/components/SortingList';
 import NoDateMessage from 'src/components/NoDataMessage';
+import slugify from 'slugify';
 
 interface Props {
   blog: Blog;

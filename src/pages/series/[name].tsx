@@ -136,7 +136,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   const series = blog.series.find(({ name }) => {
-    return name === params.series;
+    return name === params.name;
   });
 
   if (!series) {

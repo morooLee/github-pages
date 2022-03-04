@@ -9,6 +9,7 @@ import { NextSeo } from 'next-seo';
 import DataListContainer from 'src/components/DataListContainer';
 import SortingList from 'src/components/SortingList';
 import NoDateMessage from 'src/components/NoDataMessage';
+import slugify from 'slugify';
 
 interface Props {
   tag: Tag;

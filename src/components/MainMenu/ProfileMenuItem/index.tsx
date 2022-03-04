@@ -33,7 +33,7 @@ export default function ProfileMenuItem({ expand }: Props) {
         toggleFolding={toggleFolding}
         onClick={handleOnClick}
       >
-        <Link href="/profile">
+        <Link href="/profile" as="/profile">
           <a className="lg:hidden 2xl:block mr-auto text-accent text-xl font-semibold">
             <p title="프로필">프로필</p>
           </a>
@@ -65,7 +65,7 @@ export default function ProfileMenuItem({ expand }: Props) {
               <p>Software Quality Assurance</p>
               <p>Test Automation Engineer</p>
             </div>
-            <Link href="/profile">
+            <Link href="/profile" as="/profile">
               <a className="lg:hidden">
                 <i className="text-link-accent font-semibold">See more...</i>
               </a>

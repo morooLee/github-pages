@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="h-full lg:max-w-[63.5rem] 2xl:max-w-[68rem] flex flex-row justify-end items-center gap-3 mr-auto p-5">
         <ContactList />
         <p>@moroo</p>
-        <Link href="/">
+        <Link href="/" as="/">
           <a className="h-10 w-10 relative cursor-pointer">
             <img src="/assets/moroo.png" alt="Moroo Logo" />
           </a>

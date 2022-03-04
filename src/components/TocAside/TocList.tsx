@@ -8,6 +8,12 @@ interface Props {
 }
 export default function TocList({ toc }: Props) {
   return toc ? (
-    <MDXRemote {...toc} components={{ a: TocLink, li: TocItem }} />
+    <MDXRemote
+      {...toc}
+      components={{
+        a: (props: any) => <TocLink {...props} />,
+        li: (props: any) => <TocItem {...props} />,
+      }}
+    />
   ) : null;
 }

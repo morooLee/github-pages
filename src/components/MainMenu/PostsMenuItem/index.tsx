@@ -14,7 +14,7 @@ export default function PostsMenuItem({}: Props) {
     <section className="lg:hidden w-full lg:w-62 2xl:w-80 bg-canvas border rounded-md">
       <SectionSummary onClick={handleOnClick}>
         <div className="group w-full -m-5 p-5">
-          <Link href="/posts">
+          <Link href="/posts" as="/posts">
             <a className="text-accent text-xl font-semibold">
               <p title="포스트 전체">포스트 전체</p>
             </a>

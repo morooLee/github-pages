@@ -53,13 +53,13 @@ export default function Header({ blog, currentPost }: Props) {
     <>
       <header className="z-20 fixed top-0 left-0 right-0 max-h-16 bg-header">
         <div className="h-full w-full lg:w-[63.5rem] lg:mx-auto xl:w-[79rem] 2xl:w-[88rem] px-4 py-3 mx-auto flex flex-row items-center justify-between gap-4 bg-header text-header-logo text-base font-semibold">
-          <Link href="/">
+          <Link href="/" as="/">
             <a className="h-10 w-10 justify-self-start relative cursor-pointer">
               <img src="/assets/moroo.png" alt="Moroo Logo" />
             </a>
           </Link>
           <nav className="hidden h-10 flex-auto justify-self-start sm:flex flex-row items-center gap-5">
-            <Link href="/profile">
+            <Link href="/profile" as="/profile">
               <a
                 className={`inline-block ${
                   router.pathname === '/profile'
@@ -70,7 +70,7 @@ export default function Header({ blog, currentPost }: Props) {
                 <p title="PROFILE">PROFILE</p>
               </a>
             </Link>
-            <Link href="/categories">
+            <Link href="/categories" as="/categories">
               <a
                 className={`inline-block ${
                   router.pathname.startsWith('/categories')
@@ -81,7 +81,7 @@ export default function Header({ blog, currentPost }: Props) {
                 <p title="CATEGORIES">CATEGORIES</p>
               </a>
             </Link>
-            <Link href="/tags">
+            <Link href="/tags" as="/tags">
               <a
                 className={`inline-block ${
                   router.pathname.startsWith('/tags')
@@ -92,7 +92,7 @@ export default function Header({ blog, currentPost }: Props) {
                 <p title="TAGS">TAGS</p>
               </a>
             </Link>
-            <Link href="/series">
+            <Link href="/series" as="/series">
               <a
                 className={`inline-block ${
                   router.pathname.startsWith('/series')
@@ -103,7 +103,7 @@ export default function Header({ blog, currentPost }: Props) {
                 <p title="SERIES">SERIES</p>
               </a>
             </Link>
-            <Link href="/posts">
+            <Link href="/posts" as="/posts">
               <a
                 className={`inline-block ${
                   router.pathname.startsWith('/posts')

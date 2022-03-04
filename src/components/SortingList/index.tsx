@@ -74,7 +74,7 @@ export default function SortingList({
         sortData.sort((a, b) => {
           if ('series' in a && 'series' in b) {
             if (a.series && b.series) {
-              return a.series.number > b.series.number ? -1 : 1;
+              return a.series.number < b.series.number ? -1 : 1;
             }
             return 0;
           }

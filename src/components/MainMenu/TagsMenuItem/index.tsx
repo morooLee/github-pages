@@ -40,7 +40,7 @@ export default function TagsMenuItem({
         toggleFolding={toggleFolding}
         onClick={handleOnClick}
       >
-        <Link href="/tags">
+        <Link href="/tags" as="/tags">
           <a className="text-accent text-xl font-semibold">
             <p title="태그 전체">태그 전체</p>
           </a>

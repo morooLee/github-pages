@@ -139,11 +139,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: blog.categories
-      .map((category) => {
-        return category.children.map((sub) => {
+      .map((main) => {
+        return main.children.map((sub) => {
           return {
             params: {
-              main: category.name,
+              main: main.name,
               sub: sub,
             },
           };

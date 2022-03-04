@@ -65,7 +65,7 @@ export default function TocAside({ toc, activeHeadingId }: Props) {
                       {props.children}
                     </TocLink>
                   ),
-                  li: TocItem,
+                  li: (props: any) => <TocItem {...props} />,
                 }}
               />
             ) : null}
