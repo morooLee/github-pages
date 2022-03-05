@@ -151,7 +151,7 @@ export default function Home({ blog }: Props) {
                     <a
                       className={`inline-block rounded-full px-3 py-2 text-center align-middle bg-btn border-red-500 group-hover:border-btn-hover group-hover:bg-btn-hover border text-btn text-xs font-semibold leading-none`}
                     >
-                      <p title={`#${tag.name}`}>{`#${tag.name}`}</p>
+                      <p title={tag.name}>{tag.name}</p>
                     </a>
                   </Link>
                 </li>

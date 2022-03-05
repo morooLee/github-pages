@@ -20,7 +20,7 @@ export default function ContactList({ className }: Props) {
         </li>
         <li className="list-none text-icon">
           <a
-            href="https://www.linkedin.com/in/moroolee"
+            href="https://www.linkedin.com/in/moroo"
             target="_blank"
             rel="noopener noreferrer"
           >
