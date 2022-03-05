@@ -22,8 +22,8 @@ interface Props {
 }
 export default function Post({ post, series, content, toc, blog }: Props) {
   const router = useRouter();
-  const title = `Moroo's Blog | Post - ${post.title}`;
-  // const description = `Moroo's Blog Sub Category - [ ${category.name} ]`;
+  const title = `Moroo's Blog | ${post.title}`;
+  const description = post.description ? post.description : undefined;
   const url = `https://blog.moroo.dev${router.asPath}`;
   const images = post.coverImageUrl
     ? [{ url: post.coverImageUrl, alt: post.title }]
@@ -35,10 +35,10 @@ export default function Post({ post, series, content, toc, blog }: Props) {
     <>
       <NextSeo
         title={title}
-        // description={description}
+        description={description}
         openGraph={{
           title,
-          // description,
+          description,
           url,
           images,
           article: {

@@ -8,7 +8,7 @@ interface Props {
 export default function ContactList({ className }: Props) {
   return (
     <address className={className}>
-      <ul className="list-none flex flex-row gap-3 items-center text-2xl">
+      <ul className="list-none flex flex-row gap-1 items-center text-2xl">
         <li className="list-none text-icon">
           <a
             href="https://github.com/morooLee"
@@ -32,7 +32,7 @@ export default function ContactList({ className }: Props) {
             <RiMailFill />
           </a>
         </li>
-        <li className="list-none text-icon">
+        {/* <li className="list-none text-icon">
           <a
             href="https://tistory.moroo.dev"
             target="_blank"
@@ -40,7 +40,7 @@ export default function ContactList({ className }: Props) {
           >
             <Tistory className="text-xl" />
           </a>
-        </li>
+        </li> */}
       </ul>
     </address>
   );

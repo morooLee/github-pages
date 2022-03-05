@@ -36,7 +36,7 @@ export default function Location({ title, children }: Props) {
           ) : null;
         })}
       </nav>
-      <p title={title} className="px-5 text-3xl font-extrabold">
+      <p className="px-5 text-3xl font-extrabold">
         {children ? children : title}
       </p>
     </>

@@ -34,7 +34,7 @@ export default function ProfileMenuItem({ expand }: Props) {
         onClick={handleOnClick}
       >
         <Link href="/profile" as="/profile">
-          <a className="lg:hidden 2xl:block mr-auto text-accent text-xl font-semibold">
+          <a className="mr-auto text-accent text-xl font-semibold">
             <p title="프로필">프로필</p>
           </a>
         </Link>

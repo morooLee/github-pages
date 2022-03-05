@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -30,44 +30,51 @@ export default function Home({ blog }: Props) {
         }}
       />
       <MainLayout blog={blog}>
-        <section className="px-5 pb-10">
-          <p className="text-5xl font-bold">Hello! 👋</p>
-          <p className="text-xl">Welcome to My Blog!</p>
+        <section className="pb-10">
+          <Location title="hello">
+            <p className="text-5xl font-bold">Hello! 👋</p>
+            <img
+              src="https://capsule-render.vercel.app/api?type=slice&color=EF4424&height=300&section=header&text=%23moroo&fontColor=21262d&fontSize=90&desc=Software%20Quality%20Assurance&descSize=30&descAlignY=68"
+              alt="cover image"
+              className="mt-5 border rounded-md"
+            />
+            {/* <div className="pt-5 text-xl">
+              <p>안녕하세요.</p>
+              <p>제 블로그에 방문해 주셔서 감사드립니다.</p>
+              <p>
+                저는 테스트 자동화에 관심이 있는 Software QA 엔지니어입니다.
+              </p>
+              <p>
+                이 블로그는 Quality Assurance 및 Test Automation에 관련된 주제를
+                다룰 예정입니다.
+              </p>
+              <p>포스트 내</p>
+              <p>
+                문의사항이 있으시거나 저에 대해 궁금하신 점이 있다면
+                <Link href="/profile" as="/profile">
+                  <a> 프로필 페이지</a>
+                </Link>
+                를 참조해 주세요.
+              </p>
+            </div> */}
+          </Location>
         </section>
         <section className="px-5 pb-10">
           <p className="text-3xl font-bold">Latest Post</p>
           <div className="py-5">
-            <PostLargeCard
-              post={
-                blog.posts.sort((a, b) => {
-                  if ('updatedAt' in a && 'updatedAt' in b) {
-                    return new Date(a.updatedAt) > new Date(b.updatedAt)
-                      ? -1
-                      : 1;
-                  }
-                  return 0;
-                })[0]
-              }
-            />
+            <PostLargeCard post={blog.posts[0]} />
           </div>
         </section>
         <section className="px-5 pb-10">
           <p className="text-3xl font-bold">Posts</p>
           <ul className="py-5 flex gap-5 overflow-y-auto snap-x">
-            {blog.posts
-              .sort((a, b) => {
-                if ('updatedAt' in a && 'updatedAt' in b) {
-                  return new Date(a.updatedAt) > new Date(b.updatedAt) ? -1 : 1;
-                }
-                return 0;
-              })
-              .map((post) => {
-                return (
-                  <li key={post.slug} className="snap-start scroll-ml-5">
-                    <PostCard post={post} />
-                  </li>
-                );
-              })}
+            {blog.posts.map((post) => {
+              return (
+                <li key={post.slug} className="snap-start scroll-ml-5">
+                  <PostCard post={post} />
+                </li>
+              );
+            })}
           </ul>
         </section>
         <section className="px-5 pb-10">

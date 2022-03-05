@@ -22,7 +22,7 @@ export default function PostCoverImage({
     />
   ) : (
     <div
-      className="relative mx-auto border pb-[47.5%] rounded-md overflow-hidden h-0 w-full"
+      className="relative mx-auto border pb-[47.5%] rounded-md h-0 w-full"
       style={{
         backgroundColor: coverBackgroundColor,
       }}

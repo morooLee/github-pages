@@ -34,7 +34,13 @@ export class Blog {
       this.init();
     }
     return {
-      posts: this._posts,
+      posts: this._posts.sort((a, b) => {
+        return new Date(a.updatedAt) > new Date(b.updatedAt)
+          ? -1
+          : new Date(a.updatedAt) < new Date(b.updatedAt)
+          ? 1
+          : 0;
+      }),
       categories: this._categories,
       tags: this._tags,
       series: this._series,

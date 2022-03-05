@@ -16,7 +16,7 @@ export default {
     site_name: "Moroo's Blog",
     images: [
       {
-        url: 'https://blog.moroo.dev/assets/moroo.png',
+        url: 'https://capsule-render.vercel.app/api?type=slice&color=EF4424&height=300&section=header&text=%23moroo&fontColor=21262d&fontSize=90&desc=Software%20Quality%20Assurance&descSize=30&descAlignY=68',
         alt: "Moroo's Blog Logo",
       },
     ],
