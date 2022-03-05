@@ -61,7 +61,7 @@ export default function PostCard({ post }: Props) {
           {/* {post.description || post.title} */}
           {ellipsisText(post.description || post.content)}
         </p>
-        <div className="flex flex-row gap-1 justify-end items-center pt-1 border-t">
+        <div className="flex flex-row gap-1 justify-end items-center pt-3 -mb-2 border-t">
           <RiCalendar2Line className="text-md" />
           <p className="text-xs" title="최근 수정일">
             최근 수정일 :

@@ -46,19 +46,19 @@ export default function PostLargeCard({ post }: Props) {
         </Link>
       )}
 
-      <div className="flex flex-row items-center gap-3">
+      <div className="flex flex-col md:flex-row items-start md:items-center gap-x-3">
         {/* <RiCalendar2Line className="text-lg" /> */}
         <div className="flex flex-row items-center gap-1">
           <RiCalendar2Line className="text-lg" />
           <label className="text-md" title="포스트 작성일">
-            포스트 생성일 :
+            포스트 생성 :
           </label>
           {/* <RiCalendar2Line className="text-lg" /> */}
           <p className="text-md font-semibold" title={post.createdAt}>
             {post.createdAt}
           </p>
         </div>
-        <div>|</div>
+        <div className="hidden md:block">|</div>
         <div className="flex flex-row items-center gap-1">
           <RiCalendar2Line className="text-lg" />
           <label className="text-md" title="최근 수정일">
@@ -79,7 +79,7 @@ export default function PostLargeCard({ post }: Props) {
                   <Link href="/tags/[tag]" as={`/tags/${tag}`}>
                     <a>
                       <p
-                        className="rounded-full px-3 py-2 text-center align-middle bg-btn border-red-500 hover:border-btn-hover hover:bg-btn-hover border text-btn text-xs font-semibold leading-none"
+                        className="rounded-xl md:rounded-2xl px-2 py-1 text-center align-middle bg-btn border-red-500 hover:border-btn-hover hover:bg-btn-hover border text-btn text-xs md:text-base lg:text-sm font-semibold leading-none"
                         title={tag}
                       >
                         {tag}
@@ -94,10 +94,7 @@ export default function PostLargeCard({ post }: Props) {
       ) : null}
       {post.series ? (
         <div className="text-2xl text-right mt-5">
-          <Link
-            href="/series/[name]"
-            as={`/series/${post.series.name}`}
-          >
+          <Link href="/series/[name]" as={`/series/${post.series.name}`}>
             <a className="inline-block font-bold">
               <p>{post.series.name}</p>
             </a>

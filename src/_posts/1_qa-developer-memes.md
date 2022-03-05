@@ -19,7 +19,9 @@ tags: ['sqa', 'meme', 'qa', 'developer']
 
 ## Meme #1 - 방탄 조끼
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6s2UJBFDCoA?start=25" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay=0; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+<div className="video-container">
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6s2UJBFDCoA?start=25" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay=0; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="video-youtube"></iframe>
+</div>
 
 > This is the original Developper vs QA Engineer meme  
 > Subscribe: https://bit.ly/2MZmvXg  
@@ -125,7 +127,9 @@ tags: ['sqa', 'meme', 'qa', 'developer']
 
 ## Meme #3 - 모양 맞추기 (`BEST`)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/baY3SaIhfl0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay=0; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+<div className="video-container">
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/baY3SaIhfl0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay=0; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="video-youtube"></iframe>
+</div>
 
 > All credit goes to the talented actor, Alison Burke. Check out hers  
 > TikTok: https://www.tiktok.com/@tired_actor

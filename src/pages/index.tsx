@@ -35,7 +35,7 @@ export default function Home({ blog }: Props) {
           <p className="text-xl">Welcome to My Blog!</p>
         </section>
         <section className="px-5 pb-10">
-          <p className="text-3xl font-bold">Latest Posts</p>
+          <p className="text-3xl font-bold">Latest Post</p>
           <div className="py-5">
             <PostLargeCard
               post={
@@ -50,6 +50,25 @@ export default function Home({ blog }: Props) {
               }
             />
           </div>
+        </section>
+        <section className="px-5 pb-10">
+          <p className="text-3xl font-bold">Posts</p>
+          <ul className="py-5 flex gap-5 overflow-y-auto snap-x">
+            {blog.posts
+              .sort((a, b) => {
+                if ('updatedAt' in a && 'updatedAt' in b) {
+                  return new Date(a.updatedAt) > new Date(b.updatedAt) ? -1 : 1;
+                }
+                return 0;
+              })
+              .map((post) => {
+                return (
+                  <li key={post.slug} className="snap-start scroll-ml-5">
+                    <PostCard post={post} />
+                  </li>
+                );
+              })}
+          </ul>
         </section>
         <section className="px-5 pb-10">
           <p className="text-3xl font-bold">Series</p>
@@ -131,25 +150,6 @@ export default function Home({ blog }: Props) {
                 </li>
               );
             })}
-          </ul>
-        </section>
-        <section className="px-5 pb-10">
-          <p className="text-3xl font-bold">Posts</p>
-          <ul className="py-5 flex gap-5 overflow-y-auto snap-x">
-            {blog.posts
-              .sort((a, b) => {
-                if ('updatedAt' in a && 'updatedAt' in b) {
-                  return new Date(a.updatedAt) > new Date(b.updatedAt) ? -1 : 1;
-                }
-                return 0;
-              })
-              .map((post) => {
-                return (
-                  <li key={post.slug} className="snap-start scroll-ml-5">
-                    <PostCard post={post} />
-                  </li>
-                );
-              })}
           </ul>
         </section>
       </MainLayout>

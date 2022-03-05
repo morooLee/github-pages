@@ -155,7 +155,7 @@ export default function Tags({ blog }: Props) {
             })}
           </ul>
         </section>
-        <section className="z-10 flex flex-wrap justify-between items-center gap-5 p-5 bg-canvas sticky top-[16.25rem]">
+        <section className="sticky top-[14.5rem] md:top-[12rem] z-10 flex flex-wrap justify-between items-center gap-5 px-5 pb-5 bg-canvas">
           <div className="grow">
             <SortingList
               defaultSortType={'posts'}
