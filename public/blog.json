@@ -6,7 +6,7 @@
       "title": "1. 시작하기 전에...",
       "description": "WebdriverIO 시리즈를 시작하기 전에 필자가 WebdriverIO를 접하게 된 계기 및 간략한 소개 글입니다.",
       "coverImageUrl": "https://res.cloudinary.com/practicaldev/image/fetch/s--co5LdVu9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i2.wp.com/grantnorwood.com/app/uploads/2017/07/webdriver-io-logo.png%3Fw%3D1680%26ssl%3D1",
-      "coverBackgroundColor": "hsl(49, 100%, 80%)",
+      "coverBackgroundColor": "hsl(345, 100%, 80%)",
       "createdAt": "2022. 2. 19.",
       "updatedAt": "2022. 3. 4.",
       "category": {
@@ -27,11 +27,11 @@
     },
     {
       "id": 3,
-      "slug": "webdriverio",
+      "slug": "webdriverio-installation",
       "title": "2. WebdriverIO 설치하기",
       "description": "Typescript 기반의 WebdriverIO를 설치하는 법에 대해 설명하는 글입니다.",
       "coverImageUrl": "https://res.cloudinary.com/practicaldev/image/fetch/s--co5LdVu9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i2.wp.com/grantnorwood.com/app/uploads/2017/07/webdriver-io-logo.png%3Fw%3D1680%26ssl%3D1",
-      "coverBackgroundColor": "hsl(142, 100%, 80%)",
+      "coverBackgroundColor": "hsl(247, 100%, 80%)",
       "createdAt": "2022. 2. 20.",
       "updatedAt": "2022. 3. 4.",
       "category": {
@@ -56,7 +56,7 @@
       "title": "QA 관점에서 바라 본 QA와 Developer 밈들",
       "description": "QA와 Developer의 이해 관계를 보여주는 밈들에 대해서 QA 관점에서 가볍게 바라본 지극히 개인적인 이야기입니다.",
       "coverImageUrl": null,
-      "coverBackgroundColor": "hsl(258, 100%, 80%)",
+      "coverBackgroundColor": "hsl(315, 100%, 80%)",
       "createdAt": "2022. 2. 16.",
       "updatedAt": "2022. 2. 16.",
       "category": {
