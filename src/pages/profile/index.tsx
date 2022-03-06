@@ -17,15 +17,15 @@ export default function Profile({ content, blog }: Props) {
   const title = "Moroo's Profile";
   // const description = "Moroo's Profile with Github";
   const url = `https://blog.moroo.dev${router.asPath}`;
-  const images = [
-    {
-      url: 'https://blog.moroo.dev/assets/pages/profile/profile.png',
-      alt: title,
-      type: 'image/png',
-      width: 854,
-      height: 300,
-    },
-  ];
+  // const images = [
+  //   {
+  //     url: 'https://blog.moroo.dev/assets/pages/profile/profile.png',
+  //     alt: title,
+  //     type: 'image/png',
+  //     width: 854,
+  //     height: 300,
+  //   },
+  // ];
 
   return (
     <>
@@ -36,7 +36,7 @@ export default function Profile({ content, blog }: Props) {
           title,
           // description,
           url,
-          images,
+          // images,
         }}
       />
       <MainLayout blog={blog}>

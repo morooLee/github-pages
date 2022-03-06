@@ -4,7 +4,7 @@ module.exports = {
   siteUrl: 'https://blog.moroo.dev',
   sitemapSize: 7000,
   generateRobotsTxt: true,
-  exclude: ['/server-sitemap.xml'],
+  exclude: ['204'],
   robotsTxtOptions: {
     policies: [
       {
@@ -12,8 +12,8 @@ module.exports = {
         allow: '/',
       },
     ],
-    additionalSitemaps: [
-      'https://blog.moroo.dev/server-sitemap.xml', // <==== Add here
-    ],
+    // additionalSitemaps: [
+    //   'https://blog.moroo.dev/server-sitemap.xml', // <==== Add here
+    // ],
   },
 };
