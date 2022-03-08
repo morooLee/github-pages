@@ -369,4 +369,4 @@ Spec Files:      1 passed, 1 total (100% completed) in 00:00:07
 여기까지 문제가 없었다면 WebdriverIO 설치는 끝났다고 보시면 됩니다.  
 지금까지 작성한 코드는 [깃허브](https://github.com/morooLee/webdriverio/tree/a37c7b8848e0644ea23927ece47acff0ae91ec36)에서 확인 가능합니다.
 
-이제 다음으로 `Page Object Pattern`에 대해 배워봅시다.
+이제 다음으로 `WebdriverIO Config` 설정에 대해 배워봅시다.

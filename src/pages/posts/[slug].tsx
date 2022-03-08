@@ -43,7 +43,8 @@ export default function Post({ post, series, content, toc, blog }: Props) {
           images,
           article: {
             authors: ['https://blog.moroo.dev/profile'],
-            publishedTime: post.updatedAt,
+            publishedTime: post.createdAt,
+            modifiedTime: post.updatedAt,
             section: post.category.sub,
             tags: post.tags,
           },

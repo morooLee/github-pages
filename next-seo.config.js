@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default {
   title: "Moroo's Blog",
+  canonical: 'https://blog.moroo.dev/',
   description: 'Software QA 및 테스트 자동화에 대한 이야기',
   twitter: {
     handle: '@lee_moroo',
@@ -14,6 +15,12 @@ export default {
     description: 'Software QA 및 테스트 자동화에 대한 이야기',
     locale: 'ko_KR',
     site_name: "Moroo's Blog",
+    profile: {
+      firstName: 'Soon Han',
+      lastName: 'Lee',
+      username: 'moroo',
+      gender: 'male',
+    },
     images: [
       {
         url: 'https://blog.moroo.dev/assets/cover_image.jpg',
