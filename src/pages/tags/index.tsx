@@ -89,6 +89,7 @@ export default function Tags({ blog }: Props) {
   return (
     <>
       <NextSeo
+        canonical={url}
         title={title}
         // description={description}
         openGraph={{

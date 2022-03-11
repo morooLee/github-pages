@@ -20,6 +20,7 @@ export default function MainCategories({ category, posts, blog }: Props) {
   return (
     <>
       <NextSeo
+        canonical={url}
         title={title}
         // description={description}
         openGraph={{

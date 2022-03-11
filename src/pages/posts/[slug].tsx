@@ -34,6 +34,7 @@ export default function Post({ post, series, content, toc, blog }: Props) {
   return (
     <>
       <NextSeo
+        canonical={url}
         title={title}
         description={description}
         openGraph={{

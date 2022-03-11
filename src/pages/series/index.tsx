@@ -60,6 +60,7 @@ export default function AllSeries({ blog }: Props) {
   return (
     <>
       <NextSeo
+        canonical={url}
         title={title}
         // description={description}
         openGraph={{

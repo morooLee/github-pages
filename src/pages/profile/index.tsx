@@ -30,6 +30,7 @@ export default function Profile({ content, blog }: Props) {
   return (
     <>
       <NextSeo
+        canonical={url}
         title={title}
         // description={description}
         openGraph={{

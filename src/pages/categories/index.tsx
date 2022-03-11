@@ -58,6 +58,7 @@ export default function Categories({ blog }: Props) {
   return (
     <>
       <NextSeo
+        canonical={url}
         title={title}
         // description={description}
         openGraph={{

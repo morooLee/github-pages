@@ -47,6 +47,7 @@ export default function SubCategories({ category, posts, blog }: Props) {
   return (
     <>
       <NextSeo
+        canonical={url}
         title={title}
         // description={description}
         openGraph={{
