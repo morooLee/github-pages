@@ -15,7 +15,7 @@ export default function ContactList({ className }: Props) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <RiGithubFill />
+            <RiGithubFill aria-label="Github Link" />
           </a>
         </li>
         <li className="list-none text-icon">
@@ -24,12 +24,12 @@ export default function ContactList({ className }: Props) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <RiLinkedinBoxFill />
+            <RiLinkedinBoxFill aria-label="Linkedin Link" />
           </a>
         </li>
         <li className="list-none text-icon">
           <a href="mailto:moroo.lee@gmail.com">
-            <RiMailFill />
+            <RiMailFill aria-label="G-Mail Address" />
           </a>
         </li>
         {/* <li className="list-none text-icon">

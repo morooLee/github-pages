@@ -7,6 +7,7 @@ import Document, {
 } from 'next/document';
 import { extractCritical } from '@emotion/server';
 import { mediaStyles } from 'src/components/Media';
+import { useDarkModeContext } from 'src/lib/DarkModeContext';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -21,6 +22,7 @@ class MyDocument extends Document {
       <Html lang="ko-KR">
         <Head>
           <link rel="icon" href="/assets/favicon.png" />
+          <meta name="theme-color" content="#317EFB" />
           <style
             data-emotion-css={(this.props as any).ids.join(' ')}
             dangerouslySetInnerHTML={{ __html: (this.props as any).css }}
@@ -29,6 +31,11 @@ class MyDocument extends Document {
             type="text/css"
             dangerouslySetInnerHTML={{ __html: mediaStyles }}
           />
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5229752344777211"
+            crossOrigin="anonymous"
+          ></script>
         </Head>
         <body>
           <Main />

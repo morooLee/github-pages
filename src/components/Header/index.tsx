@@ -117,14 +117,21 @@ export default function Header({ blog, currentPost }: Props) {
           </nav>
           <div className="h-10 xl:w-62 2xl:w-80 pl-5 lg:px-5 flex flex-row justify-end text-2xl gap-5">
             <button onClick={toggleDarkMode}>
-              {isDarkMode ? <RiMoonLine /> : <RiSunLine />}
+              {isDarkMode ? (
+                <RiMoonLine aria-label="Dark Mode" />
+              ) : (
+                <RiSunLine aria-label="Light Mode" />
+              )}
             </button>
             <Media lessThan="lg">
               <button
                 onClick={handleMobileMenuOnclick}
                 className="text-4xl align-middle"
               >
-                <RiMenuFill className="hover:scale-100" />
+                <RiMenuFill
+                  className="hover:scale-100"
+                  aria-label="Hamburger Menu"
+                />
               </button>
             </Media>
           </div>

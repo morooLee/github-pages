@@ -18,6 +18,7 @@ interface Frontmatter {
     name: string;
     number: number;
   } | null;
+  published: boolean;
 }
 
 interface Tag {
@@ -49,6 +50,7 @@ interface Post {
   };
   tags: string[];
   series: { name: string; number: number } | null;
+  published: boolean;
   content: string;
 }
 interface Blog {

@@ -37,5 +37,6 @@ function createPost(postsDir: string, fileName: string): Post {
     tags: data.tags,
     content,
     series: data.series,
+    published: data.published,
   };
 }

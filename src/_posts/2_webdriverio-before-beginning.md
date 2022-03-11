@@ -7,6 +7,7 @@ coverImageUrl: 'https://res.cloudinary.com/practicaldev/image/fetch/s--co5LdVu9-
 category: { main: 'Test Automation', sub: 'WebdriverIO' }
 tags: ['webdriverio', 'wdio', 'e2e', 'automation']
 series: { name: 'WebdriverIO', number: 1 }
+published: true
 ---
 
 ## WebdriverIO를 접하게된 계기

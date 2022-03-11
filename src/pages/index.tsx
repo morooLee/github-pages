@@ -36,7 +36,7 @@ export default function Home({ blog }: Props) {
             <img
               src="https://capsule-render.vercel.app/api?type=slice&color=EF4424&height=300&section=header&text=%23moroo&fontColor=21262d&fontSize=90&desc=Software%20Quality%20Assurance&descSize=30&descAlignY=68"
               alt="cover image"
-              className="mt-5 border rounded-md"
+              className="mt-5 w-full border rounded-md"
             />
             {/* <div className="pt-5 text-xl">
               <p>안녕하세요.</p>

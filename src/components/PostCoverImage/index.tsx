@@ -18,7 +18,7 @@ export default function PostCoverImage({
     <img
       src={coverImageUrl}
       alt={title}
-      className="object-fill max-w-full rounded-md"
+      className="object-fill w-full rounded-md"
     />
   ) : (
     <div

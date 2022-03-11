@@ -6,6 +6,7 @@ updatedAt: '2022-02-16'
 coverImageUrl: null
 category: { main: 'SQA', sub: 'Etc' }
 tags: ['sqa', 'meme', 'qa', 'developer']
+published: true
 ---
 
 최근에 `QA와 Developer의 이해 관계` 와 관련된 밈들을 많이 보게 되었습니다.  

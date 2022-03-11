@@ -9,7 +9,7 @@ interface Props {
 
 export default function Location({ title, children }: Props) {
   const router = useRouter();
-  const paths = router.asPath.split('/').slice(1);
+  const paths = router.asPath.split('/').filter((path) => path);
 
   return (
     <>
@@ -20,6 +20,9 @@ export default function Location({ title, children }: Props) {
           </a>
         </Link>
         {paths.map((path, index, array) => {
+          if (array.length === 0) {
+            return null;
+          }
           const link = array
             .slice(0, index + 1)
             .join('/')
@@ -36,9 +39,11 @@ export default function Location({ title, children }: Props) {
           ) : null;
         })}
       </nav>
-      <p className="px-5 text-3xl font-extrabold">
-        {children ? children : title}
-      </p>
+      {children ? (
+        <div className="px-5 text-3xl font-extrabold">{children}</div>
+      ) : (
+        <p className="px-5 text-3xl font-extrabold">{title}</p>
+      )}
     </>
   );
 }

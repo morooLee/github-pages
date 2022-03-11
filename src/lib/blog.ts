@@ -51,11 +51,13 @@ export class Blog {
     const fileNames = fs.readdirSync(this._POST_DIR);
     fileNames.forEach((fileName) => {
       const post = this.createPost(fileName);
-      this._posts.push(post);
+      if (post) {
+        this._posts.push(post);
+      }
     });
     this._isInit = true;
   }
-  private static createPost(fileName: string): Post {
+  private static createPost(fileName: string): Post | undefined {
     const prefix = fileName.replace(/\.(md|mdx)$/, '');
     const [id, slug] = prefix.split('_');
     const source = fs.readFileSync(join(this._POST_DIR, fileName), 'utf8');
@@ -63,6 +65,9 @@ export class Blog {
       data: Frontmatter;
       content: string;
     };
+    if (!data.published) {
+      return;
+    }
     const coverBackgroundColor = getRandomPastelColor();
 
     this.addCategory(data.category, Number(id));
@@ -84,8 +89,9 @@ export class Blog {
       updatedAt: new Date(data.updatedAt).toLocaleDateString('ko-KR'),
       category: data.category,
       tags: data.tags,
-      content,
       series: data.series,
+      published: data.published,
+      content,
     };
   }
   private static addCategory(
