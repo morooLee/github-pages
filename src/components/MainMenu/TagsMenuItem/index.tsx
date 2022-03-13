@@ -51,7 +51,10 @@ export default function TagsMenuItem({
           {tags.map((tag) => {
             return (
               <li key={tag.name} className="group">
-                <Link href="/tags/[tag]" as={`/tags/${tag.name}`}>
+                <Link
+                  href={{ pathname: '/tags', query: { tag: tag.name } }}
+                  // href="/tags/[tag]" as={`/tags/${tag.name}`}
+                >
                   <a
                     className={`inline-block rounded-full px-3 py-2 text-center align-middle ${
                       currentTags.includes(tag.name) || tag.name === query.tag

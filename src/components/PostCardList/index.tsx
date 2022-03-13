@@ -3,13 +3,14 @@ import Link from 'next/link';
 import CardSummary from '../SectionSummary';
 import PostCard from '../PostCard';
 import CardDetail from '../SectionContent';
+import { UrlObject } from 'url';
 
 interface Props {
   title: string;
   posts: Post[];
   isAllFolding: boolean;
-  href?: string;
-  as?: string;
+  href?: string | UrlObject;
+  as?: string & (string | UrlObject);
 }
 export default function PostCardList({
   title,

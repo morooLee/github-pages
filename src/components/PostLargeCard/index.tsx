@@ -76,7 +76,7 @@ export default function PostLargeCard({ post }: Props) {
             {post.tags.map((tag) => {
               return (
                 <li key={tag}>
-                  <Link href="/tags/[tag]" as={`/tags/${tag}`}>
+                  <Link href={{ pathname: '/tags', query: { tag } }}>
                     <a>
                       <p
                         className="rounded-xl md:rounded-2xl px-2 py-1 text-center align-middle bg-btn border-red-500 hover:border-btn-hover hover:bg-btn-hover border text-btn text-xs md:text-base lg:text-sm font-semibold leading-none"

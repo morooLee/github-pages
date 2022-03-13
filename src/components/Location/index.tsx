@@ -9,7 +9,11 @@ interface Props {
 
 export default function Location({ title, children }: Props) {
   const router = useRouter();
-  const paths = router.asPath.split('/').filter((path) => path);
+  const paths = router.asPath
+    .split('#')[0]
+    .split('?')[0]
+    .split('/')
+    .filter((path) => path);
 
   return (
     <>
@@ -23,16 +27,13 @@ export default function Location({ title, children }: Props) {
           if (array.length === 0) {
             return null;
           }
-          const link = array
-            .slice(0, index + 1)
-            .join('/')
-            .split('#')[0];
-          const pathName = path.split('#')[0];
-          return pathName ? (
-            <Link key={pathName} href={`/${link}`} as={`/${link}`}>
+          const link = array.slice(0, index + 1).join('/');
+
+          return path ? (
+            <Link key={path} href={`/${link}`} as={`/${link}`}>
               <a className="before:content-['›'] before:text-muted before:mx-2">
-                <p title={pathName} className="inline">
-                  {pathName}
+                <p title={path} className="inline">
+                  {path}
                 </p>
               </a>
             </Link>

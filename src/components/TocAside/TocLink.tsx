@@ -1,9 +1,10 @@
 import React, { ReactNode, MouseEvent } from 'react';
 import Link from 'next/link';
+import { UrlObject } from 'url';
 
 interface Props {
-  href: string;
-  as: string;
+  href: string | UrlObject;
+  as?: string & (string | UrlObject);
   className: string;
   children: ReactNode;
 }

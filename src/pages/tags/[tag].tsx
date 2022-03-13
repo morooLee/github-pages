@@ -122,7 +122,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!tag) {
     return {
       redirect: {
-        destination: '/204',
+        destination: '/404',
         permanent: false,
       },
     };

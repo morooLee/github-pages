@@ -148,7 +148,10 @@ export default function Home({ blog }: Props) {
             {blog.tags.map((tag) => {
               return (
                 <li key={tag.name} className="group">
-                  <Link href="/tags/[tag]" as={`/tags/${tag.name}`}>
+                  <Link
+                    href={{ pathname: '/tags', query: { tag: tag.name } }}
+                    // href="/tags/[tag]" as={`/tags/${tag.name}`}
+                  >
                     <a
                       className={`inline-block rounded-full px-3 py-2 text-center align-middle bg-btn border-red-500 group-hover:border-btn-hover group-hover:bg-btn-hover border text-btn text-xs font-semibold leading-none`}
                     >

@@ -15,8 +15,11 @@ import slugify from 'slugify';
 interface Props {
   blog: Blog;
 }
+
 export default function Tags({ blog }: Props) {
   const router = useRouter();
+  const query = router.query;
+
   const title = "Moroo's Blog Tags";
   // const description = "Moroo's Blog Tags";
   const url = `https://blog.moroo.dev${router.asPath}`;
@@ -34,6 +37,7 @@ export default function Tags({ blog }: Props) {
       setIsAll(true);
     }
   }
+
   function handleTagOnclick(event: MouseEvent<HTMLButtonElement>) {
     const value = event.currentTarget.value;
 
@@ -75,6 +79,19 @@ export default function Tags({ blog }: Props) {
   }
 
   useEffect(() => {
+    if (query.tag) {
+      const findTag = blog.tags.find(({ name }) => name === query.tag);
+      if (findTag) {
+        setCurrentTags([findTag]);
+      } else {
+        setCurrentTags([...blog.tags]);
+      }
+    } else {
+      setCurrentTags([...blog.tags]);
+    }
+  }, [blog.tags, query.tag]);
+
+  useEffect(() => {
     if (currentTags.length === blog.tags.length) {
       setIsAll(true);
     } else {
@@ -82,9 +99,9 @@ export default function Tags({ blog }: Props) {
     }
   }, [currentTags]);
 
-  useEffect(() => {
-    setCurrentTags([...blog.tags]);
-  }, [blog.tags]);
+  // useEffect(() => {
+  //   setCurrentTags([...blog.tags]);
+  // }, [blog.tags]);
 
   return (
     <>
@@ -203,8 +220,12 @@ export default function Tags({ blog }: Props) {
                         return post.tags.includes(tag.name);
                       })}
                       isAllFolding={isAllFolding}
-                      href="/tags/[tag]"
-                      as={`/tags/${tag.name}`}
+                      href={{
+                        pathname: '/tags',
+                        query: { tag: tag.name },
+                      }}
+                      // href="/tags/[tag]"
+                      // as={`/tags/${tag.name}`}
                     />
                   </li>
                 );
