@@ -4,7 +4,7 @@ module.exports = {
   siteUrl: 'https://blog.moroo.dev',
   sitemapSize: 7000,
   generateRobotsTxt: true,
-  exclude: ['204'],
+  exclude: ['204', '/tags/*'],
   robotsTxtOptions: {
     policies: [
       {
