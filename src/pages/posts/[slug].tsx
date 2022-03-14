@@ -12,6 +12,7 @@ import { NextSeo } from 'next-seo';
 import Location from 'src/components/Location';
 import SeriesPostLinks from 'src/components/SeriesLinks';
 import Link from 'next/link';
+import Adsense from 'src/components/Adsense';
 
 interface Props {
   post: Post;
@@ -64,9 +65,16 @@ export default function Post({ post, series, content, toc, blog }: Props) {
           <PostLargeCard post={post} />
         </section>
         <article
-          id="post-content"
+          id="post-article"
           className="markdown dark:markdown-invert max-w-none p-5"
         >
+          <Adsense
+            style={{ display: 'block', textAlign: 'center' }}
+            adClient="ca-pub-5229752344777211"
+            adSlot={3625286179}
+            adLayout="in-article"
+            adFormat="fluid"
+          />
           <MDXContent content={content} />
         </article>
         {post.series ? (

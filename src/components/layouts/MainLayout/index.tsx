@@ -5,6 +5,7 @@ import Header from '../../Header';
 import { Media } from 'src/components/Media';
 import SectionSummary from 'src/components/SectionSummary';
 import SectionContent from 'src/components/SectionContent';
+import Adsense from 'src/components/Adsense';
 
 interface Props {
   children: ReactNode;
@@ -44,8 +45,8 @@ export default function MainLayout({ children, blog }: Props) {
           className="fixed lg:w-[79rem] lg:mx-auto xl:mx-auto 2xl:w-[88rem]"
         >
           <aside className="absolute w-full lg:w-62 lg:right-0 2xl:w-80 h-aside overflow-y-scroll scrollbar-hide">
-            <div className="w-full pt-2 lg:py-5 flex flex-col gap-2">
-              <section className="w-full xl:w-62 2xl:w-80 bg-canvas border rounded-md">
+            <div className="w-full lg:py-5 flex flex-col gap-2">
+              <section className="bg-canvas border rounded-md">
                 <SectionSummary isFolding={false}>
                   <p className="text-accent text-xl font-semibold inline-block cursor-text">
                     AD
@@ -53,22 +54,10 @@ export default function MainLayout({ children, blog }: Props) {
                 </SectionSummary>
                 <SectionContent isFolding={false}>
                   <div className="p-5">
-                    <script
-                      async
-                      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5229752344777211"
-                      crossOrigin="anonymous"
-                    ></script>
-                    <ins
-                      className="adsbygoogle"
-                      style={{ display: 'block' }}
-                      data-ad-client="ca-pub-5229752344777211"
-                      data-ad-slot="9218864958"
-                      data-ad-format="auto"
-                      data-full-width-responsive="true"
-                    ></ins>
-                    <script>
-                      (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
+                    <Adsense
+                      adClient="ca-pub-5229752344777211"
+                      adSlot={9218864958}
+                    />
                   </div>
                 </SectionContent>
               </section>

@@ -6,6 +6,9 @@ import TocAside from '../../TocAside';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { Media } from '../../Media';
 import ScrollProgressBar from '../../ScrollProgressBar';
+import Adsense from 'src/components/Adsense';
+import SectionSummary from 'src/components/SectionSummary';
+import SectionContent from 'src/components/SectionContent';
 
 interface Props {
   children: ReactNode;
@@ -26,7 +29,7 @@ export default function PostLayout({
     undefined
   );
   useEffect(() => {
-    const rootElement = document.getElementById('post-content');
+    const rootElement = document.getElementById('post-article');
 
     if (rootElement === null) {
       return;

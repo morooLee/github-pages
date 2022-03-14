@@ -26,7 +26,7 @@ export default function ActiveHeadingProvider({ children }: Props) {
 
   useEffect(() => {
     let headingElements: HTMLElement[] = [];
-    const postContentElement = document.getElementById('post-content');
+    const postContentElement = document.getElementById('post-article');
 
     if (postContentElement) {
       headingElements = Array.from(

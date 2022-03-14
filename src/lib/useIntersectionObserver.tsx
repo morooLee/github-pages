@@ -40,7 +40,7 @@ export default function IntersectionObserverProvider({
   );
 
   useEffect(() => {
-    const rootElement = document.getElementById('post-content');
+    const rootElement = document.getElementById('post-article');
 
     const tempHeadingElements = Array.from(
       (rootElement ?? document).querySelectorAll('h1, h2, h3, h4, h5, h6')
@@ -105,7 +105,7 @@ export function useHeadingsData() {
   const [nestedHeadings, setNestedHeadings] = useState<Element[]>([]);
 
   useEffect(() => {
-    const rootElement = document.getElementById('post-content');
+    const rootElement = document.getElementById('post-article');
 
     if (rootElement === null) {
       return;
@@ -133,7 +133,7 @@ export function useIntersectionObserver() {
   );
 
   useEffect(() => {
-    const rootElement = document.getElementById('post-content');
+    const rootElement = document.getElementById('post-article');
 
     if (rootElement === null) {
       return;

@@ -5,6 +5,8 @@ import SectionSummary from '../SectionSummary';
 import SectionContent from '../SectionContent';
 import { TocLink } from './TocLink';
 import { TocItem } from './TocItem';
+import Adsense from '../Adsense';
+import Anchor from '../MarkdownComponents/Anchor';
 
 interface Props {
   toc?: MDXRemoteSerializeResult;
@@ -26,8 +28,8 @@ export default function TocAside({ toc, activeHeadingId }: Props) {
   }
 
   return (
-    <div className="w-full pt-2 lg:py-5 flex flex-col gap-2">
-      <section className="w-full xl:w-62 2xl:w-80 bg-canvas border rounded-md">
+    <div className="w-full lg:py-5 flex flex-col gap-2">
+      <section className="bg-canvas border rounded-md">
         <SectionSummary
           isFolding={isFolding}
           toggleFolding={toggleFolding}
@@ -55,9 +57,7 @@ export default function TocAside({ toc, activeHeadingId }: Props) {
                   a: (props: any) => (
                     <TocLink
                       className={`${props.className} ${
-                        activeHeadingId === props.href.replace('#', '')
-                          ? 'active'
-                          : ''
+                        `#${activeHeadingId}` === props.href ? 'active' : ''
                       }`}
                       href={props.href}
                       as={props.as}
@@ -65,10 +65,22 @@ export default function TocAside({ toc, activeHeadingId }: Props) {
                       {props.children}
                     </TocLink>
                   ),
-                  li: (props: any) => <TocItem {...props} />,
+                  li: TocItem,
                 }}
               />
             ) : null}
+          </div>
+        </SectionContent>
+      </section>
+      <section className="bg-canvas border rounded-md">
+        <SectionSummary isFolding={false}>
+          <p className="text-accent text-xl font-semibold inline-block cursor-text">
+            AD
+          </p>
+        </SectionSummary>
+        <SectionContent isFolding={false}>
+          <div className="p-5">
+            <Adsense adClient="ca-pub-5229752344777211" adSlot={9218864958} />
           </div>
         </SectionContent>
       </section>
