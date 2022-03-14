@@ -53,7 +53,22 @@ export default function MainLayout({ children, blog }: Props) {
                 </SectionSummary>
                 <SectionContent isFolding={false}>
                   <div className="p-5">
-                    <p>광고</p>
+                    <script
+                      async
+                      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5229752344777211"
+                      crossOrigin="anonymous"
+                    ></script>
+                    <ins
+                      className="adsbygoogle"
+                      style={{ display: 'block' }}
+                      data-ad-client="ca-pub-5229752344777211"
+                      data-ad-slot="9218864958"
+                      data-ad-format="auto"
+                      data-full-width-responsive="true"
+                    ></ins>
+                    <script>
+                      (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                   </div>
                 </SectionContent>
               </section>
