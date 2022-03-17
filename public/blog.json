@@ -1,12 +1,34 @@
 {
   "posts": [
     {
+      "id": 5,
+      "slug": "nvm-installation-with-mac",
+      "title": "Mac 환경에서 NVM 설치하기",
+      "description": "NVM이 무엇인지 간략하게 설명하고 Mac 환경에서 NVM 설치에 대해 알아봅니다.",
+      "coverBackgroundColor": "hsl(356, 100%, 80%)",
+      "createdAt": "2022. 3. 18.",
+      "updatedAt": "2022. 3. 18.",
+      "category": {
+        "main": "Development",
+        "sub": "NodeJS"
+      },
+      "tags": [
+        "node",
+        "nodejs",
+        "nvm",
+        "mac",
+        "homebrew"
+      ],
+      "published": true,
+      "content": "\n## NVM 이란?\n\nNVM은 `Node Version Manager`의 약자로 말 그대로 노드의 버전을 관리하는 프로그램입니다.\n\n여러 프로젝트를 진행하다보면 각 프로젝트 별로 노드 버전을 달리해야 하는데 이럴 때 NVM으로 현재 사용중인 노드의 버전을 원하는 버전으로 마음대로 변경하고 설치가 가능하며 관리 또한 용이합니다.\nNVM의 보다 자세한 사항은 [깃허브](https://github.com/nvm-sh/nvm)에서 확인 가능합니다.\n\n> :information_source: NVM or NPM or NPX\n>\n> - [NVM](https://github.com/nvm-sh/nvm): Node Version Manager의 약자로 노드의 버전을 관리하는 도구\n> - [NPM](https://docs.npmjs.com/cli/v8/commands/npm): Node Package Manager의 약자로 노드의 패키지를 관리하는 도구\n> - [NPX](https://docs.npmjs.com/cli/v8/commands/npx): Node Package eXecute의 약자로 노드의 패키지를 쉽게 설치하고 관리하는 도구\n\n## NVM 설치하기\n\nMac에서 NVM을 설치하려면 `curl`, `wget`으로 직접 스크립트를 다운받아 설치하는 방법도 있지만, 저는 [Homebrew](https://brew.sh/index_ko)를 추천드립니다.\n그럼에도 `curl`, `wget`으로 직접 설치를 원하시는 경우 [NVM](https://github.com/nvm-sh/nvm) 여기서 자세히 설명하고 있으니 참고하시면 됩니다.\n\n### Homebrew 설치하기\n\n[Homebrew](https://brew.sh/)는 Mac용 패키지 관리 도구입니다.\n우리는 이를 이용하여 NVM을 설치할 것이므로 Homebrew가 먼저 설치되어 있어야 합니다.\nHomebrew 설치는 터미널에서 아래와 같이 입력하신 후 실행하시면 됩니다.\n\n```bash\n> /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\n```\n\n설치가 완료된 후 `brew --version`을 실행하면 현재 설치된 버전을 확인 할 수 있습니다.\n\n```bash\n> brew --version\nHomebrew 3.3.5\nHomebrew/homebrew-core (git revision 00f3d1617a5; last commit 2021-11-25)\nHomebrew/homebrew-cask (git revision 09a47ef507; last commit 2021-11-25)\n```\n\n### Homebrew로 NVM 설치하기\n\n이제 `brew search nvm`을 입력하여 nvm이 Homebrew에 있는지 먼저 확인합니다.\n아래에 보시면 Formulae 항목에 nvm이 있는게 보입니다. 저렇게 검색했을 떼 나오면 설치가 가능합니다. (nvm 옆에 ✔ 표시가 있는 것은 이미 설치가 완료된거라 보시면 됩니다.)\n\n```bash\n> brew search nvm\n==> Formulae\nconvmv     mvnvm      nvm ✔      nvi        nvc        nim        dvm\n\n==> Casks\nparagon-vmdk-mounter\n```\n\n> :information_source: Formulae? Casks\n>\n> - Formulae: 콘솔 기반 어플리케이션\n> - Casks: GUI 기반 어플리케이션\n\n설치가 가능한 것으로 나왔으니 이제 아래 명령어를 입력해서 NVM을 설치해 줍니다.\nHomebrew를 처음 설치했거나, 오랫동안 사용을 하지 않았을 경우 Update에 시간이 다소 소요될 수 있으니 여유롭게 기다리시면 됩니다.\n\n```bash\n> brew install nvm\nUpdating Homebrew...\n==> Downloading https://ghcr.io/v2/homebrew/core/nvm/manifests/0.39.1_1\nAlready downloaded: /Users/moroo/Library/Caches/Homebrew/downloads/c9eff8b850f89092c09f7a099286e0b4eddb66d9630b46d5cd248024f2a7a86f--nvm-0.39.1_1.bottle_manifest.json\n==> Downloading https://ghcr.io/v2/homebrew/core/nvm/blobs/sha256:6e14c8a2bf9421\nAlready downloaded: /Users/moroo/Library/Caches/Homebrew/downloads/c8c9b3f90c1fec62178862d14b78db352760216edf6cf2947b829001e49c40c7--nvm--0.39.1_1.all.bottle.tar.gz\n==> Pouring nvm--0.39.1_1.all.bottle.tar.gz\n==> Caveats\nPlease note that upstream has asked us to make explicit managing\nnvm via Homebrew is unsupported by them and you should check any\nproblems against the standard nvm install method prior to reporting.\n\nYou should create NVM's working directory if it doesn't exist:\n\n  mkdir ~/.nvm\n\nAdd the following to ~/.zshrc or your desired shell\nconfiguration file:\n\n  export NVM_DIR=\"$HOME/.nvm\"\n  [ -s \"/usr/local/opt/nvm/nvm.sh\" ] && \\. \"/usr/local/opt/nvm/nvm.sh\"  # This loads nvm\n  [ -s \"/usr/local/opt/nvm/etc/bash_completion.d/nvm\" ] && \\. \"/usr/local/opt/nvm/etc/bash_completion.d/nvm\"  # This loads nvm bash_completion\n\nYou can set $NVM_DIR to any location, but leaving it unchanged from\n/usr/local/opt/nvm will destroy any nvm-installed Node installations\nupon upgrade/reinstall.\n\nType `nvm help` for further information.\n==> Summary\n🍺  /usr/local/Cellar/nvm/0.39.1_1: 9 files, 184.1KB\n==> Running `brew cleanup nvm`...\nDisable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.\nHide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).\n```\n\n여기까지 진행하셨다면 NVM 설치는 완료하였습니다. 하지만 터미널에 `nvm --version`을 실행하면 아래와 같이 없는 명령어라고 나오는데 nvm이 사용할 폴더 및 환경변수를 설정하지 않아서입니다.\n\n```bash\n> nvm --version\nzsh: command not found: nvm\n```\n\n## 환경변수 설정하기\n\n이제 환경변수를 설정해야 하는데 설정에 앞서 nvm이 사용할 폴더를 먼저 생성해 줍니다.\n\n```bash\n> mkdir ~/.nvm\n```\n\n다음으로 vi 편집기로 본인이 사용하는 쉘의 구성파일을 엽니다.\n(nvm 설치가 완료되면 친절하게 )\n\n```bash\n# Bash를 사용할 경우\n> vi ~/.bash_profile\n\n# ZSH를 사용할 경우\n> vi ~/.zshrc\n```\n\nvi 편집기가 열렸으면 맨 아래로 내려서 아래 내용을 입력한 후 저장합니다.\n(아래 내용을 `⌘ + C`로 복사한 후 편집기에서 키보드 `A`를 눌러서 입력 가능하게 전환한 다음 `⌘ + V` 로 붙여넣고 `esc` 키를 누른 후에 차례대로 `:`, `w`, `q`를 입력하시면 됩니다.)\n\n```bash\nexport NVM_DIR=\"$HOME/.nvm\"\n[ -s \"/usr/local/opt/nvm/nvm.sh\" ] && \\. \"/usr/local/opt/nvm/nvm.sh\"  # This loads nvm\n[ -s \"/usr/local/opt/nvm/etc/bash_completion.d/nvm\" ] && \\. \"/usr/local/opt/nvm/etc/bash_completion.d/nvm\"  # This loads nvm bash_completion\n```\n\n다음으로 변경된 구성파일이 반영되도록 아래 명령어를 실행합니다.\n\n```bash\n# Bash를 사용할 경우\n> source ~/.bash_profile\n\n# ZSH를 사용할 경우\n> source ~/.zshrc\n```\n\n이제 터미널에 `nvm --version` 을 입력해서 정상적으로 실행이 되는지 확인합니다.\n\n```bash\n> nvm --version\n0.38.0\n```\n\n## NVM 사용하기\n\nNVM에서 사뇽 가능한 명령어에 대해 알아보겠습니다.\n\n## install\n\n원하는 노드를 설치합니다.\n\n```bash\n# 최신 버전을 설치하려는 경우\n> nvm install node\n\n# 최신 LTS 버전을 설치하려는 경우\n> nvm install --lts\n\n# 특정 버전을 설치하려는 경우\n> nvm install 14.7.0 # or 16.3.0, 12.22.1, etc\n```\n\n## uninstall\n\n원하는 노드를 제거합니다.\n\n```bash\n# 최신 버전을 제거하려는 경우\n> nvm uninstall node\n\n# 최신 LTS 버전을 제거하려는 경우\n> nvm uninstall --lts\n\n# 특정 버전을 제거하려는 경우\n> nvm uninstall 14.7.0 # or 16.3.0, 12.22.1, etc\n```\n\n### ls\n\n노드 버전들의 목록을 나열합니다.\n\n```bash\n# 현재 설치된 노드 버전들을 나열합니다.\n> nvm ls\n\n# 전체 노드 버전들을 나열합니다.\n> nvm ls-remote\n```\n\n### use\n\n선택한 노드를 사용합니다.\n\n```bash\n> nvm use 14.7.0 # or 16.3.0, 12.22.1, etc\n```\n\n### run\n\n선택한 노드를 실행합니다.\n\n```bash\n> nvm use 14.7.0 # or 16.3.0, 12.22.1, etc\n```\n\n### exec\n\n원하는 버전의 노드가 있는 서브쉘에서 임의의 명령을 실행합니다.\n\n```bash\n> nvm exec 17.5.0 node --version\nRunning node v17.5.0 (npm v8.4.1)\n```\n\n### which\n\n선택한 노도의 경로를 출력합니다.\n\n```bash\n> nvm which 16.14.0\n/Users/moroo/.nvm/versions/node/v16.14.0/bin/node\n```\n\n보다 더 자세한 사항은 [NVM 깃허브](https://github.com/nvm-sh/nvm#usage)에서 확인 가능합니다.\n"
+    },
+    {
       "id": 2,
       "slug": "webdriverio-before-beginning",
       "title": "1. 시작하기 전에...",
       "description": "WebdriverIO 시리즈를 시작하기 전에 필자가 WebdriverIO를 접하게 된 계기 및 간략한 소개 글입니다.",
       "coverImageUrl": "https://res.cloudinary.com/practicaldev/image/fetch/s--co5LdVu9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i2.wp.com/grantnorwood.com/app/uploads/2017/07/webdriver-io-logo.png%3Fw%3D1680%26ssl%3D1",
-      "coverBackgroundColor": "hsl(275, 100%, 80%)",
+      "coverBackgroundColor": "hsl(201, 100%, 80%)",
       "createdAt": "2022. 2. 19.",
       "updatedAt": "2022. 3. 4.",
       "category": {
@@ -32,7 +54,7 @@
       "title": "2. WebdriverIO 설치하기",
       "description": "Typescript 기반의 WebdriverIO를 설치하는 법에 대해 설명하는 글입니다.",
       "coverImageUrl": "https://res.cloudinary.com/practicaldev/image/fetch/s--co5LdVu9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i2.wp.com/grantnorwood.com/app/uploads/2017/07/webdriver-io-logo.png%3Fw%3D1680%26ssl%3D1",
-      "coverBackgroundColor": "hsl(88, 100%, 80%)",
+      "coverBackgroundColor": "hsl(359, 100%, 80%)",
       "createdAt": "2022. 2. 20.",
       "updatedAt": "2022. 3. 4.",
       "category": {
@@ -58,7 +80,7 @@
       "title": "QA 관점에서 바라 본 QA와 Developer 밈들",
       "description": "QA와 Developer의 이해 관계를 보여주는 밈들에 대해서 QA 관점에서 가볍게 바라본 지극히 개인적인 이야기입니다.",
       "coverImageUrl": null,
-      "coverBackgroundColor": "hsl(123, 100%, 80%)",
+      "coverBackgroundColor": "hsl(8, 100%, 80%)",
       "createdAt": "2022. 2. 16.",
       "updatedAt": "2022. 2. 16.",
       "category": {
@@ -113,6 +135,24 @@
         2,
         3
       ]
+    },
+    {
+      "name": "Development",
+      "parent": null,
+      "children": [
+        "NodeJS"
+      ],
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "NodeJS",
+      "parent": "Development",
+      "children": [],
+      "postIds": [
+        5
+      ]
     }
   ],
   "tags": [
@@ -166,6 +206,36 @@
       "postIds": [
         2,
         3
+      ]
+    },
+    {
+      "name": "node",
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "nodejs",
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "nvm",
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "mac",
+      "postIds": [
+        5
+      ]
+    },
+    {
+      "name": "homebrew",
+      "postIds": [
+        5
       ]
     }
   ],
