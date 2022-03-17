@@ -10,6 +10,21 @@ series: { name: 'WebdriverIO', number: 3 }
 published: false
 ---
 
+WebdriverIO에서는 여러 옵션을 통해 커스텀이 가능합니다.
+아래 내용은 WebdriverIO 설정에 대해 설명합니다.
+자세한 내용은 [홈페이지](https://webdriver.io/docs/options)에서 확인 하세요.
+
+| Category     | Option          | Description                                                                                                                                                                                             |
+| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TS Config    | autoCompileOpts | Typescript을 설정할 수 있는 옵션<br/>더 많은 옵션은 [WebdriverIO](https://webdriver.io/docs/typescript/) 또는 [Typescript](https://github.com/TypeStrong/ts-node#options) 홈페이지에서 확인 가능합니다. |
+| Test Files   | specs           | 테스트에 포함할 spec 파일들의 경로 또는 Glob 패턴<br/>배열로 여러개를 추가할 수 있습니다.                                                                                                               |
+|              | exclude         | 테스트에 제외할 spec 파일들의 경로 또는 Glob 패턴<br/>배열로 여러개를 추가할 수 있습니다.                                                                                                               |
+|              | suites          |                                                                                                                                                                                                         |
+| Capabilities | maxInstances    | 병렬 실행 시 최대 인스턴스 수                                                                                                                                                                           |
+|              | capabilities    |                                                                                                                                                                                                         |
+
+---
+
 ```typescript
 export const config: WebdriverIO.Config = {
   //

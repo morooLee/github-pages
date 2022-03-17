@@ -68,13 +68,13 @@ export default function Post({ post, series, content, toc, blog }: Props) {
           id="post-article"
           className="markdown dark:markdown-invert max-w-none p-5"
         >
-          <Adsense
+          {/* <Adsense
             style={{ display: 'block', textAlign: 'center' }}
             adClient="ca-pub-5229752344777211"
             adSlot={3625286179}
             adLayout="in-article"
             adFormat="fluid"
-          />
+          /> */}
           <MDXContent content={content} />
         </article>
         {post.series ? (
@@ -96,6 +96,13 @@ export default function Post({ post, series, content, toc, blog }: Props) {
             />
           </section>
         ) : null}
+        {/* <Adsense
+          style={{ display: 'block', textAlign: 'center' }}
+          adClient="ca-pub-5229752344777211"
+          adSlot={3257760132}
+          adLayout="in-article"
+          adFormat="fluid"
+        /> */}
         <ReactUtterances
           repo="morooLee/github-pages"
           type="pathname"

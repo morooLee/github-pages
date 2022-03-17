@@ -26,7 +26,7 @@ export default function PostCard({ post }: Props) {
   }
   return (
     <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
-      <a className="card group relative w-full flex flex-col min-w-[18rem] max-w-[18rem] min-h-[23.25rem] max-h-[23.25rem] bg-btn border rounded-md p-5">
+      <a className="card group relative w-full flex flex-col min-w-[18rem] max-w-[18rem] min-h-[23.25rem] max-h-[23.25rem] bg-btn border rounded-md px-5 pt-5 pb-3">
         {/* {post.series ? (
           <p className="absolute top-0 right-0" title={post.series.name}>
             {post.series.name}
@@ -61,7 +61,7 @@ export default function PostCard({ post }: Props) {
           {/* {post.description || post.title} */}
           {ellipsisText(post.description || post.content)}
         </p>
-        <div className="flex flex-row gap-1 justify-end items-center pt-3 -mb-2 border-t">
+        <div className="flex flex-row gap-1 justify-end items-center pt-3 border-t">
           <RiCalendar2Line className="text-md" />
           <p className="text-xs" title="최근 수정일">
             최근 수정일 :

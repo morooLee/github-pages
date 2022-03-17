@@ -72,7 +72,7 @@ export default function TocAside({ toc, activeHeadingId }: Props) {
           </div>
         </SectionContent>
       </section>
-      <section className="bg-canvas border rounded-md">
+      {/* <section className="bg-canvas border rounded-md">
         <SectionSummary isFolding={false}>
           <p className="text-accent text-xl font-semibold inline-block cursor-text">
             AD
@@ -83,7 +83,7 @@ export default function TocAside({ toc, activeHeadingId }: Props) {
             <Adsense adClient="ca-pub-5229752344777211" adSlot={9218864958} />
           </div>
         </SectionContent>
-      </section>
+      </section> */}
     </div>
   );
 }
