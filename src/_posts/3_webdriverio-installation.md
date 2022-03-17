@@ -66,7 +66,7 @@ Need to install the following packages:
 Ok to proceed? (y) y
 ```
 
-> :information_source: create-wdio 패키지는 WebdriverIO 설치를 도와주는 스타터 패키지입니다.
+:information*source: \_create-wdio 패키지는 WebdriverIO 설치를 도와주는 스타터 패키지입니다.*
 
 create-wdio가 설치되고 create-wdio가 WebdriverIO의 CLI 패키지인 @wdio/cli를 설치합니다.  
 @wdio/cli 설치가 완료되면 WebdriverIO 설정에 필요한 기본적인 요구사항에 대해 질문합니다.

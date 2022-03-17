@@ -15,8 +15,6 @@ NVM은 `Node Version Manager`의 약자로 말 그대로 노드의 버전을 관
 여러 프로젝트를 진행하다보면 각 프로젝트 별로 노드 버전을 달리해야 하는데 이럴 때 NVM으로 현재 사용중인 노드의 버전을 원하는 버전으로 마음대로 변경하고 설치가 가능하며 관리 또한 용이합니다.
 NVM의 보다 자세한 사항은 [깃허브](https://github.com/nvm-sh/nvm)에서 확인 가능합니다.
 
-> :information_source: NVM or NPM or NPX
->
 > - [NVM](https://github.com/nvm-sh/nvm): Node Version Manager의 약자로 노드의 버전을 관리하는 도구
 > - [NPM](https://docs.npmjs.com/cli/v8/commands/npm): Node Package Manager의 약자로 노드의 패키지를 관리하는 도구
 > - [NPX](https://docs.npmjs.com/cli/v8/commands/npx): Node Package eXecute의 약자로 노드의 패키지를 쉽게 설치하고 관리하는 도구
@@ -59,8 +57,6 @@ convmv     mvnvm      nvm ✔      nvi        nvc        nim        dvm
 paragon-vmdk-mounter
 ```
 
-> :information_source: Formulae? Casks
->
 > - Formulae: 콘솔 기반 어플리케이션
 > - Casks: GUI 기반 어플리케이션
 
@@ -159,7 +155,7 @@ export NVM_DIR="$HOME/.nvm"
 
 NVM에서 사뇽 가능한 명령어에 대해 알아보겠습니다.
 
-## install
+### install
 
 원하는 노드를 설치합니다.
 
@@ -174,7 +170,7 @@ NVM에서 사뇽 가능한 명령어에 대해 알아보겠습니다.
 > nvm install 14.7.0 # or 16.3.0, 12.22.1, etc
 ```
 
-## uninstall
+### uninstall
 
 원하는 노드를 제거합니다.
 
