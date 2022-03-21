@@ -9,7 +9,7 @@ interface Props {
 
 export default function Location({ title, children }: Props) {
   const router = useRouter();
-  const paths = router.asPath
+  const paths = decodeURI(router.asPath)
     .split('#')[0]
     .split('?')[0]
     .split('/')

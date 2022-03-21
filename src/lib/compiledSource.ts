@@ -1,7 +1,8 @@
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkGfm from 'remark-gfm';
-import remarkEmoji from 'remark-emoji';
+// import remarkEmoji from 'remark-emoji';
+import remarkGemoji from 'remark-gemoji';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeToc, {
@@ -45,7 +46,7 @@ export default async function compiledSource(
   const content: MDXRemoteSerializeResult = await serialize(source, {
     scope: options?.scope,
     mdxOptions: {
-      remarkPlugins: [[remarkGfm, { stringLength: stringWidth }], remarkEmoji],
+      remarkPlugins: [[remarkGfm, { stringLength: stringWidth }], remarkGemoji],
       rehypePlugins: options.isAutoLinkHeading
         ? [
             rehypeSlug,

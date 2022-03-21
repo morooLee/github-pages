@@ -9,6 +9,7 @@ import ScrollProgressBar from '../../ScrollProgressBar';
 import Adsense from 'src/components/Adsense';
 import SectionSummary from 'src/components/SectionSummary';
 import SectionContent from 'src/components/SectionContent';
+import { RiArrowUpCircleLine, RiCloseFill } from 'react-icons/ri';
 
 interface Props {
   children: ReactNode;
@@ -102,6 +103,17 @@ export default function PostLayout({
             <TocAside toc={toc} activeHeadingId={activeHeadingId} />
           </aside>
         </Media>
+        {/* <Media lessThan="xl" className="fixed z-10 right-5 bottom-5">
+          <div className="bg-btn border rounded-tl-full rounded-tr-full rounded-bl-full p-5">
+            <button className="absolute bottom-0 right-0 text-2xl">
+              <RiCloseFill />
+            </button>
+            <div>
+              <RiArrowUpCircleLine className="text-2xl inline-block mr-1" />
+              <span>TOP</span>
+            </div>
+          </div>
+        </Media> */}
       </div>
       <Footer />
     </>

@@ -32,8 +32,9 @@ WebdriverIO는 Node.JS의 LTS 버전을 지원하며 LTS 릴리즈 목록은 [�
 - Chipset: Intel Core i7
 - Node.JS: v17.5.0 LTS
 
-Node.JS 설치 및 Mac 개발 환경 세팅 등은 본 시리즈 내용과 무관하므로 넘어가겠습니다.  
-추후 기회가 된다면 관련 내용으로 포스팅 하도록 하겠습니다.
+Node.JS 설치에 대해서는 아래 포스트에서 다루었으니 해당 포스트에서 확인하시면 됩니다.
+
+- [Mac환경에서 NVM으로 Node 설치하기](https://blog.moroo.dev/posts/nvm-installation-with-mac)
 
 ## Node.JS 버전 확인하기
 
@@ -371,3 +372,11 @@ Spec Files:      1 passed, 1 total (100% completed) in 00:00:07
 지금까지 작성한 코드는 [깃허브](https://github.com/morooLee/webdriverio/tree/a37c7b8848e0644ea23927ece47acff0ae91ec36)에서 확인 가능합니다.
 
 이제 다음으로 `WebdriverIO Config` 설정에 대해 배워봅시다.
+
+## 참조
+
+> _WebdriverIO_
+>
+> - Getting Started: https://webdriver.io/docs/gettingstarted
+> - TypeScript Setup: https://webdriver.io/docs/typescript
+> - WDIO CLI Options: https://webdriver.io/docs/clioptions
