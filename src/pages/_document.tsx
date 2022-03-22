@@ -23,7 +23,21 @@ class MyDocument extends Document {
     return (
       <Html lang="ko-KR">
         <Head>
-          <GTagScript />
+          {/* Global site tag (gtag.js) - Google Analytics */}
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=G-92GW2B57SC`}
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){window.dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-92GW2B57SC');
+            `}
+          </Script>
+          {/* Global site tag (gtag.js) - Google Analytics */}
           <link rel="icon" href="/assets/favicon.png" />
           <meta name="theme-color" content="#317EFB" />
           <style
