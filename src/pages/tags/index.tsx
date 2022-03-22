@@ -20,7 +20,7 @@ export default function Tags({ blog }: Props) {
   const router = useRouter();
   const query = router.query;
 
-  const title = "Moroo's Blog Tags";
+  const title = 'Tags | Moroo Blog';
   // const description = "Moroo's Blog Tags";
   const url = `https://blog.moroo.dev${router.asPath}`;
 

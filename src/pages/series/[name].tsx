@@ -18,7 +18,7 @@ interface Props {
 }
 export default function Series({ series, posts, blog }: Props) {
   const router = useRouter();
-  const title = `Moroo's Blog | Series - ${series.name}`;
+  const title = `Series - ${series.name} | Moroo Blog`;
   // const description = `Moroo's Blog Series - [ ${series.name} ]`;
   const url = `https://blog.moroo.dev${router.asPath}`;
 

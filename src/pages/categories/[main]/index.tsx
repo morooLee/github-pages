@@ -13,7 +13,7 @@ interface Props {
 }
 export default function MainCategories({ category, posts, blog }: Props) {
   const router = useRouter();
-  const title = `Moroo's Blog | Main Category - ${category.name}`;
+  const title = `Main Category - ${category.name} | Moroo Blog`;
   // const description = `Moroo's Blog Main Category - [ ${category.name} ]`;
   const url = `https://blog.moroo.dev${router.asPath}`;
 

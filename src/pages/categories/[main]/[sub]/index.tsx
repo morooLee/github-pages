@@ -17,7 +17,7 @@ interface Props {
 }
 export default function SubCategories({ category, posts, blog }: Props) {
   const router = useRouter();
-  const title = `Moroo's Blog | Sub Category - ${category.name}`;
+  const title = `Sub Category - ${category.name} | Moroo Blog`;
   // const description = `Moroo's Blog Sub Category - [ ${category.name} ]`;
   const url = `https://blog.moroo.dev${router.asPath}`;
 

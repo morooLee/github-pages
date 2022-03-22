@@ -23,7 +23,7 @@ interface Props {
 }
 export default function Post({ post, series, content, toc, blog }: Props) {
   const router = useRouter();
-  const title = `Moroo's Blog | ${post.title}`;
+  const title = `${post.title} | Moroo Blog`;
   const description = post.description ? post.description : undefined;
   const url = `https://blog.moroo.dev${router.asPath}`;
   const images = post.coverImageUrl

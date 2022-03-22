@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default {
-  title: "Moroo's Blog",
+  title: 'Moroo Blog',
   description: 'Software QA 및 테스트 자동화에 대한 이야기',
   twitter: {
     handle: '@lee_moroo',
@@ -9,11 +9,11 @@ export default {
   },
   openGraph: {
     type: 'blog',
-    title: "Moroo's Blog",
-    defaultTitle: "Moroo's Blog",
+    title: 'Moroo Blog',
+    defaultTitle: 'Moroo Blog',
     description: 'Software QA 및 테스트 자동화에 대한 이야기',
     locale: 'ko_KR',
-    site_name: "Moroo's Blog",
+    site_name: 'Moroo Blog',
     profile: {
       firstName: 'Soon Han',
       lastName: 'Lee',

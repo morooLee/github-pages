@@ -14,7 +14,7 @@ interface Props {
 }
 export default function Categories({ blog }: Props) {
   const router = useRouter();
-  const title = "Moroo's Blog | Categories";
+  const title = 'Categories | Moroo Blog';
   // const description = "Moroo's Blog Categories";
   const url = `https://blog.moroo.dev${router.asPath}`;
 

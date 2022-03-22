@@ -14,7 +14,7 @@ interface Props {
 }
 export default function Profile({ content, blog }: Props) {
   const router = useRouter();
-  const title = "Moroo's Profile";
+  const title = 'Profile | Moroo Blog';
   // const description = "Moroo's Profile with Github";
   const url = `https://blog.moroo.dev${router.asPath}`;
   // const images = [
