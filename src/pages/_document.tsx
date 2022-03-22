@@ -8,6 +8,8 @@ import Document, {
 import { extractCritical } from '@emotion/server';
 import { mediaStyles } from 'src/components/Media';
 import { useDarkModeContext } from 'src/lib/DarkModeContext';
+import Script from 'next/script';
+import { GTagScript } from 'src/lib/gtag';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -21,6 +23,7 @@ class MyDocument extends Document {
     return (
       <Html lang="ko-KR">
         <Head>
+          <GTagScript />
           <link rel="icon" href="/assets/favicon.png" />
           <meta name="theme-color" content="#317EFB" />
           <style
