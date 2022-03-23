@@ -1,5 +1,5 @@
 ---
-title: '2. WebdriverIO 설치하기'
+title: 'WebdriverIO 설치하기'
 description: 'Typescript 기반의 WebdriverIO를 설치하는 법에 대해 설명하는 글입니다.'
 createdAt: '2022-02-20'
 updatedAt: '2022-03-04'

@@ -1,5 +1,5 @@
 ---
-title: '3. WebdriverIO Config 파헤치기'
+title: 'WebdriverIO Config 파헤치기'
 description: 'WebdriverIO Config의 각 항목에 대해서 알아봅니다.'
 createdAt: '2022-03-08'
 updatedAt: '2022-03-08'

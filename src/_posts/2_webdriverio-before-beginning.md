@@ -1,5 +1,5 @@
 ---
-title: '1. 시작하기 전에...'
+title: '시작하기 전에...'
 description: 'WebdriverIO 시리즈를 시작하기 전에 필자가 WebdriverIO를 접하게 된 계기 및 간략한 소개 글입니다.'
 createdAt: '2022-02-19'
 updatedAt: '2022-03-04'

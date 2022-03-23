@@ -1,5 +1,11 @@
+import Link from 'next/link';
 import React from 'react';
-import { RiGithubFill, RiLinkedinBoxFill, RiMailFill } from 'react-icons/ri';
+import {
+  RiGithubFill,
+  RiLinkedinBoxFill,
+  RiMailFill,
+  RiRssFill,
+} from 'react-icons/ri';
 import Tistory from '../Tistory';
 
 interface Props {
@@ -31,6 +37,13 @@ export default function ContactList({ className }: Props) {
           <a href="mailto:moroo.lee@gmail.com">
             <RiMailFill aria-label="G-Mail Address" />
           </a>
+        </li>
+        <li className="list-none text-icon">
+          <Link href="/rss/feed" as="rss/feed">
+            <a>
+              <RiRssFill aria-label="Feed Subscribe" />
+            </a>
+          </Link>
         </li>
         {/* <li className="list-none text-icon">
           <a

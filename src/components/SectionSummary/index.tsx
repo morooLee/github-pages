@@ -16,7 +16,7 @@ export default function SectionSummary({
 }: Props) {
   return (
     <div
-      className={`w-full flex flex-row items-center justify-between p-5 gap-5 ${
+      className={`w-full flex flex-row items-center justify-between p-5 gap-2 ${
         onClick ? 'cursor-pointer' : ''
       }`}
       onClick={onClick}
