@@ -10,7 +10,7 @@
   "scripts": {
     "init": "ts-node ./src/lib/init.ts",
     "dev": "next dev",
-    "postbuild": "next-sitemap",
+    "postbuild": "npm run init && next-sitemap",
     "build": "next build",
     "export": "next export",
     "start": "next start",
