@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { NextSeo } from 'next-seo';
+import { CollectionPageJsonLd, NextSeo } from 'next-seo';
 import MainLayout from '../../../../components/layouts/MainLayout';
 import Location from 'src/components/Location';
 import PostSummary from 'src/components/PostLargeCard';
@@ -9,6 +9,8 @@ import SearchInput from 'src/components/SearchInput';
 import DataListContainer from 'src/components/DataListContainer';
 import SortingList from 'src/components/SortingList';
 import NoDataMessage from 'src/components/NoDataMessage';
+import Head from 'next/head';
+import Script from 'next/script';
 
 interface Props {
   category: Category;
@@ -56,6 +58,22 @@ export default function SubCategories({ category, posts, blog }: Props) {
           url,
         }}
       />
+
+      {/* <CollectionPageJsonLd
+        name={title}
+        hasPart={posts.map((post) => {
+          return {
+            about: post.description ?? '',
+            author: 'moroo',
+            name: post.title,
+            datePublished: post.updatedAt,
+            audience: 'Internet',
+            keywords: post.category.sub,
+            thumbnailUrl: post.coverImageUrl ?? undefined,
+            image: post.coverImageUrl ?? undefined,
+          };
+        })}
+      /> */}
       <MainLayout blog={blog}>
         <section>
           {/* <Location title={`Sub Category - [ ${category.name} ]`}>

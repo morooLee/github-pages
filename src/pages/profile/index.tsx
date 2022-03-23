@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import MainLayout from '../../components/layouts/MainLayout';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import compiledSource from '../../lib/compiledSource';
-import { NextSeo } from 'next-seo';
+import { NextSeo, SocialProfileJsonLd } from 'next-seo';
 import { useRouter } from 'next/router';
 import Location from 'src/components/Location';
 import MDXContent from 'src/components/MDXContent';
@@ -34,11 +34,28 @@ export default function Profile({ content, blog }: Props) {
         title={title}
         // description={description}
         openGraph={{
+          type: 'profile',
           title,
           // description,
           url,
           // images,
+          profile: {
+            firstName: 'Soon Han',
+            lastName: 'Lee',
+            username: 'moroo',
+            gender: 'male',
+          },
         }}
+      />
+      <SocialProfileJsonLd
+        type="Person"
+        name="moroo"
+        url="https://blog.moroo.dev"
+        sameAs={[
+          'https://github.com/morooLee',
+          'https://www.linkedin.com/in/moroo',
+          'mailto:moroo.lee@gmail.com',
+        ]}
       />
       <MainLayout blog={blog}>
         <section>

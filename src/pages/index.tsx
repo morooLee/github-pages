@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { NextSeo } from 'next-seo';
+import { LogoJsonLd, NextSeo } from 'next-seo';
 import MainLayout from 'src/components/layouts/MainLayout';
 import Location from 'src/components/Location';
 import PostCard from 'src/components/PostCard';

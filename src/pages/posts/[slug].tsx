@@ -8,7 +8,7 @@ import PostLayout from '../../components/layouts/PostLayout';
 import MDXContent from '../../components/MDXContent';
 import PostLargeCard from '../../components/PostLargeCard';
 import compiledSource from '../../lib/compiledSource';
-import { NextSeo } from 'next-seo';
+import { ArticleJsonLd, NextSeo } from 'next-seo';
 import Location from 'src/components/Location';
 import SeriesPostLinks from 'src/components/SeriesLinks';
 import Link from 'next/link';
@@ -24,7 +24,8 @@ interface Props {
 export default function Post({ post, series, content, toc, blog }: Props) {
   const router = useRouter();
   const title = `${post.title} | Moroo Blog`;
-  const description = post.description ? post.description : undefined;
+  const description =
+    post.description ?? post.content.split('\n').slice(0, 9).join('\n');
   const url = `https://blog.moroo.dev${router.asPath}`;
   const images = post.coverImageUrl
     ? [{ url: post.coverImageUrl, alt: post.title }]
@@ -39,6 +40,7 @@ export default function Post({ post, series, content, toc, blog }: Props) {
         title={title}
         description={description}
         openGraph={{
+          type: 'article',
           title,
           description,
           url,
@@ -51,6 +53,17 @@ export default function Post({ post, series, content, toc, blog }: Props) {
             tags: post.tags,
           },
         }}
+      />
+      <ArticleJsonLd
+        url={url}
+        title={title}
+        images={images ? images.map((image) => image.url) : []}
+        datePublished={post.createdAt}
+        dateModified={post.updatedAt}
+        authorName={['moroo']}
+        publisherName="moroo"
+        publisherLogo="https://blog.moroo.dev/assets/cover_image.jpg"
+        description={description}
       />
       <PostLayout blog={blog} currentPost={post} toc={toc}>
         <section>

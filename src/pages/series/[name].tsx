@@ -5,7 +5,7 @@ import MainLayout from '../../components/layouts/MainLayout';
 import Location from 'src/components/Location';
 import PostSummary from 'src/components/PostLargeCard';
 import SearchInput from 'src/components/SearchInput';
-import { NextSeo } from 'next-seo';
+import { CollectionPageJsonLd, NextSeo } from 'next-seo';
 import DataListContainer from 'src/components/DataListContainer';
 import SortingList from 'src/components/SortingList';
 import NoDateMessage from 'src/components/NoDataMessage';
@@ -56,6 +56,21 @@ export default function Series({ series, posts, blog }: Props) {
           // description,
           url,
         }}
+      />
+      <CollectionPageJsonLd
+        name={title}
+        hasPart={posts.map((post) => {
+          return {
+            about: post.description ?? '',
+            author: 'moroo',
+            name: post.title,
+            datePublished: post.updatedAt,
+            audience: 'Internet',
+            keywords: post.category.sub,
+            thumbnailUrl: post.coverImageUrl ?? undefined,
+            image: post.coverImageUrl ?? undefined,
+          };
+        })}
       />
       <MainLayout blog={blog}>
         <section>

@@ -3,7 +3,7 @@
 module.exports = {
   siteUrl: 'https://blog.moroo.dev',
   sitemapSize: 7000,
-  generateRobotsTxt: true,
+  generateRobotsTxt: false,
   exclude: ['204', '/tags/*'],
   robotsTxtOptions: {
     policies: [

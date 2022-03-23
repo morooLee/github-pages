@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { GetStaticProps } from 'next';
-import { NextSeo } from 'next-seo';
+import { CollectionPageJsonLd, NextSeo } from 'next-seo';
 import MainLayout from '../../components/layouts/MainLayout';
 import PostLargeCard from '../../components/PostLargeCard';
 import Location from 'src/components/Location';
@@ -52,6 +52,21 @@ export default function Posts({ blog }: Props) {
           // description,
           url,
         }}
+      />
+      <CollectionPageJsonLd
+        name={title}
+        hasPart={blog.posts.map((post) => {
+          return {
+            about: post.description ?? '',
+            author: 'moroo',
+            name: post.title,
+            datePublished: post.updatedAt,
+            audience: 'Internet',
+            keywords: post.category.sub,
+            thumbnailUrl: post.coverImageUrl ?? undefined,
+            image: post.coverImageUrl ?? undefined,
+          };
+        })}
       />
       <MainLayout blog={blog}>
         <section>

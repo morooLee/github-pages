@@ -24,7 +24,7 @@ class MyDocument extends Document {
       <Html lang="ko-KR">
         <Head>
           {/* Global site tag (gtag.js) - Google Analytics */}
-          <Script
+          {/* <Script
             src={`https://www.googletagmanager.com/gtag/js?id=G-92GW2B57SC`}
             strategy="afterInteractive"
           />
@@ -36,10 +36,11 @@ class MyDocument extends Document {
 
               gtag('config', 'G-92GW2B57SC');
             `}
-          </Script>
+          </Script> */}
           {/* Global site tag (gtag.js) - Google Analytics */}
+
           <link rel="icon" href="/assets/favicon.png" />
-          <meta name="theme-color" content="#317EFB" />
+          <meta name="theme-color" content="#21262d" />
           <style
             data-emotion-css={(this.props as any).ids.join(' ')}
             dangerouslySetInnerHTML={{ __html: (this.props as any).css }}
