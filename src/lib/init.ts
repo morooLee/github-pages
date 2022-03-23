@@ -3,6 +3,7 @@ import { join } from 'path';
 import matter from 'gray-matter';
 import getRandomPastelColor from './getRandomPastelColor';
 import { Blog } from './blog';
+import { generateRssFeed } from './generateRssFeed';
 
 (() => {
   Blog.init();
@@ -12,6 +13,8 @@ import { Blog } from './blog';
     join(process.cwd(), 'public/blog.json'),
     JSON.stringify(blog, null, 2)
   );
+
+  generateRssFeed(blog.posts);
 })();
 
 function createPost(postsDir: string, fileName: string): Post {

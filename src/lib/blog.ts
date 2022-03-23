@@ -29,7 +29,12 @@ export class Blog {
     return this._series;
   }
 
-  static getBlog(): Blog {
+  static getBlog(): {
+    posts: Post[];
+    categories: Category[];
+    tags: Tag[];
+    series: Series[];
+  } {
     if (!this._isInit) {
       this.init();
     }
