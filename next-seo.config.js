@@ -47,5 +47,9 @@ export default {
       name: 'Yeti',
       content: 'index,follow',
     },
+    {
+      name: 'facebook-domain-verification',
+      content: '9wvjinz2dotboiz2f3m2sdgqish34f',
+    },
   ],
 };
