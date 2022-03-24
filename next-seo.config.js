@@ -51,5 +51,9 @@ export default {
       name: 'facebook-domain-verification',
       content: '9wvjinz2dotboiz2f3m2sdgqish34f',
     },
+    {
+      property: 'fb:app_id',
+      content: '1142659509842890',
+    },
   ],
 };
