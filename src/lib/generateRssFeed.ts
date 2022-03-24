@@ -2,8 +2,9 @@ import fs from 'fs';
 import { Feed } from 'feed';
 import { join } from 'path';
 import compiledSource from './compiledSource';
+import { marked } from 'marked';
 
-export async function generateRssFeed(blog: Blog) {
+export function generateRssFeed(blog: Blog) {
   const date = new Date();
   const author = {
     name: 'moroo',
@@ -56,9 +57,7 @@ export async function generateRssFeed(blog: Blog) {
   });
 
   for (const post of blog.posts) {
-    const { content, toc } = await compiledSource(post.content, {
-      isAutoLinkHeading: true,
-    });
+    const html = marked.parse(post.content);
 
     const url = `https://blog.moroo.dev/posts/${post.slug}`;
     const description =
@@ -69,7 +68,7 @@ export async function generateRssFeed(blog: Blog) {
       id: url,
       link: url,
       description,
-      content: content.compiledSource,
+      content: html,
       author: [author],
       contributor: [author],
       date: new Date(post.updatedAt),

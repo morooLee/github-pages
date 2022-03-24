@@ -14,7 +14,7 @@ import { generateRssFeed } from './generateRssFeed';
     JSON.stringify(blog, null, 2)
   );
 
-  // generateRssFeed(blog);
+  generateRssFeed(blog);
 })();
 
 function createPost(postsDir: string, fileName: string): Post {

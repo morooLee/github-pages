@@ -172,7 +172,7 @@ export default function Home({ blog }: Props) {
 export const getStaticProps: GetStaticProps = async () => {
   const blog = (await import('public/blog.json')).default;
 
-  await generateRssFeed(blog);
+  // await generateRssFeed(blog);
 
   return {
     props: {
