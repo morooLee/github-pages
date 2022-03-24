@@ -8,6 +8,7 @@ import Location from 'src/components/Location';
 import PostCard from 'src/components/PostCard';
 import PostLargeCard from 'src/components/PostLargeCard';
 import Link from 'next/link';
+import { generateRssFeed } from 'src/lib/generateRssFeed';
 
 interface Props {
   blog: Blog;
@@ -170,6 +171,8 @@ export default function Home({ blog }: Props) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const blog = (await import('public/blog.json')).default;
+
+  await generateRssFeed(blog);
 
   return {
     props: {

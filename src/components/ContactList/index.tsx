@@ -39,7 +39,7 @@ export default function ContactList({ className }: Props) {
           </a>
         </li>
         <li className="list-none text-icon">
-          <Link href="/rss/feed" as="rss/feed">
+          <Link href="/rss/feed" as="/rss/feed">
             <a>
               <RiRssFill aria-label="Feed Subscribe" />
             </a>

@@ -1,8 +1,9 @@
 import fs from 'fs';
 import { Feed } from 'feed';
 import { join } from 'path';
+import compiledSource from './compiledSource';
 
-export function generateRssFeed(blog: Blog) {
+export async function generateRssFeed(blog: Blog) {
   const date = new Date();
   const author = {
     name: 'moroo',
@@ -53,6 +54,28 @@ export function generateRssFeed(blog: Blog) {
     },
     author,
   });
+
+  for (const post of blog.posts) {
+    const { content, toc } = await compiledSource(post.content, {
+      isAutoLinkHeading: true,
+    });
+
+    const url = `https://blog.moroo.dev/posts/${post.slug}`;
+    const description =
+      post.description ?? post.content.split('\n').slice(0, 9).join('\n');
+
+    feed.addItem({
+      title: post.title,
+      id: url,
+      link: url,
+      description,
+      content: content.compiledSource,
+      author: [author],
+      contributor: [author],
+      date: new Date(post.updatedAt),
+      image: post.coverImageUrl ?? undefined,
+    });
+  }
 
   blog.posts.forEach((post) => {
     const url = `https://blog.moroo.dev/posts/${post.slug}`;

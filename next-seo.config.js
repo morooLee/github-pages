@@ -30,4 +30,22 @@ export default {
       },
     ],
   },
+  additionalMetaTags: [
+    {
+      property: 'NaverBot',
+      content: 'All',
+    },
+    {
+      name: 'NaverBot',
+      content: 'index,follow',
+    },
+    {
+      property: 'Yeti',
+      content: 'All',
+    },
+    {
+      name: 'Yeti',
+      content: 'index,follow',
+    },
+  ],
 };
