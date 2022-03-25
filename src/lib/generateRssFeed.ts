@@ -5,6 +5,7 @@ import compiledSource from './compiledSource';
 import { marked } from 'marked';
 import emoji from 'node-emoji';
 import Prism from 'prismjs';
+import loadLanguages from 'prismjs/components/index';
 
 export function generateRssFeed(blog: Blog) {
   const date = new Date();
@@ -61,6 +62,7 @@ export function generateRssFeed(blog: Blog) {
   for (const post of blog.posts) {
     marked.setOptions({
       highlight: function (code, lang) {
+        loadLanguages([lang]);
         return Prism.highlight(code, Prism.languages[lang], lang);
       },
     });
