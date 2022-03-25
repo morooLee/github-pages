@@ -43,7 +43,7 @@ export default function Location({ title, children }: Props) {
       {children ? (
         <div className="px-5 text-3xl font-extrabold">{children}</div>
       ) : (
-        <p className="px-5 text-3xl font-extrabold">{title}</p>
+        <h1 className="px-5 text-3xl font-extrabold">{title}</h1>
       )}
     </>
   );

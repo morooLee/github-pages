@@ -15,7 +15,7 @@ export default function MainCategories({ category, posts, blog }: Props) {
   const router = useRouter();
   const title = `Main Category - ${category.name} | Moroo Blog`;
   // const description = `Moroo's Blog Main Category - [ ${category.name} ]`;
-  const url = `https://blog.moroo.dev${router.asPath}`;
+  const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
 
   return (
     <>
@@ -35,7 +35,12 @@ export default function MainCategories({ category, posts, blog }: Props) {
             {'Main Category - '}
             <mark>{`[ ${category.name} ]`}</mark>
           </Location> */}
-          <Location title="Main Category" />
+          <Location title="Main Category">
+            <h1>
+              <p>Main Category</p>
+              <mark>{category.name}</mark>
+            </h1>
+          </Location>
         </section>
         <section className="max-w-none px-5 pb-5">
           <SubCategoryList

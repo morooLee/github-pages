@@ -16,7 +16,7 @@ export default function Categories({ blog }: Props) {
   const router = useRouter();
   const title = 'Categories | Moroo Blog';
   // const description = "Moroo's Blog Categories";
-  const url = `https://blog.moroo.dev${router.asPath}`;
+  const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
 
   const [searchCategories, setSearchCategories] = useState<Category[]>([
     ...blog.categories,
@@ -69,7 +69,7 @@ export default function Categories({ blog }: Props) {
       />
       <MainLayout blog={blog}>
         <section>
-          <Location title="Categories" />
+          <Location title="Categories"></Location>
         </section>
         <section className="z-10 flex flex-wrap justify-between items-center gap-5 p-5 bg-canvas sticky top-16">
           <div className="grow">

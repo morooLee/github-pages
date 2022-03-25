@@ -19,7 +19,7 @@ export default function AllSeries({ blog }: Props) {
   const router = useRouter();
   const title = 'Series | Moroo Blog';
   // const description = "Moroo's Blog Series";
-  const url = `https://blog.moroo.dev${router.asPath}`;
+  const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
 
   const [searchSeries, setSearchSeries] = useState<Series[]>([...blog.series]);
   const [isAllFolding, setIsAllFolding] = useState<boolean>(false);

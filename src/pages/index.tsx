@@ -17,7 +17,7 @@ export default function Home({ blog }: Props) {
   const router = useRouter();
   const title = 'Home | Moroo Blog';
   // const description = "Moroo's Blog";
-  const url = `https://blog.moroo.dev${router.asPath}`;
+  const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
 
   return (
     <>

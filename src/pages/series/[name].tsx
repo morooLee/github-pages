@@ -20,7 +20,7 @@ export default function Series({ series, posts, blog }: Props) {
   const router = useRouter();
   const title = `Series - ${series.name} | Moroo Blog`;
   // const description = `Moroo's Blog Series - [ ${series.name} ]`;
-  const url = `https://blog.moroo.dev${router.asPath}`;
+  const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
 
   const [searchPosts, setSearchPosts] = useState<Post[]>([...posts]);
 
@@ -78,7 +78,12 @@ export default function Series({ series, posts, blog }: Props) {
             {'Series - '}
             <mark className="text-accent">{`[ ${series.name} ]`}</mark>
           </Location> */}
-          <Location title="Series" />
+          <Location title="Series">
+            <h1 className="font-normal">
+              <mark className="font-bold pr-2">{series.name}</mark>
+              series
+            </h1>
+          </Location>
           <details className="bg-btn border rounded-md m-5 p-5" open>
             <summary className="text-3xl align-middle focus:outline-none list-none cursor-pointer">
               <span className="font-extrabold" title={series.name}>

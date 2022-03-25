@@ -3,6 +3,8 @@ import { Feed } from 'feed';
 import { join } from 'path';
 import compiledSource from './compiledSource';
 import { marked } from 'marked';
+import emoji from 'node-emoji';
+import Prism from 'prismjs';
 
 export function generateRssFeed(blog: Blog) {
   const date = new Date();
@@ -57,11 +59,27 @@ export function generateRssFeed(blog: Blog) {
   });
 
   for (const post of blog.posts) {
-    const html = marked.parse(post.content);
+    marked.setOptions({
+      highlight: function (code, lang) {
+        return Prism.highlight(code, Prism.languages[lang], lang);
+      },
+    });
 
-    const url = `https://blog.moroo.dev/posts/${post.slug}`;
+    const replacer = (match: string) => emoji.emojify(match);
+    const markdown = post.content.replace(/(:.*:)/g, replacer);
+    const html = marked.parse(markdown);
+
+    const url = decodeURI(`https://blog.moroo.dev/posts/${post.slug}`);
     const description =
       post.description ?? post.content.split('\n').slice(0, 9).join('\n');
+
+    feed.addCategory('Tech');
+    feed.addCategory('Technology');
+    feed.addCategory('IT');
+
+    for (const category of blog.categories) {
+      feed.addCategory(category.name);
+    }
 
     feed.addItem({
       title: post.title,
@@ -73,26 +91,52 @@ export function generateRssFeed(blog: Blog) {
       contributor: [author],
       date: new Date(post.updatedAt),
       image: post.coverImageUrl ?? undefined,
+      category: [
+        {
+          name: 'Tech',
+          domain: 'https://blog.moroo.dev/categories',
+        },
+        {
+          name: 'Technology',
+          domain: 'https://blog.moroo.dev/categories',
+        },
+        {
+          name: 'IT',
+          domain: 'https://blog.moroo.dev/categories',
+        },
+        {
+          name: post.category.main,
+          domain: decodeURI(
+            `https://blog.moroo.dev/categories/${post.category.main}`
+          ),
+        },
+        {
+          name: post.category.sub,
+          domain: decodeURI(
+            `https://blog.moroo.dev/categories/${post.category.main}/${post.category.sub}`
+          ),
+        },
+      ],
     });
   }
 
-  blog.posts.forEach((post) => {
-    const url = `https://blog.moroo.dev/posts/${post.slug}`;
-    const description =
-      post.description ?? post.content.split('\n').slice(0, 9).join('\n');
+  // blog.posts.forEach((post) => {
+  //   const url = `https://blog.moroo.dev/posts/${post.slug}`;
+  //   const description =
+  //     post.description ?? post.content.split('\n').slice(0, 9).join('\n');
 
-    feed.addItem({
-      title: post.title,
-      id: url,
-      link: url,
-      description,
-      content: post.content,
-      author: [author],
-      contributor: [author],
-      date: new Date(post.updatedAt),
-      image: post.coverImageUrl ?? undefined,
-    });
-  });
+  //   feed.addItem({
+  //     title: post.title,
+  //     id: url,
+  //     link: url,
+  //     description,
+  //     content: post.content,
+  //     author: [author],
+  //     contributor: [author],
+  //     date: new Date(post.updatedAt),
+  //     image: post.coverImageUrl ?? undefined,
+  //   });
+  // });
 
   fs.mkdirSync(join(process.cwd(), 'public/rss'), { recursive: true });
   fs.writeFileSync(join(process.cwd(), 'public/rss/feed.xml'), feed.rss2());

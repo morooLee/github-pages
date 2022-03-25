@@ -8,7 +8,7 @@ export default {
     cardType: 'summary_large_image',
   },
   openGraph: {
-    type: 'blog',
+    type: 'website',
     title: 'Moroo Blog',
     defaultTitle: 'Moroo Blog',
     description: 'Software QA 및 테스트 자동화에 대한 이야기',

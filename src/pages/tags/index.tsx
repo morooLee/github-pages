@@ -22,7 +22,7 @@ export default function Tags({ blog }: Props) {
 
   const title = 'Tags | Moroo Blog';
   // const description = "Moroo's Blog Tags";
-  const url = `https://blog.moroo.dev${router.asPath}`;
+  const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
 
   const [isAll, setIsAll] = useState<boolean>(true);
   const [currentTags, setCurrentTags] = useState<Tag[]>([...blog.tags]);

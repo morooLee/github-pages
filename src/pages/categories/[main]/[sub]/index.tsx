@@ -21,7 +21,7 @@ export default function SubCategories({ category, posts, blog }: Props) {
   const router = useRouter();
   const title = `Sub Category - ${category.name} | Moroo Blog`;
   // const description = `Moroo's Blog Sub Category - [ ${category.name} ]`;
-  const url = `https://blog.moroo.dev${router.asPath}`;
+  const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
 
   const [searchPosts, setSearchPosts] = useState<Post[]>([...posts]);
 
@@ -80,8 +80,13 @@ export default function SubCategories({ category, posts, blog }: Props) {
             {'Sub Category - '}
             <mark>{`[ ${category.name} ]`}</mark>
           </Location> */}
-          <Location title="Sub Category" />
-          <mark className="text-4xl font-extrabold px-5">{category.name}</mark>
+          <Location title="Sub Category">
+            <h1>
+              <p>Sub Category</p>
+              <mark>{category.name}</mark>
+            </h1>
+          </Location>
+          {/* <mark className="text-4xl font-extrabold px-5">{category.name}</mark> */}
         </section>
         <section className="z-10 p-5 bg-canvas sticky top-16 flex justify-between items-center gap-5">
           <SortingList

@@ -26,7 +26,7 @@ export default function Post({ post, series, content, toc, blog }: Props) {
   const title = `${post.title} | Moroo Blog`;
   const description =
     post.description ?? post.content.split('\n').slice(0, 9).join('\n');
-  const url = `https://blog.moroo.dev${router.asPath}`;
+  const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
   const images = post.coverImageUrl
     ? [{ url: post.coverImageUrl, alt: post.title }]
     : undefined;
@@ -71,7 +71,7 @@ export default function Post({ post, series, content, toc, blog }: Props) {
             {'Post - '}
             <mark className="text-accent">{`[ ${post.title} ]`}</mark>
           </Location> */}
-          <Location title="Post" />
+          <Location title="Post">Post</Location>
           {/* <mark className="text-4xl font-extrabold px-5">{post.title}</mark> */}
         </section>
         <section className="mx-5 mt-5 mb-10">
@@ -79,7 +79,7 @@ export default function Post({ post, series, content, toc, blog }: Props) {
         </section>
         <article
           id="post-article"
-          className="markdown dark:markdown-invert max-w-none p-5"
+          className="daum-wm-content markdown dark:markdown-invert max-w-none p-5"
         >
           {/* <Adsense
             style={{ display: 'block', textAlign: 'center' }}

@@ -16,7 +16,7 @@ export default function Profile({ content, blog }: Props) {
   const router = useRouter();
   const title = 'Profile | Moroo Blog';
   // const description = "Moroo's Profile with Github";
-  const url = `https://blog.moroo.dev${router.asPath}`;
+  const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
   // const images = [
   //   {
   //     url: 'https://blog.moroo.dev/assets/pages/profile/profile.png',

@@ -37,7 +37,7 @@ export default function PostLargeCard({ post }: Props) {
         </Link>
       </div>
       {query.slug === post.slug ? (
-        <h1 className="py-2 text-4xl font-bold">{post.title}</h1>
+        <h1 className="daum-wm-title py-2 text-4xl font-bold">{post.title}</h1>
       ) : (
         <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
           <a className="inline-block py-2 text-4xl font-bold">
@@ -65,7 +65,10 @@ export default function PostLargeCard({ post }: Props) {
             최근 수정일 :
           </label>
           {/* <RiCalendar2Line className="text-lg" /> */}
-          <p className="text-md font-semibold" title={post.updatedAt}>
+          <p
+            className="daum-wm-datetime text-md font-semibold"
+            title={post.updatedAt}
+          >
             {post.updatedAt}
           </p>
         </div>

@@ -5,7 +5,7 @@ createdAt: '2022-02-16'
 updatedAt: '2022-02-16'
 coverImageUrl: null
 category: { main: 'SQA', sub: 'Etc' }
-tags: ['sqa', 'meme', 'qa', 'developer']
+tags: ['sqa', 'meme', 'qa', 'developer', '개발자', '밈']
 published: true
 ---
 
