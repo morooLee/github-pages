@@ -59,6 +59,14 @@ export function generateRssFeed(blog: Blog) {
     author,
   });
 
+  feed.addCategory('Tech');
+  feed.addCategory('Technology');
+  feed.addCategory('IT');
+
+  for (const category of blog.categories) {
+    feed.addCategory(category.name);
+  }
+
   for (const post of blog.posts) {
     marked.setOptions({
       highlight: function (code, lang) {
@@ -74,14 +82,6 @@ export function generateRssFeed(blog: Blog) {
     const url = decodeURI(`https://blog.moroo.dev/posts/${post.slug}`);
     const description =
       post.description ?? post.content.split('\n').slice(0, 9).join('\n');
-
-    feed.addCategory('Tech');
-    feed.addCategory('Technology');
-    feed.addCategory('IT');
-
-    for (const category of blog.categories) {
-      feed.addCategory(category.name);
-    }
 
     feed.addItem({
       title: post.title,
