@@ -39,7 +39,7 @@ interface Post {
   id: number;
   slug: string;
   title: string;
-  description: string | null;
+  description: string;
   createdAt: string;
   updatedAt: string;
   coverImageUrl: string | null;

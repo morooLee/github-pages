@@ -87,7 +87,7 @@ export class Blog {
       id: Number(id),
       slug,
       title: data.title,
-      description: data.description,
+      description: data.description!,
       coverImageUrl: data.coverImageUrl,
       coverBackgroundColor,
       createdAt: new Date(data.createdAt).toLocaleDateString('ko-KR'),

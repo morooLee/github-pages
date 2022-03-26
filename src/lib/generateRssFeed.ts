@@ -75,13 +75,18 @@ export function generateRssFeed(blog: Blog) {
       },
     });
 
-    const replacer = (match: string) => emoji.emojify(match);
-    const markdown = post.content.replace(/(:.*:)/g, replacer);
+    const replacer = (match: string) => {
+      if (match.startsWith('`') && match.endsWith('`')) {
+        return match;
+      } else {
+        return emoji.emojify(match);
+      }
+    };
+    const markdown = post.content.replace(/(.:[^:]+:.)/g, replacer);
     const html = marked.parse(markdown);
 
     const url = decodeURI(`https://blog.moroo.dev/posts/${post.slug}`);
-    const description =
-      post.description ?? post.content.split('\n').slice(0, 9).join('\n');
+    const description = post.description;
 
     feed.addItem({
       title: post.title,
@@ -90,7 +95,6 @@ export function generateRssFeed(blog: Blog) {
       description,
       content: html,
       author: [author],
-      contributor: [author],
       date: new Date(post.updatedAt),
       image: post.coverImageUrl ?? undefined,
       category: [

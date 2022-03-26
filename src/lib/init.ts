@@ -31,7 +31,7 @@ function createPost(postsDir: string, fileName: string): Post {
     id: Number(id),
     slug,
     title: data.title,
-    description: data.description,
+    description: data.description!,
     coverImageUrl: data.coverImageUrl,
     coverBackgroundColor,
     createdAt: new Date(data.createdAt).toLocaleDateString(),
