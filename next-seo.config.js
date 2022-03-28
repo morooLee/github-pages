@@ -47,13 +47,13 @@ export default {
       name: 'Yeti',
       content: 'index,follow',
     },
-    {
-      name: 'facebook-domain-verification',
-      content: '9wvjinz2dotboiz2f3m2sdgqish34f',
-    },
+    // {
+    //   name: 'facebook-domain-verification',
+    //   content: '9wvjinz2dotboiz2f3m2sdgqish34f',
+    // },
     {
       property: 'fb:app_id',
-      content: '1142659509842890',
+      content: '736749940650920',
     },
   ],
 };

@@ -12,6 +12,7 @@ import rehypeToc, {
 import stringWidth from 'string-width';
 import { s, h } from 'hastscript';
 import { Element } from 'hastscript/lib/core';
+import { Pluggable } from 'unified';
 const toJsx = require('@mapbox/hast-util-to-jsx');
 
 const LINK_SVG_TAG: Element = s(
@@ -33,6 +34,8 @@ const LINK_SVG_TAG: Element = s(
 
 interface CompiledSourceOptions {
   isAutoLinkHeading: boolean;
+  useGfm?: boolean;
+  useGemoji?: boolean;
   scope?: Record<string, unknown>;
 }
 
@@ -40,48 +43,62 @@ export default async function compiledSource(
   source: string,
   options: CompiledSourceOptions
 ) {
+  const useGfm = options.useGfm ?? true;
+  const useGemoji = options.useGemoji ?? true;
+  const isAutoLinkHeading = options.isAutoLinkHeading;
+
   let tocContent: HtmlElementNode | undefined;
   let toc: MDXRemoteSerializeResult | undefined;
+
+  const remarkPlugins: Pluggable<any[]>[] = [];
+  const rehypePlugins: Pluggable<any[]>[] = [];
+
+  if (useGfm) {
+    remarkPlugins.push([remarkGfm, { stringLength: stringWidth }]);
+  }
+
+  if (useGemoji) {
+    remarkPlugins.push(remarkGemoji);
+  }
+
+  if (isAutoLinkHeading) {
+    rehypePlugins.push(rehypeSlug);
+    rehypePlugins.push([
+      rehypeAutolinkHeadings,
+      {
+        // content: {
+        //   type: 'element',
+        //   tagName: 'span',
+        //   properties: {
+        //     className: ['icon', 'icon-link', 'inline-block', 'mr-2'],
+        //   },
+        //   children: [LINK_SVG_TAG],
+        // },
+        group(node: Element) {
+          return h('.heading-' + node.tagName.charAt(1) + '-group');
+        },
+        content(node: Element): Element[] {
+          return [LINK_SVG_TAG];
+        },
+      },
+    ]);
+    rehypePlugins.push([
+      rehypeToc,
+      {
+        nav: true,
+        customizeTOC: (toc) => {
+          tocContent = toc;
+          return false;
+        },
+      } as rehypeTocOptions,
+    ]);
+  }
 
   const content: MDXRemoteSerializeResult = await serialize(source, {
     scope: options?.scope,
     mdxOptions: {
-      remarkPlugins: [[remarkGfm, { stringLength: stringWidth }], remarkGemoji],
-      rehypePlugins: options.isAutoLinkHeading
-        ? [
-            rehypeSlug,
-            [
-              rehypeAutolinkHeadings,
-              {
-                // content: {
-                //   type: 'element',
-                //   tagName: 'span',
-                //   properties: {
-                //     className: ['icon', 'icon-link', 'inline-block', 'mr-2'],
-                //   },
-                //   children: [LINK_SVG_TAG],
-                // },
-                group(node: Element) {
-                  console.log(node);
-                  return h('.heading-' + node.tagName.charAt(1) + '-group');
-                },
-                content(node: Element): Element[] {
-                  return [LINK_SVG_TAG];
-                },
-              },
-            ],
-            [
-              rehypeToc,
-              {
-                nav: true,
-                customizeTOC: (toc) => {
-                  tocContent = toc;
-                  return false;
-                },
-              } as rehypeTocOptions,
-            ],
-          ]
-        : [],
+      remarkPlugins,
+      rehypePlugins,
     },
   });
   if (tocContent) {

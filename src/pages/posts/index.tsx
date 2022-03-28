@@ -63,16 +63,16 @@ export default function Posts({ blog }: Props) {
             datePublished: post.updatedAt,
             audience: 'Internet',
             keywords: post.category.sub,
-            thumbnailUrl: post.coverImageUrl ?? undefined,
-            image: post.coverImageUrl ?? undefined,
+            thumbnailUrl: post.coverImageUrl,
+            image: post.coverImageUrl,
           };
         })}
       />
       <MainLayout blog={blog}>
-        <section>
+        <div>
           <Location title="Posts" />
-        </section>
-        <section className="z-10 flex flex-wrap justify-between items-center p-5 bg-canvas sticky top-16">
+        </div>
+        <div className="z-10 flex flex-wrap justify-between items-center p-5 bg-canvas sticky top-16">
           <div className="grow">
             <SortingList
               defaultSortType={'recent'}
@@ -92,8 +92,8 @@ export default function Posts({ blog }: Props) {
             })}
             onChange={onSearchChange}
           />
-        </section>
-        <section className="max-w-none px-5 pb-5">
+        </div>
+        <div className="max-w-none px-5 pb-5">
           {searchPosts.length > 0 ? (
             <ul className="flex flex-col gap-10">
               {searchPosts.map((post) => {
@@ -107,7 +107,7 @@ export default function Posts({ blog }: Props) {
           ) : (
             <NoDataMessage />
           )}
-        </section>
+        </div>
       </MainLayout>
     </>
   );

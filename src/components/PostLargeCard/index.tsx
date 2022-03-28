@@ -13,6 +13,7 @@ export default function PostLargeCard({ post }: Props) {
   return (
     <div className="w-full bg-btn rounded-md border p-5">
       <PostCoverImage
+        isLarge={true}
         title={post.title}
         coverImageUrl={post.coverImageUrl}
         coverBackgroundColor={post.coverBackgroundColor}

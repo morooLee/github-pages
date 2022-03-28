@@ -58,15 +58,15 @@ export default function Profile({ content, blog }: Props) {
         ]}
       />
       <MainLayout blog={blog}>
-        <section>
+        <div>
           <Location title="Profile" />
-        </section>
-        <article
+        </div>
+        <div
           id="profile-content"
           className="markdown dark:markdown-invert max-w-none px-5 pb-5"
         >
           <MDXContent content={content} />
-        </article>
+        </div>
       </MainLayout>
     </>
   );

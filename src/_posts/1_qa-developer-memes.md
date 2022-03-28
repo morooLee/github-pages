@@ -21,7 +21,7 @@ published: true
 ## Meme #1 - 방탄 조끼
 
 <div className="video-container">
-  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6s2UJBFDCoA?start=25" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay=0; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="video-youtube"></iframe>
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6s2UJBFDCoA?autoplay=0&start=25" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay=0; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="video-youtube"></iframe>
 </div>
 
 > This is the original Developper vs QA Engineer meme  
@@ -129,7 +129,7 @@ published: true
 ## Meme #3 - 모양 맞추기 (`BEST`)
 
 <div className="video-container">
-  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/baY3SaIhfl0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay=0; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="video-youtube"></iframe>
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/baY3SaIhfl0?autoplay=0" title="YouTube video player" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="video-youtube"></iframe>
 </div>
 
 > All credit goes to the talented actor, Alison Burke. Check out hers  
@@ -157,6 +157,6 @@ published: true
 
 ## 참조
 
-> Youtube: [Developper vs QA Engineer // LOL ComediHa!](https://www.youtube.com/watch?v=6s2UJBFDCoA)  
-> Twitter: [@brenankeller](https://twitter.com/brenankeller/status/1068615953989087232?s=20&t=WBFGuqbflcdFYoiNwOEsEw)  
-> Youtube: [Devs watching QA test the product](https://www.youtube.com/watch?v=baY3SaIhfl0)
+> - Youtube: [Developper vs QA Engineer // LOL ComediHa!](https://www.youtube.com/watch?v=6s2UJBFDCoA)
+> - Twitter: [@brenankeller](https://twitter.com/brenankeller/status/1068615953989087232?s=20&t=WBFGuqbflcdFYoiNwOEsEw)
+> - Youtube: [Devs watching QA test the product](https://www.youtube.com/watch?v=baY3SaIhfl0)

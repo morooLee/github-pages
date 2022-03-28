@@ -29,7 +29,7 @@ export default function TocAside({ toc, activeHeadingId }: Props) {
 
   return (
     <div className="w-full lg:py-5 flex flex-col gap-2">
-      <section className="bg-canvas border rounded-md">
+      <div className="bg-canvas border rounded-md">
         <SectionSummary
           isFolding={isFolding}
           toggleFolding={toggleFolding}
@@ -71,7 +71,7 @@ export default function TocAside({ toc, activeHeadingId }: Props) {
             ) : null}
           </div>
         </SectionContent>
-      </section>
+      </div>
       {/* <section className="bg-canvas border rounded-md">
         <SectionSummary isFolding={false}>
           <p className="text-accent text-xl font-semibold inline-block cursor-text">

@@ -48,11 +48,10 @@ export default function PostCard({ post }: Props) {
           {post.title}
         </p>
         <PostCoverImage
+          isLarge={false}
           title={post.title}
           coverImageUrl={post.coverImageUrl}
           coverBackgroundColor={post.coverBackgroundColor}
-          fontSize="text-sm"
-          fontWeight="font-bold"
         />
         <p
           className="flex-1 text-sm text-muted h-32 mt-2 mb-4 line-clamp-5"

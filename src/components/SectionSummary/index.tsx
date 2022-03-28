@@ -23,7 +23,11 @@ export default function SectionSummary({
     >
       {children}
       {isFolding !== undefined && toggleFolding !== undefined ? (
-        <button onClick={toggleFolding} className="inline-block text-2xl">
+        <button
+          onClick={toggleFolding}
+          className="inline-block text-2xl"
+          aria-label="폴딩 버튼"
+        >
           <FoldingArrow isFolding={isFolding} />
         </button>
       ) : null}

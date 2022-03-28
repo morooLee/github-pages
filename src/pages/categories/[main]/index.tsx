@@ -30,26 +30,21 @@ export default function MainCategories({ category, posts, blog }: Props) {
         }}
       />
       <MainLayout blog={blog}>
-        <section>
+        <div>
           {/* <Location title={`Main Category - ${category.name}`}>
             {'Main Category - '}
             <mark>{`[ ${category.name} ]`}</mark>
           </Location> */}
-          <Location title="Main Category">
-            <h1>
-              <p>Main Category</p>
-              <mark>{category.name}</mark>
-            </h1>
-          </Location>
-        </section>
-        <section className="max-w-none px-5 pb-5">
+          <Location title="Main Category" />
+        </div>
+        <div className="max-w-none px-5 pb-5">
           <SubCategoryList
             mainCategory={category}
             posts={posts}
             isAllFolding={false}
             hasLink={false}
           />
-        </section>
+        </div>
       </MainLayout>
     </>
   );

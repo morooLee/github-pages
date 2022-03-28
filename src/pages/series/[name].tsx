@@ -67,13 +67,13 @@ export default function Series({ series, posts, blog }: Props) {
             datePublished: post.updatedAt,
             audience: 'Internet',
             keywords: post.category.sub,
-            thumbnailUrl: post.coverImageUrl ?? undefined,
-            image: post.coverImageUrl ?? undefined,
+            thumbnailUrl: post.coverImageUrl,
+            image: post.coverImageUrl,
           };
         })}
       />
       <MainLayout blog={blog}>
-        <section>
+        <div>
           {/* <Location title={`Series - ${series.name}`}>
             {'Series - '}
             <mark className="text-accent">{`[ ${series.name} ]`}</mark>
@@ -104,8 +104,8 @@ export default function Series({ series, posts, blog }: Props) {
               })}
             </ul>
           </details>
-        </section>
-        <section className="z-10 flex justify-between items-center gap-5 p-5 bg-canvas sticky top-16">
+        </div>
+        <div className="z-10 flex justify-between items-center gap-5 p-5 bg-canvas sticky top-16">
           <SortingList
             defaultSortType={'number'}
             useSortTypes={['number', 'recent', 'name']}
@@ -123,8 +123,8 @@ export default function Series({ series, posts, blog }: Props) {
             })}
             onChange={onSearchChange}
           />
-        </section>
-        <section className="max-w-none px-5 pb-5">
+        </div>
+        <div className="max-w-none px-5 pb-5">
           {searchPosts.length > 0 ? (
             <ul className="flex flex-col gap-10">
               {searchPosts.map((post) => {
@@ -138,7 +138,7 @@ export default function Series({ series, posts, blog }: Props) {
           ) : (
             <NoDateMessage />
           )}
-        </section>
+        </div>
       </MainLayout>
     </>
   );

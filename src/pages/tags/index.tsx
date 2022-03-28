@@ -116,10 +116,10 @@ export default function Tags({ blog }: Props) {
         }}
       />
       <MainLayout blog={blog}>
-        <section>
+        <div>
           <Location title="Tags" />
-        </section>
-        <section className="sticky top-16 z-10 bg-canvas px-5 pb-5">
+        </div>
+        <div className="sticky top-16 z-10 bg-canvas px-5 pb-5">
           <div className="py-5 flex flex-row items-center gap-2">
             <p className="flex-auto text-accent text-xl font-semibold">
               Filter
@@ -172,8 +172,8 @@ export default function Tags({ blog }: Props) {
               );
             })}
           </ul>
-        </section>
-        <section className="sticky top-[14.5rem] md:top-[12rem] z-10 flex flex-wrap justify-between items-center gap-5 px-5 pb-5 bg-canvas">
+        </div>
+        <div className="sticky top-[14.5rem] md:top-[12rem] z-10 flex flex-wrap justify-between items-center gap-5 px-5 pb-5 bg-canvas">
           <div className="grow">
             <SortingList
               defaultSortType={'posts'}
@@ -207,8 +207,8 @@ export default function Tags({ blog }: Props) {
               className="inline-block text-2xl group-hover:text-accent"
             />
           </div>
-        </section>
-        <section className="px-5 pb-5">
+        </div>
+        <div className="px-5 pb-5">
           {currentTags.length > 0 ? (
             <ul className="flex flex-col gap-5">
               {currentTags.map((tag) => {
@@ -234,7 +234,7 @@ export default function Tags({ blog }: Props) {
           ) : (
             <NoDateMessage />
           )}
-        </section>
+        </div>
         <div className="px-5 pb-5"></div>
       </MainLayout>
     </>

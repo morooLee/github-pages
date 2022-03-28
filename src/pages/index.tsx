@@ -32,7 +32,7 @@ export default function Home({ blog }: Props) {
         }}
       />
       <MainLayout blog={blog}>
-        <section className="pb-10">
+        <div className="pb-10">
           <Location title="hello">
             <h1 className="text-5xl font-bold">
               Hello! 👋
@@ -65,14 +65,14 @@ export default function Home({ blog }: Props) {
               </p>
             </div> */}
           </Location>
-        </section>
-        <section className="px-5 pb-10">
+        </div>
+        <div className="px-5 pb-10">
           <p className="text-3xl font-bold">Latest Post</p>
           <div className="py-5">
             <PostLargeCard post={blog.posts[0]} />
           </div>
-        </section>
-        <section className="px-5 pb-10">
+        </div>
+        <div className="px-5 pb-10">
           <p className="text-3xl font-bold">Posts</p>
           <ul className="py-5 flex gap-5 overflow-y-auto snap-x">
             {blog.posts.map((post) => {
@@ -83,8 +83,8 @@ export default function Home({ blog }: Props) {
               );
             })}
           </ul>
-        </section>
-        <section className="px-5 pb-10">
+        </div>
+        <div className="px-5 pb-10">
           <p className="text-3xl font-bold">Series</p>
           <ul className="py-5 flex flex-row gap-5">
             {blog.series.map((series) => {
@@ -99,8 +99,8 @@ export default function Home({ blog }: Props) {
               );
             })}
           </ul>
-        </section>
-        <section className="px-5 pb-10">
+        </div>
+        <div className="px-5 pb-10">
           <p className="text-3xl font-bold">Categories</p>
           <ul className="py-5 flex flex-row flex-wrap gap-10">
             {blog.categories
@@ -147,8 +147,8 @@ export default function Home({ blog }: Props) {
                 );
               })}
           </ul>
-        </section>
-        <section className="px-5 pb-10">
+        </div>
+        <div className="px-5 pb-10">
           <p className="text-3xl font-bold">Tags</p>
           <ul className="list-none py-5 flex flex-row flex-wrap gap-2">
             {blog.tags.map((tag) => {
@@ -168,7 +168,7 @@ export default function Home({ blog }: Props) {
               );
             })}
           </ul>
-        </section>
+        </div>
       </MainLayout>
     </>
   );

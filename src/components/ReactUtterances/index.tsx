@@ -114,8 +114,8 @@ export default function ReactUtterances(props: Props) {
   }, [theme, isLoading]);
 
   return (
-    <section className={`react-utterances ${theme}`} ref={scriptRef}>
+    <div className={`react-utterances ${theme}`} ref={scriptRef}>
       {isLoading ? <div>Loading script...</div> : null}
-    </section>
+    </div>
   );
 }

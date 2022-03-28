@@ -27,9 +27,9 @@ export default function Post({ post, series, content, toc, blog }: Props) {
   const description =
     post.description ?? post.content.split('\n').slice(0, 9).join('\n');
   const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
-  const images = post.coverImageUrl
-    ? [{ url: post.coverImageUrl, alt: post.title }]
-    : undefined;
+  const images = [
+    { url: post.coverImageUrl, alt: `${post.title} Cover Image` },
+  ];
 
   const [isDarkMode] = useDarkModeContext();
 
@@ -66,17 +66,17 @@ export default function Post({ post, series, content, toc, blog }: Props) {
         description={description}
       />
       <PostLayout blog={blog} currentPost={post} toc={toc}>
-        <section>
+        <div>
           {/* <Location title={`Post - [ ${post.title} ]`}>
             {'Post - '}
             <mark className="text-accent">{`[ ${post.title} ]`}</mark>
           </Location> */}
           <Location title="Post">Post</Location>
           {/* <mark className="text-4xl font-extrabold px-5">{post.title}</mark> */}
-        </section>
-        <section className="mx-5 mt-5 mb-10">
+        </div>
+        <div className="mx-5 mt-5 mb-10">
           <PostLargeCard post={post} />
-        </section>
+        </div>
         <article
           id="post-article"
           className="daum-wm-content markdown dark:markdown-invert max-w-none p-5"
@@ -91,7 +91,7 @@ export default function Post({ post, series, content, toc, blog }: Props) {
           <MDXContent content={content} />
         </article>
         {post.series ? (
-          <section className="mx-5 pt-5 mb-10 border-t">
+          <div className="mx-5 pt-5 mb-10 border-t">
             <Link href="/series/[name]" as={`/series/${post.series.name}`}>
               <a className="inline-block text-3xl font-bold">
                 <p>{post.series.name}</p>
@@ -107,7 +107,7 @@ export default function Post({ post, series, content, toc, blog }: Props) {
                 ({ id }) => id === series?.postIds[post.series!.number - 1 + 1]
               )}
             />
-          </section>
+          </div>
         ) : null}
         {/* <Adsense
           style={{ display: 'block', textAlign: 'center' }}

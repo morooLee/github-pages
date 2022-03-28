@@ -11,7 +11,7 @@ export default function PostsMenuItem({}: Props) {
     route.push('/posts');
   }
   return (
-    <section className="lg:hidden w-full lg:w-62 2xl:w-80 bg-canvas border rounded-md">
+    <div className="lg:hidden w-full lg:w-62 2xl:w-80 bg-canvas border rounded-md">
       <SectionSummary onClick={handleOnClick}>
         <div className="group w-full -m-5 p-5">
           <Link href="/posts" as="/posts">
@@ -21,6 +21,6 @@ export default function PostsMenuItem({}: Props) {
           </Link>
         </div>
       </SectionSummary>
-    </section>
+    </div>
   );
 }

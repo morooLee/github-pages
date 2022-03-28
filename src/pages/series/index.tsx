@@ -70,10 +70,10 @@ export default function AllSeries({ blog }: Props) {
         }}
       />
       <MainLayout blog={blog}>
-        <section>
+        <div>
           <Location title="Series" />
-        </section>
-        <section className="z-10 flex flex-wrap justify-between items-center gap-5 p-5 bg-canvas sticky top-16">
+        </div>
+        <div className="z-10 flex flex-wrap justify-between items-center gap-5 p-5 bg-canvas sticky top-16">
           <div className="grow">
             <SortingList
               defaultSortType={'posts'}
@@ -105,8 +105,8 @@ export default function AllSeries({ blog }: Props) {
               className="inline-block text-2xl group-hover:text-accent"
             />
           </div>
-        </section>
-        <section className="max-w-none px-5 pb-5">
+        </div>
+        <div className="max-w-none px-5 pb-5">
           {searchSeries.length > 0 ? (
             <ul className="flex flex-col gap-5">
               {searchSeries.map((series) => {
@@ -128,7 +128,7 @@ export default function AllSeries({ blog }: Props) {
           ) : (
             <NoDateMessage />
           )}
-        </section>
+        </div>
       </MainLayout>
     </>
   );

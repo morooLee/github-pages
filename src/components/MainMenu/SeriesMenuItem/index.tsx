@@ -36,7 +36,7 @@ export default function SeriesMenuItem({
   }, [expand]);
 
   return (
-    <section className="w-full xl:w-62 2xl:w-80 bg-canvas border rounded-md">
+    <div className="w-full xl:w-62 2xl:w-80 bg-canvas border rounded-md">
       <SectionSummary
         isFolding={isFolding}
         toggleFolding={toggleFolding}
@@ -69,6 +69,6 @@ export default function SeriesMenuItem({
           })}
         </ul>
       </SectionContent>
-    </section>
+    </div>
   );
 }

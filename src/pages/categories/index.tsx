@@ -68,10 +68,10 @@ export default function Categories({ blog }: Props) {
         }}
       />
       <MainLayout blog={blog}>
-        <section>
+        <div>
           <Location title="Categories"></Location>
-        </section>
-        <section className="z-10 flex flex-wrap justify-between items-center gap-5 p-5 bg-canvas sticky top-16">
+        </div>
+        <div className="z-10 flex flex-wrap justify-between items-center gap-5 p-5 bg-canvas sticky top-16">
           <div className="grow">
             <SortingList
               defaultSortType={'posts'}
@@ -103,14 +103,14 @@ export default function Categories({ blog }: Props) {
               className="inline-block text-2xl group-hover:text-accent"
             />
           </div>
-        </section>
-        <section className="max-w-none px-5 pb-5">
+        </div>
+        <div className="max-w-none px-5 pb-5">
           <MainCategoryList
             categories={searchCategories}
             posts={blog.posts}
             isAllFolding={isAllFolding}
           />
-        </section>
+        </div>
       </MainLayout>
     </>
   );

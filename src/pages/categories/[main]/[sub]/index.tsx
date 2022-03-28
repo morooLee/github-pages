@@ -75,7 +75,7 @@ export default function SubCategories({ category, posts, blog }: Props) {
         })}
       /> */}
       <MainLayout blog={blog}>
-        <section>
+        <div>
           {/* <Location title={`Sub Category - [ ${category.name} ]`}>
             {'Sub Category - '}
             <mark>{`[ ${category.name} ]`}</mark>
@@ -87,8 +87,8 @@ export default function SubCategories({ category, posts, blog }: Props) {
             </h1>
           </Location>
           {/* <mark className="text-4xl font-extrabold px-5">{category.name}</mark> */}
-        </section>
-        <section className="z-10 p-5 bg-canvas sticky top-16 flex justify-between items-center gap-5">
+        </div>
+        <div className="z-10 p-5 bg-canvas sticky top-16 flex justify-between items-center gap-5">
           <SortingList
             defaultSortType={'recent'}
             useSortTypes={['recent', 'name']}
@@ -106,16 +106,14 @@ export default function SubCategories({ category, posts, blog }: Props) {
             })}
             onChange={onSearchChange}
           />
-        </section>
-        <section className="max-w-none px-5 pb-5">
+        </div>
+        <div className="max-w-none px-5 pb-5">
           {searchPosts.length > 0 ? (
             <ul className="flex flex-col gap-10">
               {searchPosts.map((post) => {
                 return (
                   <li key={post.slug}>
-                    <div className="w-full bg-btn rounded-md border p-5">
-                      <PostSummary post={post} />
-                    </div>
+                    <PostSummary post={post} />
                   </li>
                 );
               })}
@@ -123,7 +121,7 @@ export default function SubCategories({ category, posts, blog }: Props) {
           ) : (
             <NoDataMessage />
           )}
-        </section>
+        </div>
       </MainLayout>
     </>
   );

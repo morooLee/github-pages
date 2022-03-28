@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import getRandomPastelColor from './getRandomPastelColor';
 import { Blog } from './blog';
 import { generateRssFeed } from './generateRssFeed';
+import createSVGCoverImage from './createSVGCoverImage';
 
 (() => {
   Blog.init();
@@ -32,7 +33,13 @@ function createPost(postsDir: string, fileName: string): Post {
     slug,
     title: data.title,
     description: data.description!,
-    coverImageUrl: data.coverImageUrl,
+    coverImageUrl:
+      data.coverImageUrl ??
+      createSVGCoverImage({
+        isLarge: true,
+        title: data.title,
+        coverBackgroundColor,
+      }),
     coverBackgroundColor,
     createdAt: new Date(data.createdAt).toLocaleDateString(),
     updatedAt: new Date(data.updatedAt).toLocaleDateString(),

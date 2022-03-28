@@ -16,6 +16,7 @@ tags:
     '맥OS',
     '노드',
     '노드js',
+    '설치',
   ]
 published: true
 ---
@@ -265,6 +266,6 @@ nvm으로 원하는 버전의 노드를 설치하고 사용하는 순서를 알�
 
 ## 참조
 
-> NVM Github: https://github.com/nvm-sh/nvm  
-> Homebrew: https://brew.sh/index_ko  
-> NodeJS: https://nodejs.org/ko/
+> - NVM Github: https://github.com/nvm-sh/nvm
+> - Homebrew: https://brew.sh/index_ko
+> - NodeJS: https://nodejs.org/ko/

@@ -42,7 +42,7 @@ interface Post {
   description: string;
   createdAt: string;
   updatedAt: string;
-  coverImageUrl: string | null;
+  coverImageUrl: string;
   coverBackgroundColor: string;
   category: {
     main: string;

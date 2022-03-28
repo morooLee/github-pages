@@ -2,6 +2,7 @@ import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 import getRandomPastelColor from './getRandomPastelColor';
+import createSVGCoverImage from './createSVGCoverImage';
 
 export class Blog {
   private static readonly _POST_DIR = join(process.cwd(), 'src/_posts');
@@ -88,7 +89,13 @@ export class Blog {
       slug,
       title: data.title,
       description: data.description!,
-      coverImageUrl: data.coverImageUrl,
+      coverImageUrl:
+        data.coverImageUrl ??
+        createSVGCoverImage({
+          isLarge: true,
+          title: data.title,
+          coverBackgroundColor,
+        }),
       coverBackgroundColor,
       createdAt: new Date(data.createdAt).toLocaleDateString('ko-KR'),
       updatedAt: new Date(data.updatedAt).toLocaleDateString('ko-KR'),

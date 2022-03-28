@@ -6,6 +6,7 @@ import { marked } from 'marked';
 import emoji from 'node-emoji';
 import Prism from 'prismjs';
 import loadLanguages from 'prismjs/components/index';
+import createSVGCoverImage from './createSVGCoverImage';
 
 export function generateRssFeed(blog: Blog) {
   const date = new Date();
@@ -92,11 +93,17 @@ export function generateRssFeed(blog: Blog) {
       title: post.title,
       id: url,
       link: url,
-      description,
+      // description,
       content: html,
       author: [author],
       date: new Date(post.updatedAt),
-      image: post.coverImageUrl ?? undefined,
+      image:
+        post.coverImageUrl ??
+        createSVGCoverImage({
+          isLarge: true,
+          title: post.title,
+          coverBackgroundColor: post.coverBackgroundColor,
+        }),
       category: [
         {
           name: 'Tech',

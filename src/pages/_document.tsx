@@ -12,12 +12,12 @@ import Script from 'next/script';
 import { GTagScript } from 'src/lib/gtag';
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx);
-    const page = await ctx.renderPage();
-    const styles = extractCritical(page.html);
-    return { ...initialProps, ...page, ...styles };
-  }
+  // static async getInitialProps(ctx: DocumentContext) {
+  //   const initialProps = await Document.getInitialProps(ctx);
+  //   const page = await ctx.renderPage();
+  //   const styles = extractCritical(page.html);
+  //   return { ...initialProps, ...page, ...styles };
+  // }
 
   render() {
     return (
@@ -41,10 +41,10 @@ class MyDocument extends Document {
 
           <link rel="icon" href="/assets/favicon.png" />
           <meta name="theme-color" content="#21262d" />
-          <style
+          {/* <style
             data-emotion-css={(this.props as any).ids.join(' ')}
             dangerouslySetInnerHTML={{ __html: (this.props as any).css }}
-          />
+          /> */}
           <style
             type="text/css"
             dangerouslySetInnerHTML={{ __html: mediaStyles }}
