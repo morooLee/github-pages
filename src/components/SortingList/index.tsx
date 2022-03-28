@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { MouseEvent, useEffect, useState } from 'react';
 
 type Sort = 'recent' | 'name' | 'posts' | 'number';
@@ -88,7 +89,7 @@ export default function SortingList({
   }
 
   useEffect(() => {
-    function trnaslateForCompare(data: BlogDataType[]) {
+    function translateForCompare(data: BlogDataType[]) {
       return JSON.stringify(
         data.map((item) => {
           if ('name' in item) {
@@ -100,7 +101,7 @@ export default function SortingList({
     }
     const sortedData = sortingData(data);
 
-    if (trnaslateForCompare(sortedData) === trnaslateForCompare(data)) {
+    if (translateForCompare(sortedData) === translateForCompare(data)) {
       return;
     }
     handleDataSortingFunc([...sortingData(data)]);
@@ -108,7 +109,7 @@ export default function SortingList({
 
   useEffect(() => {
     handleDataSortingFunc([...sortingData(data)]);
-  }, [sort]);
+  }, [data, sort]);
 
   return (
     <div>

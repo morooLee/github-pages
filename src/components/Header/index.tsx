@@ -39,7 +39,7 @@ export default function Header({ blog, currentPost }: Props) {
       router.events.off('routeChangeComplete', handleRouteChangeComplete);
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [router.events]);
 
   useEffect(() => {
     if (onMobileMenu) {
