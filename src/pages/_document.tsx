@@ -12,12 +12,12 @@ import Script from 'next/script';
 import { GTagScript } from 'src/lib/gtag';
 
 class MyDocument extends Document {
-  // static async getInitialProps(ctx: DocumentContext) {
-  //   const initialProps = await Document.getInitialProps(ctx);
-  //   const page = await ctx.renderPage();
-  //   const styles = extractCritical(page.html);
-  //   return { ...initialProps, ...page, ...styles };
-  // }
+  static async getInitialProps(ctx: DocumentContext) {
+    const initialProps = await Document.getInitialProps(ctx);
+    const page = await ctx.renderPage();
+    const styles = extractCritical(page.html);
+    return { ...initialProps, ...page, ...styles };
+  }
 
   render() {
     return (

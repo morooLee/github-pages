@@ -36,9 +36,9 @@ export default function Home({ blog }: Props) {
           <Location title="hello">
             <h1 className="text-5xl font-bold">
               Hello! 👋
-              <p className="text-3xl font-normal">
+              <span className="block text-3xl font-normal">
                 Welcome to the <mark className="font-bold">Moroo Blog</mark>
-              </p>
+              </span>
             </h1>
             <img
               src="https://capsule-render.vercel.app/api?type=slice&color=EF4424&height=300&section=header&text=%23moroo&fontColor=21262d&fontSize=90&desc=Software%20Quality%20Assurance&descSize=30&descAlignY=68"

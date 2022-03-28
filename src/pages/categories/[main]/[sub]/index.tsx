@@ -82,7 +82,7 @@ export default function SubCategories({ category, posts, blog }: Props) {
           </Location> */}
           <Location title="Sub Category">
             <h1>
-              <p>Sub Category</p>
+              <span className="block">Sub Category</span>
               <mark>{category.name}</mark>
             </h1>
           </Location>
