@@ -6,7 +6,7 @@
       "preset": "emotion"
     }
   },
-  "type": "CommonJS",
+  "type": "commonjs",
   "scripts": {
     "init": "ts-node ./src/lib/init.ts",
     "dev": "next dev",

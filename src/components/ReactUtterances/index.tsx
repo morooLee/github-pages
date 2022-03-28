@@ -104,7 +104,7 @@ export default function ReactUtterances(props: Props) {
         rootElement.removeChild(rootElement.firstChild);
       }
     };
-  }, []);
+  }, [async, crossorigin, issueNumber, repo, specificTerm, src, theme, type]);
 
   useEffect(() => {
     if (isLoading) {

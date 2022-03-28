@@ -97,7 +97,7 @@ export default function Tags({ blog }: Props) {
     } else {
       setIsAll(false);
     }
-  }, [currentTags]);
+  }, [blog.tags.length, currentTags]);
 
   // useEffect(() => {
   //   setCurrentTags([...blog.tags]);

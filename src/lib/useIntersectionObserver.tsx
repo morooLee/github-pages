@@ -92,7 +92,7 @@ export default function IntersectionObserverProvider({
     headingElements.forEach((element) => observer.observe(element));
 
     return () => observer.disconnect();
-  }, []);
+  }, [headingElements]);
 
   return (
     <IntersectionObserverContext.Provider value={[activeHeadingId]}>
