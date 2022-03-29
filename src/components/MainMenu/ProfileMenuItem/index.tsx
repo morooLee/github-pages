@@ -49,8 +49,8 @@ export default function ProfileMenuItem({ expand }: Props) {
       <SectionContent isFolding={isFolding}>
         <div className="flex flex-row lg:flex-col gap-5 sm:gap-8 lg:gap-5 justify-center items-center pb-5 pt-5 px-5 2xl:pt-8 ">
           <img
-            src="/assets/moroo.jpg"
-            alt="me"
+            src="/assets/profile_image.jpg"
+            alt="Profile Image"
             width={200}
             height={200}
             className="w-28 sm:w-50 min-w-50 min-h-50 rounded lg:mx-auto border"

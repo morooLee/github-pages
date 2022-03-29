@@ -85,8 +85,11 @@
   .markdown pre {
     @apply rounded-lg border my-5 bg-inset overflow-y-auto;
   }
-  .markdown code {
+  .markdown code:not(< pre) {
     @apply rounded-md px-1 py-[2px] border bg-inset font-normal before:content-none after:content-none;
+  }
+  .markdown .token-line {
+    @apply m-0;
   }
   .markdown blockquote > p {
     @apply before:content-none after:content-none;

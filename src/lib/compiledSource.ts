@@ -12,7 +12,6 @@ import rehypeToc, {
 import stringWidth from 'string-width';
 import { s, h } from 'hastscript';
 import { Element } from 'hastscript/lib/core';
-import { Pluggable } from 'unified';
 const toJsx = require('@mapbox/hast-util-to-jsx');
 
 const LINK_SVG_TAG: Element = s(
@@ -50,8 +49,8 @@ export default async function compiledSource(
   let tocContent: HtmlElementNode | undefined;
   let toc: MDXRemoteSerializeResult | undefined;
 
-  const remarkPlugins: Pluggable<any[]>[] = [];
-  const rehypePlugins: Pluggable<any[]>[] = [];
+  const remarkPlugins: any[] = [];
+  const rehypePlugins: any[] = [];
 
   if (useGfm) {
     remarkPlugins.push([remarkGfm, { stringLength: stringWidth }]);

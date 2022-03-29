@@ -25,12 +25,12 @@ class MyDocument extends Document {
         <Head>
           <link rel="icon" href="/assets/favicon.png" />
           <meta name="theme-color" content="#21262d" />
-          <style
+          {/* <style
             data-emotion-css={(this.props as any).ids.join(' ')}
             dangerouslySetInnerHTML={{ __html: (this.props as any).css }}
-          />
+          /> */}
           <style
-            type="text/css"
+            // type="text/css"
             dangerouslySetInnerHTML={{ __html: mediaStyles }}
           />
           <script

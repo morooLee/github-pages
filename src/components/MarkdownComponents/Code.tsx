@@ -24,7 +24,7 @@ export default function Code({ children, className }: Props) {
       language={language}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <div
+        <code
         // className={`${className} rounded-lg border my-5 overflow-y-auto`}
         // style={{
         //   ...style,
@@ -35,13 +35,13 @@ export default function Code({ children, className }: Props) {
         // }}
         >
           {tokens.map((line, i) => (
-            <div key={i} {...getLineProps({ line, key: i })}>
+            <p key={i} {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (
                 <span key={key} {...getTokenProps({ token, key })} />
               ))}
-            </div>
+            </p>
           ))}
-        </div>
+        </code>
       )}
     </Highlight>
   ) : (

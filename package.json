@@ -24,6 +24,7 @@
     "@emotion/styled": "^11.6.0",
     "@jsdevtools/rehype-toc": "^3.0.2",
     "@mapbox/hast-util-to-jsx": "^2.0.0",
+    "@mdx-js/mdx": "^2.1.0",
     "@neojp/tailwindcss-line-clamp-utilities": "^1.0.1",
     "@tailwindcss/typography": "^0.5.0",
     "autoprefixer": "^10.4.0",
