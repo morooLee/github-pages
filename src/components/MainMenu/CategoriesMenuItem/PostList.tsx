@@ -7,7 +7,7 @@ interface Props {
 }
 export default function PostList({ posts }: Props) {
   const router = useRouter();
-  const { slug } = router.query;
+  const slug = decodeURI(router.query.slug as string);
 
   return (
     <ul>

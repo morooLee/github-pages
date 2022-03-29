@@ -97,7 +97,7 @@ WebdriverIo Ver.3 부터 사용하기 시작했는데 그때 당시에 한글로
 
 감사합니다. :man-bowing:
 
-## 참조
+## 참고한 사이트
 
 > WebdriverIO: https://webdriver.io
 >

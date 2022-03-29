@@ -155,7 +155,7 @@ published: true
 이는 일상 생활에도 많은 영향을 끼치며,  
 그러다보니 이렇게 밈에서도 문제점을 찾고 있는 **`제 자신에 대한 회고이기도 합니다.`**
 
-## 참조
+## 참고한 사이트
 
 > - Youtube: [Developper vs QA Engineer // LOL ComediHa!](https://www.youtube.com/watch?v=6s2UJBFDCoA)
 > - Twitter: [@brenankeller](https://twitter.com/brenankeller/status/1068615953989087232?s=20&t=WBFGuqbflcdFYoiNwOEsEw)

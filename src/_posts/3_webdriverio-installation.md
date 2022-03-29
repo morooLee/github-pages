@@ -373,7 +373,7 @@ Spec Files:      1 passed, 1 total (100% completed) in 00:00:07
 
 이제 다음으로 `WebdriverIO Config` 설정에 대해 배워봅시다.
 
-## 참조
+## 참고한 사이트
 
 > _WebdriverIO_
 >

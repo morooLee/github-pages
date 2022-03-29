@@ -20,15 +20,15 @@ export default function MainMenu({ isExpand, blog, currentPost }: Props) {
         categories={blog.categories}
         posts={blog.posts}
       />
-      <TagsMenuItem
-        expand={isExpand}
-        tags={blog.tags}
-        currentTags={currentPost?.tags}
-      />
       <SeriesMenuItem
         expand={isExpand}
         seriesList={blog.series}
         currentPost={currentPost}
+      />
+      <TagsMenuItem
+        expand={isExpand}
+        tags={blog.tags}
+        currentTags={currentPost?.tags}
       />
       <PostsMenuItem />
     </div>

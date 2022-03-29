@@ -47,7 +47,7 @@ export default function PostCoverImage({
       src={coverImageUrl}
       alt={`${title} Cover Image`}
       className={`object-fill rounded-md`}
-      style={{ width, height }}
+      // style={{ width, height }}
       width={width}
       height={height}
     />

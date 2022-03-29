@@ -102,7 +102,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <DefaultSeo {...DEFAULT_SEO} />
       <MediaContextProvider>
         <DarkModeProvider>
-          <GlobalStyles />
+          {/* <GlobalStyles /> */}
           <Component {...pageProps} />
           <ToastContainer newestOnTop />
         </DarkModeProvider>
