@@ -97,13 +97,9 @@ export function generateRssFeed(blog: Blog) {
       content: html,
       author: [author],
       date: new Date(post.updatedAt),
-      image:
-        post.coverImageUrl ??
-        createSVGCoverImage({
-          isLarge: true,
-          title: post.title,
-          coverBackgroundColor: post.coverBackgroundColor,
-        }),
+      image: decodeURI(
+        `https://blog.moroo.dev/categories${post.coverImageUrl}`
+      ),
       category: [
         {
           name: 'Tech',

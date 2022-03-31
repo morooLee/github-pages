@@ -36,7 +36,7 @@ const DEFAULT_SEO = {
     },
     images: [
       {
-        url: 'https://blog.moroo.dev/assets/cover_image.jpg',
+        url: 'https://blog.moroo.dev/assets/blog_cover_image.jpg',
         alt: 'Cover Image',
         type: 'image/jpg',
         width: 1200,

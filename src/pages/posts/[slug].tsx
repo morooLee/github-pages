@@ -28,7 +28,10 @@ export default function Post({ post, series, content, toc, blog }: Props) {
     post.description ?? post.content.split('\n').slice(0, 9).join('\n');
   const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
   const images = [
-    { url: post.coverImageUrl, alt: `${post.title} Cover Image` },
+    {
+      url: decodeURI(process.env.NEXT_PUBLIC_BASE_URL + post.coverImageUrl),
+      alt: `${post.title} Cover Image`,
+    },
   ];
 
   const [isDarkMode] = useDarkModeContext();

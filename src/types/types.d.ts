@@ -9,6 +9,7 @@ interface Frontmatter {
   createdAt: Date;
   updatedAt: Date;
   coverImageUrl: string | null;
+  coverBackgroundColor: string | null;
   category: {
     main: string;
     sub: string;
@@ -43,7 +44,6 @@ interface Post {
   createdAt: string;
   updatedAt: string;
   coverImageUrl: string;
-  coverBackgroundColor: string;
   category: {
     main: string;
     sub: string;

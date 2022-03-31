@@ -2,7 +2,7 @@ import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 import getRandomPastelColor from './getRandomPastelColor';
-import createSVGCoverImage from './createSVGCoverImage';
+import createPostCoverImage from './createCoverImage';
 
 export class Blog {
   private static readonly _POST_DIR = join(process.cwd(), 'src/_posts');
@@ -74,7 +74,6 @@ export class Blog {
     if (!data.published) {
       return;
     }
-    const coverBackgroundColor = getRandomPastelColor();
 
     this.addCategory(data.category, Number(id));
     data.tags.forEach((tag) => {
@@ -84,19 +83,32 @@ export class Blog {
       this.addSeries(data.series, Number(id));
     }
 
+    let coverImageUrl: string | undefined = undefined;
+
+    createPostCoverImage({
+      dir: slug,
+      title: data.title,
+      coverImageUrl: data.coverImageUrl,
+      coverBackgroundColor: data.coverBackgroundColor,
+      series: data.series,
+    });
+
+    if (
+      fs.existsSync(
+        join(process.cwd(), `public/assets/posts/${slug}/cover_image.jpeg`)
+      )
+    ) {
+      coverImageUrl = `/assets/posts/${slug}/cover_image.jpeg`;
+    }
+
     return {
       id: Number(id),
       slug,
       title: data.title,
       description: data.description!,
-      coverImageUrl:
-        data.coverImageUrl ??
-        createSVGCoverImage({
-          isLarge: true,
-          title: data.title,
-          coverBackgroundColor,
-        }),
-      coverBackgroundColor,
+      // coverImageUrl:
+      //   coverImageUrl ?? 'https://blog.moroo.dev/assets/blog_cover_image.jpg',
+      coverImageUrl: `/assets/posts/${slug}/cover_image.jpeg`,
       createdAt: new Date(data.createdAt).toLocaleDateString('ko-KR'),
       updatedAt: new Date(data.updatedAt).toLocaleDateString('ko-KR'),
       category: data.category,

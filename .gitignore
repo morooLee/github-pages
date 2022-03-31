@@ -18,6 +18,8 @@
 
 # production
 /build
+/public/assets/posts/*
+/public/rss/*
 
 # misc
 .DS_Store

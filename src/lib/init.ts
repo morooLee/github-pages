@@ -5,6 +5,8 @@ import getRandomPastelColor from './getRandomPastelColor';
 import { Blog } from './blog';
 import { generateRssFeed } from './generateRssFeed';
 import createSVGCoverImage from './createSVGCoverImage';
+import sharp from 'sharp';
+import svgToMiniDataURI from 'mini-svg-data-uri';
 
 (() => {
   Blog.init();
@@ -40,7 +42,6 @@ function createPost(postsDir: string, fileName: string): Post {
         title: data.title,
         coverBackgroundColor,
       }),
-    coverBackgroundColor,
     createdAt: new Date(data.createdAt).toLocaleDateString(),
     updatedAt: new Date(data.updatedAt).toLocaleDateString(),
     category: data.category,

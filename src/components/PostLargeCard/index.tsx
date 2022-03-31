@@ -15,8 +15,10 @@ export default function PostLargeCard({ post }: Props) {
       <PostCoverImage
         isLarge={true}
         title={post.title}
-        coverImageUrl={post.coverImageUrl}
-        coverBackgroundColor={post.coverBackgroundColor}
+        coverImageUrl={decodeURI(
+          process.env.NEXT_PUBLIC_BASE_URL + post.coverImageUrl
+        )}
+        // coverBackgroundColor={post.coverBackgroundColor}
       />
       <div className="mt-8 text-lg font-semibold">
         <Link

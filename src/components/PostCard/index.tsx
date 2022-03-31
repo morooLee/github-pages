@@ -50,8 +50,9 @@ export default function PostCard({ post }: Props) {
         <PostCoverImage
           isLarge={false}
           title={post.title}
-          coverImageUrl={post.coverImageUrl}
-          coverBackgroundColor={post.coverBackgroundColor}
+          coverImageUrl={decodeURI(
+            process.env.NEXT_PUBLIC_BASE_URL + post.coverImageUrl
+          )}
         />
         <p
           className="flex-1 text-sm text-muted h-32 mt-2 mb-4 line-clamp-5"

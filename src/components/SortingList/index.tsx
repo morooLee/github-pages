@@ -109,7 +109,7 @@ export default function SortingList({
 
   useEffect(() => {
     handleDataSortingFunc([...sortingData(data)]);
-  }, [data, sort]);
+  }, [sort]);
 
   return (
     <div>
