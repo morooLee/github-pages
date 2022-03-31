@@ -97,9 +97,7 @@ export function generateRssFeed(blog: Blog) {
       content: html,
       author: [author],
       date: new Date(post.updatedAt),
-      image: decodeURI(
-        `https://blog.moroo.dev/categories${post.coverImageUrl}`
-      ),
+      image: decodeURI(`https://blog.moroo.dev${post.coverImageUrl}`),
       category: [
         {
           name: 'Tech',

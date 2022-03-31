@@ -29,7 +29,7 @@ export default function Post({ post, series, content, toc, blog }: Props) {
   const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
   const images = [
     {
-      url: decodeURI(process.env.NEXT_PUBLIC_BASE_URL + post.coverImageUrl),
+      url: decodeURI(`https://blog.moroo.dev${post.coverImageUrl}`),
       alt: `${post.title} Cover Image`,
     },
   ];

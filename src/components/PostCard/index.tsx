@@ -51,7 +51,7 @@ export default function PostCard({ post }: Props) {
           isLarge={false}
           title={post.title}
           coverImageUrl={decodeURI(
-            process.env.NEXT_PUBLIC_BASE_URL + post.coverImageUrl
+            `https://blog.moroo.dev${post.coverImageUrl}`
           )}
         />
         <p

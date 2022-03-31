@@ -15,9 +15,7 @@ export default function PostLargeCard({ post }: Props) {
       <PostCoverImage
         isLarge={true}
         title={post.title}
-        coverImageUrl={decodeURI(
-          process.env.NEXT_PUBLIC_BASE_URL + post.coverImageUrl
-        )}
+        coverImageUrl={decodeURI(`https://blog.moroo.dev${post.coverImageUrl}`)}
         // coverBackgroundColor={post.coverBackgroundColor}
       />
       <div className="mt-8 text-lg font-semibold">
