@@ -2,7 +2,7 @@ import fs from 'fs';
 import { join } from 'path';
 import sharp from 'sharp';
 import getRandomPastelColor from './getRandomPastelColor';
-// import fetch from 'cross-fetch';
+import fetch from 'cross-fetch';
 
 interface CreatePostCoverImageOptions {
   dir: string;

@@ -11,15 +11,9 @@ import Link from 'next/link';
 import { generateRssFeed } from 'src/lib/generateRssFeed';
 import fs from 'fs';
 import { join } from 'path';
-import { Blog } from 'src/lib/blog';
 
 interface Props {
-  blog: {
-    posts: Post[];
-    categories: Category[];
-    tags: Tag[];
-    series: Series[];
-  };
+  blog: Blog;
 }
 export default function Home({ blog }: Props) {
   const router = useRouter();
@@ -183,17 +177,17 @@ export default function Home({ blog }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  Blog.init();
-  const blog = Blog.getBlog();
+  // Blog.init();
+  // const blog = Blog.getBlog();
 
-  fs.writeFileSync(
-    join(process.cwd(), 'public/blog.json'),
-    JSON.stringify(blog, null, 2)
-  );
+  // fs.writeFileSync(
+  //   join(process.cwd(), 'public/blog.json'),
+  //   JSON.stringify(blog, null, 2)
+  // );
 
-  generateRssFeed(blog);
+  // generateRssFeed(blog);
 
-  // const blog = (await import('public/blog.json')).default;
+  const blog = (await import('public/blog.json')).default;
 
   // await generateRssFeed(blog);
 

@@ -50,9 +50,7 @@ export default function PostCard({ post }: Props) {
         <PostCoverImage
           isLarge={false}
           title={post.title}
-          coverImageUrl={decodeURI(
-            `https://blog.moroo.dev${post.coverImageUrl}`
-          )}
+          coverImageUrl={post.coverImageUrl}
         />
         <p
           className="flex-1 text-sm text-muted h-32 mt-2 mb-4 line-clamp-5"
