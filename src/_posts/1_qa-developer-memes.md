@@ -3,9 +3,12 @@ title: 'QA 관점에서 바라 본 QA와 Developer 밈들'
 description: 'QA와 Developer의 이해 관계를 보여주는 밈들에 대해서 QA 관점에서 가볍게 바라본 지극히 개인적인 이야기입니다.'
 createdAt: '2022-02-16'
 updatedAt: '2022-02-16'
+coverImagePath: null
 coverImageUrl: null
+coverBackgroundColor: null
 category: { main: 'SQA', sub: 'Etc' }
 tags: ['sqa', 'meme', 'qa', 'developer', '개발자', '밈']
+series: null
 published: true
 ---
 
@@ -21,7 +24,7 @@ published: true
 ## Meme #1 - 방탄 조끼
 
 <div className="video-container">
-  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6s2UJBFDCoA?autoplay=0&start=25" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay=0; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="video-youtube"></iframe>
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6s2UJBFDCoA?autoplay=0&start=25" title="YouTube video player" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="video-youtube"></iframe>
 </div>
 
 > This is the original Developper vs QA Engineer meme  

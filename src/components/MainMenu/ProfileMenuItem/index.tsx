@@ -1,4 +1,5 @@
 import React, { useEffect, useState, MouseEvent } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import SectionSummary from 'src/components/SectionSummary';
 import ContactList from 'src/components/ContactList';
@@ -48,13 +49,24 @@ export default function ProfileMenuItem({ expand }: Props) {
       </SectionSummary>
       <SectionContent isFolding={isFolding}>
         <div className="flex flex-row lg:flex-col gap-5 sm:gap-8 lg:gap-5 justify-center items-center pb-5 pt-5 px-5 2xl:pt-8 ">
-          <img
+          <div className="min-w-50 w-50 min-h-50 h-50 rounded lg:mx-auto border">
+            <Image
+              src="/assets/profile-image.jpg"
+              alt="Profile Image"
+              layout="responsive"
+              objectFit="cover"
+              width="100%"
+              height="100%"
+              priority={true}
+            />
+          </div>
+          {/* <img
             src="/assets/profile_image.jpg"
             alt="Profile Image"
             width={200}
             height={200}
             className="w-28 sm:w-50 min-w-50 min-h-50 rounded lg:mx-auto border"
-          />
+          /> */}
           <hr className="hidden sm:block lg:hidden w-1 h-40 bg-btn-hover rounded-md" />
           <div className="flex flex-col gap-3 items-start lg:items-center">
             <div className="lg:text-center">

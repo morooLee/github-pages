@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import createSVGCoverImage from 'src/lib/createSVGCoverImage';
 
 interface Props {
@@ -43,13 +44,25 @@ export default function PostCoverImage({
   }, '');
 
   return (
-    <img
-      src={coverImageUrl}
-      alt={`${title} Cover Image`}
-      className={`object-fill rounded-md`}
-      // style={{ width, height }}
-      width={width}
-      height={height}
-    />
+    <div className="rounded-md">
+      <Image
+        src={coverImageUrl}
+        alt={`${title} Cover Image`}
+        layout="responsive"
+        objectFit="cover"
+        width={width}
+        height={height}
+        priority={true}
+        // className="rounded-md"
+      />
+    </div>
+    // <img
+    //   src={coverImageUrl}
+    //   alt={`${title} Cover Image`}
+    //   className={`object-fill rounded-md`}
+    //   // style={{ width, height }}
+    //   width={width}
+    //   height={height}
+    // />
   );
 }

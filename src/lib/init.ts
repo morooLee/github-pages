@@ -7,6 +7,7 @@ import { generateRssFeed } from './generateRssFeed';
 import createSVGCoverImage from './createSVGCoverImage';
 import sharp from 'sharp';
 import svgToMiniDataURI from 'mini-svg-data-uri';
+import { createBlogCoverImage } from './createCoverImage';
 
 (() => {
   Blog.init();
@@ -17,6 +18,7 @@ import svgToMiniDataURI from 'mini-svg-data-uri';
     JSON.stringify(blog, null, 2)
   );
 
+  createBlogCoverImage();
   generateRssFeed(blog);
 })();
 

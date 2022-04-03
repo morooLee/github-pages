@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import type { GetStaticProps, NextPage } from 'next';
+import Image from 'next/image';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { LogoJsonLd, NextSeo } from 'next-seo';
@@ -42,11 +43,22 @@ export default function Home({ blog }: Props) {
                 Welcome to the <mark className="font-bold">Moroo Blog</mark>
               </span>
             </h1>
-            <img
+            <div className="mt-5 border">
+              <Image
+                src="/assets/posts/blog-cover-image.jpeg"
+                alt="#moroo Software Quality Assurance Test Automation Engineer"
+                layout="responsive"
+                objectFit="cover"
+                width={726}
+                height={255}
+                className="mt-5 border"
+              />
+            </div>
+            {/* <img
               src="https://capsule-render.vercel.app/api?type=slice&color=EF4424&height=300&section=header&text=%23moroo&fontColor=21262d&fontSize=90&desc=Software%20Quality%20Assurance&descSize=30&descAlignY=68"
               alt="cover image"
               className="mt-5 w-full border rounded-md"
-            />
+            /> */}
             {/* <div className="pt-5 text-xl">
               <p>안녕하세요.</p>
               <p>제 블로그에 방문해 주셔서 감사드립니다.</p>

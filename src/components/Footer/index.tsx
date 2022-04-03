@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import ContactList from '../ContactList';
 
@@ -9,8 +10,15 @@ export default function Footer() {
         <ContactList />
         <p>@moroo</p>
         <Link href="/" as="/">
-          <a className="h-10 w-10 relative cursor-pointer">
-            <img src="/assets/moroo.png" alt="Moroo Logo" />
+          <a className="h-10 w-10 cursor-pointer">
+            <Image
+              src="/assets/moroo.png"
+              alt="Moroo Logo"
+              layout="responsive"
+              objectFit="cover"
+              width="100%"
+              height="100%"
+            />
           </a>
         </Link>
       </div>

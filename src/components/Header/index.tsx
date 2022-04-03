@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useDarkModeContext } from '../../lib/DarkModeContext';
 import { RiMenuFill, RiMoonLine, RiSunLine } from 'react-icons/ri';
@@ -55,7 +56,14 @@ export default function Header({ blog, currentPost }: Props) {
         <div className="h-full w-full lg:w-[63.5rem] lg:mx-auto xl:w-[79rem] 2xl:w-[88rem] px-4 py-3 mx-auto flex flex-row items-center justify-between gap-4 bg-header text-header-logo text-base font-semibold">
           <Link href="/" as="/">
             <a className="h-10 w-10 justify-self-start relative cursor-pointer">
-              <img src="/assets/moroo.png" alt="Moroo Logo" />
+              <Image
+                src="/assets/moroo.png"
+                alt="Moroo Logo"
+                layout="responsive"
+                objectFit="cover"
+                width="100%"
+                height="100%"
+              />
             </a>
           </Link>
           <nav className="hidden h-10 flex-auto justify-self-start sm:flex flex-row items-center gap-5">

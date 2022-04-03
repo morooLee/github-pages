@@ -87,6 +87,7 @@ module.exports = {
         62: '15.5rem',
       },
       height: {
+        50: '12.5rem',
         aside: 'calc(100vh - 4.5rem)',
       },
       left: {
@@ -121,6 +122,9 @@ module.exports = {
     // typography: ['responsive', 'dark'],
   },
   plugins: [
+    require('@fullhuman/postcss-purgecss')({
+      content: ['./**/*.html'],
+    }),
     require('@tailwindcss/typography')({
       className: 'markdown',
     }),

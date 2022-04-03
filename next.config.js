@@ -27,6 +27,9 @@
 
 module.exports = {
   reactStrictMode: true,
+  images: {
+    domains: ['raw.githubusercontent.com'],
+  },
   // experimental: { esmExternals: 'loose' },
   // webpack: (config, { isServer }) => {
   //   // Fixes packages that depend on fs/module module

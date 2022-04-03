@@ -4,7 +4,7 @@
         <title>Moroo Blog</title>
         <link>https://blog.moroo.dev</link>
         <description>Software QA 및 테스트 자동화에 대한 이야기</description>
-        <lastBuildDate>Thu, 31 Mar 2022 22:31:54 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 03 Apr 2022 21:01:34 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <language>ko-KR</language>
@@ -6908,7 +6908,7 @@
             <category domain="https://blog.moroo.dev/categories">IT</category>
             <category domain="https://blog.moroo.dev/categories/Markup">Markup</category>
             <category domain="https://blog.moroo.dev/categories/Markup/Markdown">Markdown</category>
-            <enclosure url="https://blog.moroo.dev/assets/posts/깃허브-기반의-마크다운-이모지-모음/cover_image.jpeg" length="0" type="image/jpeg"/>
+            <enclosure url="https://blog.moroo.dev/assets/posts/깃허브-기반의-마크다운-이모지-모음/post-cover-image.jpeg" length="0" type="image/jpeg"/>
         </item>
         <item>
             <title><![CDATA[이모지 및 이모티콘에 대한 이야기]]></title>
@@ -7125,7 +7125,7 @@ Slack에서는 <code>👨:skin-tone-6:</code> 방식으로 피부 스킨 조합�
             <category domain="https://blog.moroo.dev/categories">IT</category>
             <category domain="https://blog.moroo.dev/categories/Markup">Markup</category>
             <category domain="https://blog.moroo.dev/categories/Markup/Markdown">Markdown</category>
-            <enclosure url="https://blog.moroo.dev/assets/posts/이모지-및-이모티콘에-대한-이야기/cover_image.jpeg" length="0" type="image/jpeg"/>
+            <enclosure url="https://blog.moroo.dev/assets/posts/이모지-및-이모티콘에-대한-이야기/post-cover-image.jpeg" length="0" type="image/jpeg"/>
         </item>
         <item>
             <title><![CDATA[MacOS 환경에서 Homebrew로 NVM 설치하기]]></title>
@@ -7312,7 +7312,7 @@ Running <span class="token function">node</span> v17.5.0 <span class="token punc
             <category domain="https://blog.moroo.dev/categories">IT</category>
             <category domain="https://blog.moroo.dev/categories/Development">Development</category>
             <category domain="https://blog.moroo.dev/categories/Development/NodeJS">NodeJS</category>
-            <enclosure url="https://blog.moroo.dev/assets/posts/nvm-installation-with-mac/cover_image.jpeg" length="0" type="image/jpeg"/>
+            <enclosure url="https://blog.moroo.dev/assets/posts/nvm-installation-with-mac/post-cover-image.jpeg" length="0" type="image/jpeg"/>
         </item>
         <item>
             <title><![CDATA[시작하기 전에...]]></title>
@@ -7414,7 +7414,7 @@ Running <span class="token function">node</span> v17.5.0 <span class="token punc
             <category domain="https://blog.moroo.dev/categories">IT</category>
             <category domain="https://blog.moroo.dev/categories/Test Automation">Test Automation</category>
             <category domain="https://blog.moroo.dev/categories/Test Automation/WebdriverIO">WebdriverIO</category>
-            <enclosure url="https://blog.moroo.dev/assets/posts/webdriverio-before-beginning/cover_image.jpeg" length="0" type="image/jpeg"/>
+            <enclosure url="https://blog.moroo.dev/assets/series/WebdriverIO/series-cover-image.jpeg" length="0" type="image/jpeg"/>
         </item>
         <item>
             <title><![CDATA[WebdriverIO 설치하기]]></title>
@@ -7726,7 +7726,7 @@ Spec Files:      <span class="token number">1</span> passed, <span class="token 
             <category domain="https://blog.moroo.dev/categories">IT</category>
             <category domain="https://blog.moroo.dev/categories/Test Automation">Test Automation</category>
             <category domain="https://blog.moroo.dev/categories/Test Automation/WebdriverIO">WebdriverIO</category>
-            <enclosure url="https://blog.moroo.dev/assets/posts/webdriverio-installation/cover_image.jpeg" length="0" type="image/jpeg"/>
+            <enclosure url="https://blog.moroo.dev/assets/series/WebdriverIO/series-cover-image.jpeg" length="0" type="image/jpeg"/>
         </item>
         <item>
             <title><![CDATA[QA 관점에서 바라 본 QA와 Developer 밈들]]></title>
@@ -7741,7 +7741,7 @@ Spec Files:      <span class="token number">1</span> passed, <span class="token 
 
 <h2 id="meme-1---방탄-조끼">Meme #1 - 방탄 조끼</h2>
 <div className="video-container">
-  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6s2UJBFDCoA?autoplay=0&start=25" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay=0; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="video-youtube"></iframe>
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6s2UJBFDCoA?autoplay=0&start=25" title="YouTube video player" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="video-youtube"></iframe>
 </div>
 
 <blockquote>
@@ -7846,7 +7846,7 @@ Spec Files:      <span class="token number">1</span> passed, <span class="token 
             <category domain="https://blog.moroo.dev/categories">IT</category>
             <category domain="https://blog.moroo.dev/categories/SQA">SQA</category>
             <category domain="https://blog.moroo.dev/categories/SQA/Etc">Etc</category>
-            <enclosure url="https://blog.moroo.dev/assets/posts/qa-developer-memes/cover_image.jpeg" length="0" type="image/jpeg"/>
+            <enclosure url="https://blog.moroo.dev/assets/posts/qa-developer-memes/post-cover-image.jpeg" length="0" type="image/jpeg"/>
         </item>
     </channel>
 </rss>

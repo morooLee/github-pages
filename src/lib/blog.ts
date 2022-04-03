@@ -2,7 +2,9 @@ import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 import getRandomPastelColor from './getRandomPastelColor';
-import createPostCoverImage from './createCoverImage';
+import createPostCoverImage, {
+  createSeriesCoverImage,
+} from './createCoverImage';
 
 export class Blog {
   private static readonly _POST_DIR = join(process.cwd(), 'src/_posts');
@@ -85,20 +87,41 @@ export class Blog {
 
     let coverImageUrl: string | undefined = undefined;
 
-    createPostCoverImage({
-      dir: slug,
-      title: data.title,
-      coverImageUrl: data.coverImageUrl,
-      coverBackgroundColor: data.coverBackgroundColor,
-      series: data.series,
-    });
+    if (data.series) {
+      createSeriesCoverImage(data.series.name);
 
-    if (
-      fs.existsSync(
-        join(process.cwd(), `public/assets/posts/${slug}/cover_image.jpeg`)
-      )
-    ) {
-      coverImageUrl = `/assets/posts/${slug}/cover_image.jpeg`;
+      // if (
+      //   fs.existsSync(
+      //     join(
+      //       process.cwd(),
+      //       `/public/assets/series/${data.series.name}/series-cover-image.jpeg`
+      //     )
+      //   )
+      // ) {
+      //   coverImageUrl = `/assets/series/${data.series.name}/series-cover-image.jpeg`;
+      // }
+      coverImageUrl = `/assets/series/${data.series.name}/series-cover-image.jpeg`;
+    } else {
+      createPostCoverImage({
+        dir: slug,
+        title: data.title,
+        coverImagePath: data.coverImagePath,
+        coverImageUrl: data.coverImageUrl,
+        coverBackgroundColor: data.coverBackgroundColor,
+        series: data.series,
+      });
+
+      // if (
+      //   fs.existsSync(
+      //     join(
+      //       process.cwd(),
+      //       `/public/assets/posts/${slug}/post-cover-image.jpeg`
+      //     )
+      //   )
+      // ) {
+      //   coverImageUrl = `/assets/posts/${slug}/post-cover-image.jpeg`;
+      // }
+      coverImageUrl = `/assets/posts/${slug}/post-cover-image.jpeg`;
     }
 
     return {
@@ -106,9 +129,7 @@ export class Blog {
       slug,
       title: data.title,
       description: data.description!,
-      // coverImageUrl:
-      //   coverImageUrl ?? 'https://blog.moroo.dev/assets/blog_cover_image.jpg',
-      coverImageUrl: `/assets/posts/${slug}/cover_image.jpeg`,
+      coverImageUrl,
       createdAt: new Date(data.createdAt).toLocaleDateString('ko-KR'),
       updatedAt: new Date(data.updatedAt).toLocaleDateString('ko-KR'),
       category: data.category,

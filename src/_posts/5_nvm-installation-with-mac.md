@@ -3,6 +3,9 @@ title: 'MacOS 환경에서 Homebrew로 NVM 설치하기'
 description: 'NVM이 무엇인지 간략하게 설명하고 Mac OS 환경에서 Homebrew를 통해 NVM을 설치하고 NVM으로 Node를 관리하는 법을 알아봅니다.'
 createdAt: '2022-03-18'
 updatedAt: '2022-03-18'
+coverImagePath: null
+coverImageUrl: null
+coverBackgroundColor: null
 category: { main: 'Development', sub: 'NodeJS' }
 tags:
   [
@@ -18,6 +21,7 @@ tags:
     '노드js',
     '설치',
   ]
+series: null
 published: true
 ---
 

@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { join } from 'path';
+import path from 'path';
 import sharp from 'sharp';
 import getRandomPastelColor from './getRandomPastelColor';
 import fetch from 'cross-fetch';
@@ -7,6 +7,7 @@ import fetch from 'cross-fetch';
 interface CreatePostCoverImageOptions {
   dir: string;
   title: string;
+  coverImagePath?: string | null;
   coverImageUrl?: string | null;
   coverBackgroundColor?: string | null;
   series?: {
@@ -15,14 +16,139 @@ interface CreatePostCoverImageOptions {
   } | null;
 }
 
+export function createBlogCoverImage() {
+  const rootDir = path.join(process.cwd(), 'public/assets/posts');
+  const blogImageFileName = 'blog-cover-image.jpeg';
+  const blogImagePath = path.join(rootDir, blogImageFileName);
+
+  if (!fs.existsSync(rootDir)) {
+    fs.mkdirSync(rootDir);
+  }
+  if (!fs.existsSync(blogImagePath)) {
+    sharp({
+      create: {
+        width: 1200,
+        height: 1200,
+        channels: 4,
+        background: '#000000',
+      },
+    })
+      .composite([
+        {
+          input: path.join(
+            process.cwd(),
+            'public/assets/blog-background-image.svg'
+          ),
+        },
+      ])
+      .jpeg()
+      .toFile(blogImagePath)
+      .then(() => {
+        console.log('RESULT', blogImagePath);
+      })
+      .catch((error: any) => console.error(error));
+
+    // sharp(path.join(process.cwd(), 'public/assets/moroo.svg'))
+    //   .resize(240, 240)
+    //   .toBuffer()
+    //   .then((logo) => {
+    //     sharp(
+    //       path.join(process.cwd(), 'public/assets/blog-background-image.svg')
+    //     )
+    //       .composite([
+    //         {
+    //           input: logo,
+    //           top: 480,
+    //           left: 760,
+    //         },
+    //       ])
+    //       .jpeg()
+    //       .toFile(blogImagePath)
+    //       .then(() => {
+    //         console.log('RESULT', blogImagePath);
+    //       })
+    //       .catch((error: any) => console.error(error));
+    //   });
+  }
+}
+export function createSeriesCoverImage(name: string) {
+  const rootDir = path.join(process.cwd(), 'public/assets/series');
+  const coverImageFileName = 'series-cover-image.jpeg';
+  const sourceImageFilePrefix = 'series-cover-source-image';
+  const coverImagePath = path.join(rootDir, name, coverImageFileName);
+  // const sourceImagePath = path.join(rootDir, name, sourceImageFileName);
+
+  if (fs.existsSync(coverImagePath)) {
+    console.log(`${name} series cover image is exists`);
+    return;
+  }
+  if (!fs.existsSync(rootDir)) {
+    fs.mkdirSync(rootDir);
+  }
+  if (!fs.existsSync(path.join(rootDir, name))) {
+    fs.mkdirSync(path.join(rootDir, name));
+  }
+
+  const sourceImageFileName = fs
+    .readdirSync(path.join(rootDir, name))
+    .find((file) => file.split('.')[0] === sourceImageFilePrefix);
+
+  if (sourceImageFileName) {
+    sharp({
+      create: {
+        width: 1200,
+        height: 1200,
+        channels: 4,
+        background: '#ffffff',
+      },
+    })
+      .composite([
+        {
+          input: path.join(rootDir, name, sourceImageFileName),
+        },
+      ])
+      .jpeg()
+      .toFile(coverImagePath)
+      .then(() => {
+        console.log('RESULT', coverImagePath);
+      })
+      .catch((error: any) => console.error(error));
+  } else {
+    const svg = createSVG({ series: name, fontSize: 90 });
+
+    sharp(path.join(process.cwd(), 'public/assets/moroo.png'))
+      .resize(240, 240)
+      .toBuffer()
+      .then((logo) => {
+        sharp(Buffer.from(svg))
+          .composite([
+            {
+              input: logo,
+              top: 480,
+              left: 860,
+            },
+          ])
+          .jpeg()
+          .toFile(coverImagePath)
+          .then(() => {
+            console.log('RESULT', coverImagePath);
+          })
+          .catch((error: any) => console.error(error));
+      });
+  }
+}
 export default function createPostCoverImage(
   options: CreatePostCoverImageOptions
 ) {
-  const rootDir = join(process.cwd(), 'public/assets/posts');
-  const postDir = rootDir + '/' + options.dir;
-  const path = postDir + '/cover_image.jpeg';
+  const rootDir = path.join(process.cwd(), 'public/assets/posts');
+  const postDir = path.join(rootDir, options.dir);
+  const postImagePath = path.join(postDir, 'post-cover-image.jpeg');
 
-  if (fs.existsSync(path)) {
+  if (options.series) {
+    return;
+  }
+
+  if (fs.existsSync(postImagePath)) {
     console.log(`${options.title}'s cover image is exists`);
     return;
   }
@@ -35,6 +161,30 @@ export default function createPostCoverImage(
     fs.mkdirSync(postDir);
   }
 
+  if (options.coverImagePath) {
+    console.log(path.join(process.cwd(), options.coverImagePath));
+    sharp({
+      create: {
+        width: 1200,
+        height: 1200,
+        channels: 4,
+        background: options.coverBackgroundColor ?? '#ffffff',
+      },
+    })
+      .composite([
+        {
+          input: path.join(process.cwd(), 'public', options.coverImagePath),
+        },
+      ])
+      .jpeg()
+      .toFile(postImagePath)
+      .then(() => {
+        console.log('RESULT', postImagePath);
+      })
+      .catch((error: any) => console.error(error));
+    return;
+  }
+
   if (options.coverImageUrl) {
     fetch(options.coverImageUrl)
       .then((response) => response.arrayBuffer())
@@ -44,7 +194,7 @@ export default function createPostCoverImage(
         sharp({
           create: {
             width: 1200,
-            height: 630,
+            height: 1200,
             channels: 4,
             background: options.coverBackgroundColor ?? '#ffffff',
           },
@@ -55,86 +205,92 @@ export default function createPostCoverImage(
             },
           ])
           .jpeg()
-          .toFile(path)
+          .toFile(postImagePath)
           .then(() => {
-            console.log('RESULT', path);
+            console.log('RESULT', postImagePath);
           })
           .catch((error: any) => console.error(error));
       })
       .catch((error) => console.log('error:', error));
-  } else {
-    const svg = createSVG({
-      title: options.title,
-      series: options.series,
-    });
-    // console.log('SVG', svg);
-
-    sharp(join(process.cwd(), 'public/assets/moroo.png'))
-      .resize(180, 180)
-      .toBuffer()
-      .then((logo) => {
-        sharp(Buffer.from(svg))
-          .composite([
-            {
-              input: logo,
-              top: 430,
-              left: 1000,
-            },
-          ])
-          .jpeg()
-          .toFile(path)
-          .then(() => {
-            console.log('RESULT', path);
-          })
-          .catch((error: any) => console.error(error));
-      });
+    return;
   }
+
+  const svg = createSVG({ title: options.title });
+
+  sharp(path.join(process.cwd(), 'public/assets/moroo.png'))
+    .resize(240, 240)
+    .toBuffer()
+    .then((logo) => {
+      sharp(Buffer.from(svg))
+        .composite([
+          {
+            input: logo,
+            top: 480,
+            left: 860,
+          },
+        ])
+        .jpeg()
+        .toFile(postImagePath)
+        .then(() => {
+          console.log('RESULT', postImagePath);
+        })
+        .catch((error: any) => console.error(error));
+    })
+    .catch((error: any) => console.error(error));
 }
 
 interface IOptions {
-  title: string;
-  series?: {
-    name: string;
-    number: number;
-  } | null;
+  title?: string;
+  width?: number;
+  height?: number;
+  fontSize?: number;
+  series?: string;
 }
 
-export function createSVG({ title, series }: IOptions) {
-  const fontPixel = 60;
-  const width = 1200;
-  const height = 630;
-  const words = title.split(' ');
+export function createSVG({
+  title,
+  width = 1200,
+  height = 1200,
+  fontSize = 60,
+  series,
+}: IOptions) {
+  // const fontPixel = 60;
+  // const width = 1200;
+  // const height = 1200;
+
   const lineBreaksForWords: string[] = [];
 
   if (series) {
-    lineBreaksForWords.push(`${series.name} 시리즈`);
-    lineBreaksForWords.push(`No. ${series.number}`);
-    lineBreaksForWords.push('');
+    lineBreaksForWords.push('SERIES');
   }
 
-  words.reduce((pre: string, cur: string, index, array) => {
-    const merge = (pre ? pre + ' ' : '') + cur;
+  const words = series ? series.split(' ') : title?.split(' ');
 
-    if (merge.length > 16) {
-      lineBreaksForWords.push(pre + ' ');
-      if (array.length - 1 === index) {
-        lineBreaksForWords.push(cur);
+  if (words) {
+    words.reduce((pre: string, cur: string, index, array) => {
+      const merge = (pre ? pre + ' ' : '') + cur;
+
+      if (merge.length > 16) {
+        lineBreaksForWords.push(pre + ' ');
+        if (array.length - 1 === index) {
+          lineBreaksForWords.push(cur);
+        }
+        return cur;
+      } else {
+        if (array.length - 1 === index) {
+          lineBreaksForWords.push(merge);
+        }
+        return merge;
       }
-      return cur;
-    } else {
-      if (array.length - 1 === index) {
-        lineBreaksForWords.push(merge);
-      }
-      return merge;
-    }
-  }, '');
+    }, '');
+  }
 
   const textSpanList = lineBreaksForWords.map((word, index, array) => {
-    const isSeries = Boolean(series && index < 2);
+    // const isSeries = Boolean(series && index < 2);
     const isEven = array.length % 2 === 0;
     const middleIndex = Math.ceil(array.length / 2) - 1;
     const lineBreakIndex = -(middleIndex - index);
-    const fontHeight = fontPixel;
+    const fontHeight = fontSize;
     let dy = 0;
 
     if (isEven) {
@@ -159,19 +315,26 @@ export function createSVG({ title, series }: IOptions) {
     } else {
       dy = lineBreakIndex * fontHeight;
     }
-    return `<tspan x="50%" y="50%" dy="${
-      dy + 'px'
-    }" text-anchor="middle" alignment-baseline="middle" class="${
-      isSeries ? 'series' : 'title'
-    } font-sans">${word}</tspan>`;
+    return series
+      ? `<tspan x="68%" y="52%" dy="${
+          dy + 'px'
+        }" text-anchor="end" alignment-baseline="middle" class="${
+          index === 0 ? 'series-label' : 'series-name'
+        } font-sans">${word}</tspan>`
+      : `<tspan x="68%" y="52%" dy="${
+          dy + 'px'
+        }" text-anchor="end" alignment-baseline="middle" class="title font-sans">${word}</tspan>`;
   });
 
   const svg = `
   <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 ${width} ${height}">
     <style>
       .font-sans { font-family: "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"; }
-      .title { fill: #21262d; font-size: ${fontPixel}px; font-weight: 900;}
-      .series { fill: #000000; font-size: ${fontPixel}px; font-weight: 900;}
+      .title { fill: #21262d; font-size: ${fontSize}px; font-weight: 900;}
+      .series-label { fill: #21262d; font-size: ${
+        (fontSize / 3) * 2
+      }px; font-weight: 100;}
+      .series-name { fill: #000000; font-size: ${fontSize}px; font-weight: 900;}
     </style>
     <rect x="0" y="0" width="${width}" height="${height}" fill="${getRandomPastelColor()}"></rect>
     <text x="50%" y="50%" text-anchor="middle" alignment-baseline="middle">${textSpanList.join(
@@ -181,3 +344,29 @@ export function createSVG({ title, series }: IOptions) {
   `;
   return svg;
 }
+
+interface CreateImageOptions {
+  width: number;
+  height: number;
+  backgroundColor: string;
+  backgroundImage: {
+    path: string;
+    width: number;
+    height: number;
+    positionX: number;
+    positionY: number;
+  };
+  lineBreakeNumber: number;
+  title: {
+    text: string;
+    style: React.CSSProperties;
+    className: string;
+  }[];
+}
+export function createImage({
+  width,
+  height,
+  backgroundColor,
+  lineBreakeNumber,
+  title,
+}: CreateImageOptions) {}

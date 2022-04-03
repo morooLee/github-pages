@@ -8,6 +8,7 @@ interface Frontmatter {
   description: string | null;
   createdAt: Date;
   updatedAt: Date;
+  coverImagePath: string | null;
   coverImageUrl: string | null;
   coverBackgroundColor: string | null;
   category: {

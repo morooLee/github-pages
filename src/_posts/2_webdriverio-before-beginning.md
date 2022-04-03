@@ -3,8 +3,9 @@ title: '시작하기 전에...'
 description: 'WebdriverIO 시리즈를 시작하기 전에 필자가 WebdriverIO를 접하게 된 계기 및 간략한 소개 글입니다.'
 createdAt: '2022-02-19'
 updatedAt: '2022-03-04'
-coverImageUrl: 'https://res.cloudinary.com/practicaldev/image/fetch/s--co5LdVu9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i2.wp.com/grantnorwood.com/app/uploads/2017/07/webdriver-io-logo.png%3Fw%3D1680%26ssl%3D1'
-coverBackgroundColor: '#efefef'
+coverImagePath: null
+coverImageUrl: null
+coverBackgroundColor: null
 category: { main: 'Test Automation', sub: 'WebdriverIO' }
 tags: ['webdriverio', 'wdio', 'e2e', 'automation', 'test', '자동화', '테스트']
 series: { name: 'WebdriverIO', number: 1 }
