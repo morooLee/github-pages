@@ -73,7 +73,8 @@
     @apply block;
   }
 
-  .markdown br {
+  .markdown td {
+    @apply align-middle;
   }
   .markdown a,
   .markdown a > * {
@@ -85,8 +86,11 @@
   .markdown pre {
     @apply rounded-lg border my-5 bg-inset overflow-y-auto;
   }
-  .markdown code:not(< pre) {
-    @apply rounded-md px-1 py-[2px] border bg-inset font-normal before:content-none after:content-none;
+  .inline-code {
+    @apply rounded-md px-1 py-[2px] border bg-inset font-normal;
+  }
+  .markdown code {
+    @apply before:content-none after:content-none;
   }
   .markdown .token-line {
     @apply m-0;
@@ -100,6 +104,9 @@
   }
   .markdown p {
     /* @apply m-0; */
+  }
+  .markdown .emoji td:nth-child(odd) {
+    @apply text-4xl;
   }
   .toc {
     @apply pt-2;

@@ -13,7 +13,7 @@ import NoDateMessage from 'src/components/NoDataMessage';
 import slugify from 'slugify';
 
 interface Props {
-  blog: Blog;
+  blog: BlogData;
 }
 
 export default function Tags({ blog }: Props) {
@@ -147,6 +147,7 @@ export default function Tags({ blog }: Props) {
                   isAll ? 'bg-btn border-red-500' : 'bg-canvas border-btn'
                 } hover:bg-btn-hover hover:cursor-pointer border text-btn text-xs font-semibold subpixel-antialiase leading-none`}
                 onClick={handleAllTagButtonOnClick}
+                aria-label="Expend All Button"
               >
                 All
               </button>
@@ -165,6 +166,7 @@ export default function Tags({ blog }: Props) {
                         : 'bg-canvas border-btn'
                     } hover:bg-btn-hover hover:cursor-pointer border text-btn text-xs font-semibold subpixel-antialiase leading-none`}
                     onClick={handleTagOnclick}
+                    aria-label="Tag Link Button"
                   >
                     {tag.name}
                   </button>

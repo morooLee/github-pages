@@ -38,7 +38,11 @@ export default function CategoryTitle({
           </p>
         </a>
       </Link>
-      <button onClick={toggleFolding} className="text-2xl leading-none">
+      <button
+        onClick={toggleFolding}
+        className="text-2xl leading-none"
+        aria-label="Expend Button"
+      >
         <FoldingArrow isFolding={isFolding} />
       </button>
     </div>

@@ -65,6 +65,21 @@ export class Blog {
     });
     this._isInit = true;
   }
+
+  static getPostContent(slug: string): string | undefined {
+    const fileNames = fs.readdirSync(this._POST_DIR);
+    const findPostFileName = fileNames.find((fileName) =>
+      fileName.includes(slug)
+    );
+
+    if (findPostFileName) {
+      const source = matter(
+        fs.readFileSync(join(this._POST_DIR, findPostFileName), 'utf8')
+      );
+      return source.content;
+    }
+    return undefined;
+  }
   private static createPost(fileName: string): Post | undefined {
     const prefix = fileName.replace(/\.(md|mdx)$/, '');
     const [id, slug] = prefix.split('_');
@@ -136,7 +151,7 @@ export class Blog {
       tags: data.tags,
       series: data.series,
       published: data.published,
-      content,
+      // content,
     };
   }
   private static addCategory(

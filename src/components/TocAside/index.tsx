@@ -4,7 +4,7 @@ import { RiArrowUpCircleLine } from 'react-icons/ri';
 import SectionSummary from '../SectionSummary';
 import SectionContent from '../SectionContent';
 import { TocLink } from './TocLink';
-import { TocItem } from './TocItem';
+import { TocItem, TocItemProps } from './TocItem';
 import Adsense from '../Adsense';
 import Anchor from '../MarkdownComponents/Anchor';
 
@@ -65,7 +65,7 @@ export default function TocAside({ toc, activeHeadingId }: Props) {
                       {props.children}
                     </TocLink>
                   ),
-                  li: TocItem,
+                  li: (props: any) => <TocItem {...props} />,
                 }}
               />
             ) : null}

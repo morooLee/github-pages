@@ -14,7 +14,7 @@ import { RiArrowUpCircleLine, RiCloseFill } from 'react-icons/ri';
 interface Props {
   children: ReactNode;
   toc: MDXRemoteSerializeResult | undefined;
-  blog: Blog;
+  blog: BlogData;
   currentPost: Post;
 }
 export default function PostLayout({

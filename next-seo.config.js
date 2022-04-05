@@ -22,7 +22,7 @@ module.exports = {
     },
     images: [
       {
-        url: 'https://blog.moroo.dev/assets/blog_cover_image.jpg',
+        url: 'https://blog.moroo.dev/assets/blog-cover-image.jpeg',
         alt: 'Cover Image',
         type: 'image/jpg',
         width: 1200,

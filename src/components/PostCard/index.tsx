@@ -57,7 +57,7 @@ export default function PostCard({ post }: Props) {
           title={post.description || post.title}
         >
           {/* {post.description || post.title} */}
-          {ellipsisText(post.description || post.content)}
+          {ellipsisText(post.description)}
         </p>
         <div className="flex flex-row gap-1 justify-end items-center pt-3 border-t">
           <RiCalendar2Line className="text-md" />

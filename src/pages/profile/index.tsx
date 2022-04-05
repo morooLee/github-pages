@@ -10,7 +10,7 @@ import MDXContent from 'src/components/MDXContent';
 
 interface Props {
   content: MDXRemoteSerializeResult;
-  blog: Blog;
+  blog: BlogData;
 }
 export default function Profile({ content, blog }: Props) {
   const router = useRouter();

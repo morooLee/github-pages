@@ -7,7 +7,7 @@ import ProfileMenuItem from './ProfileMenuItem';
 
 interface Props {
   isExpand: boolean;
-  blog: Blog;
+  blog: BlogData;
   currentPost?: Post;
 }
 

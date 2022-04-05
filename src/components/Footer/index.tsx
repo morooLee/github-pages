@@ -12,7 +12,7 @@ export default function Footer() {
         <Link href="/" as="/">
           <a className="h-10 w-10 cursor-pointer">
             <Image
-              src="/assets/moroo.png"
+              src="/assets/moroo.svg"
               alt="Moroo Logo"
               layout="responsive"
               objectFit="cover"

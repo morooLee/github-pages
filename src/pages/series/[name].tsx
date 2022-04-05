@@ -14,7 +14,7 @@ import Link from 'next/link';
 interface Props {
   series: Series;
   posts: Post[];
-  blog: Blog;
+  blog: BlogData;
 }
 export default function Series({ series, posts, blog }: Props) {
   const router = useRouter();
@@ -24,22 +24,22 @@ export default function Series({ series, posts, blog }: Props) {
 
   const [searchPosts, setSearchPosts] = useState<Post[]>([...posts]);
 
-  function onSearchChange(event: ChangeEvent<HTMLInputElement>) {
-    const value = event.target.value;
-    if (value) {
-      const findPosts = blog.posts.filter(
-        ({ title, content }) => title.includes(value) || content.includes(value)
-      );
+  // function onSearchChange(event: ChangeEvent<HTMLInputElement>) {
+  //   const value = event.target.value;
+  //   if (value) {
+  //     const findPosts = blog.posts.filter(
+  //       ({ title, content }) => title.includes(value) || content.includes(value)
+  //     );
 
-      if (findPosts.length) {
-        setSearchPosts([...findPosts]);
-      } else {
-        setSearchPosts([]);
-      }
-    } else {
-      setSearchPosts([...posts]);
-    }
-  }
+  //     if (findPosts.length) {
+  //       setSearchPosts([...findPosts]);
+  //     } else {
+  //       setSearchPosts([]);
+  //     }
+  //   } else {
+  //     setSearchPosts([...posts]);
+  //   }
+  // }
 
   useEffect(() => {
     setSearchPosts([...posts]);
@@ -93,7 +93,7 @@ export default function Series({ series, posts, blog }: Props) {
             <ul className="list-decimal list-inside pt-3">
               {posts.map((post) => {
                 return (
-                  <li key={post.slug}>
+                  <li key={post.slug} className="pl-5">
                     <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
                       <a className="inline-block text-lg font-semibold ml-1">
                         <p>{post.title}</p>
@@ -112,7 +112,7 @@ export default function Series({ series, posts, blog }: Props) {
             data={searchPosts}
             handleDataSortingFunc={setSearchPosts}
           />
-          <SearchInput
+          {/* <SearchInput
             placeholder="제목 또는 내용 검색..."
             dataList={posts.map(({ slug, title }) => {
               return {
@@ -122,7 +122,7 @@ export default function Series({ series, posts, blog }: Props) {
               };
             })}
             onChange={onSearchChange}
-          />
+          /> */}
         </div>
         <div className="max-w-none px-5 pb-5">
           {searchPosts.length > 0 ? (

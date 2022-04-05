@@ -10,7 +10,7 @@ import FoldingArrow from 'src/components/FoldingArrow';
 import SortingList from 'src/components/SortingList';
 
 interface Props {
-  blog: Blog;
+  blog: BlogData;
 }
 export default function Categories({ blog }: Props) {
   const router = useRouter();
@@ -27,29 +27,29 @@ export default function Categories({ blog }: Props) {
     setIsAllFolding(!isAllFolding);
   }
 
-  function onSearchChange(event: ChangeEvent<HTMLInputElement>) {
-    const value = event.target.value;
-    if (value) {
-      const findCategories = blog.categories.filter(({ name, postIds }) => {
-        const categoryPosts = blog.posts.filter(({ id }) =>
-          postIds.includes(id)
-        );
-        const findPosts = categoryPosts.filter(
-          ({ title, content }) =>
-            title.includes(value) || content.includes(value)
-        );
-        return name.includes(value) || findPosts.length > 0;
-      });
+  // function onSearchChange(event: ChangeEvent<HTMLInputElement>) {
+  //   const value = event.target.value;
+  //   if (value) {
+  //     const findCategories = blog.categories.filter(({ name, postIds }) => {
+  //       const categoryPosts = blog.posts.filter(({ id }) =>
+  //         postIds.includes(id)
+  //       );
+  //       const findPosts = categoryPosts.filter(
+  //         ({ title, content }) =>
+  //           title.includes(value) || content.includes(value)
+  //       );
+  //       return name.includes(value) || findPosts.length > 0;
+  //     });
 
-      if (findCategories.length) {
-        setSearchCategories([...findCategories]);
-      } else {
-        setSearchCategories([]);
-      }
-    } else {
-      setSearchCategories([...blog.categories]);
-    }
-  }
+  //     if (findCategories.length) {
+  //       setSearchCategories([...findCategories]);
+  //     } else {
+  //       setSearchCategories([]);
+  //     }
+  //   } else {
+  //     setSearchCategories([...blog.categories]);
+  //   }
+  // }
 
   useEffect(() => {
     setSearchCategories([...blog.categories]);
@@ -80,7 +80,7 @@ export default function Categories({ blog }: Props) {
               handleDataSortingFunc={setSearchCategories}
             />
           </div>
-          <SearchInput
+          {/* <SearchInput
             placeholder="이름 또는 내용 검색..."
             dataList={blog.categories.map(({ name }) => {
               return {
@@ -90,7 +90,7 @@ export default function Categories({ blog }: Props) {
               };
             })}
             onChange={onSearchChange}
-          />
+          /> */}
           <div
             onClick={toggleAllFolding}
             className="ml-auto group hover:cursor-pointer"

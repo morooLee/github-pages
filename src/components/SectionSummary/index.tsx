@@ -26,7 +26,7 @@ export default function SectionSummary({
         <button
           onClick={toggleFolding}
           className="inline-block text-2xl"
-          aria-label="폴딩 버튼"
+          aria-label="Expend Button"
         >
           <FoldingArrow isFolding={isFolding} />
         </button>

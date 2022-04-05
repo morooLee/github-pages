@@ -48,7 +48,7 @@ function createPost(postsDir: string, fileName: string): Post {
     updatedAt: new Date(data.updatedAt).toLocaleDateString(),
     category: data.category,
     tags: data.tags,
-    content,
+    // content,
     series: data.series,
     published: data.published,
   };

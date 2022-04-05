@@ -9,7 +9,7 @@ import SubCategoryList from 'src/components/SubCategoryList';
 interface Props {
   category: Category;
   posts: Post[];
-  blog: Blog;
+  blog: BlogData;
 }
 export default function MainCategories({ category, posts, blog }: Props) {
   const router = useRouter();

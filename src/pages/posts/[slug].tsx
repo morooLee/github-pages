@@ -13,19 +13,21 @@ import Location from 'src/components/Location';
 import SeriesPostLinks from 'src/components/SeriesLinks';
 import Link from 'next/link';
 import Adsense from 'src/components/Adsense';
+import { Blog } from 'src/lib/blog';
 
 interface Props {
   post: Post;
   series?: Series;
   content: MDXRemoteSerializeResult;
   toc: MDXRemoteSerializeResult | undefined;
-  blog: Blog;
+  blog: BlogData;
 }
 export default function Post({ post, series, content, toc, blog }: Props) {
   const router = useRouter();
   const title = `${post.title} | Moroo Blog`;
-  const description =
-    post.description ?? post.content.split('\n').slice(0, 9).join('\n');
+  const description = post.description;
+  // const description =
+  //   post.description ?? post.content.split('\n').slice(0, 9).join('\n');
   const url = decodeURI(`https://blog.moroo.dev${router.asPath}`);
   const images = [
     {
@@ -154,10 +156,19 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       },
     };
   }
+  const source = Blog.getPostContent(post.slug);
 
   const series = blog.series.find(({ name }) => name === post.series?.name);
 
-  const { content, toc } = await compiledSource(post.content, {
+  if (!source) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+  const { content, toc } = await compiledSource(source, {
     isAutoLinkHeading: true,
   });
 

@@ -14,7 +14,7 @@ import fs from 'fs';
 import { join } from 'path';
 
 interface Props {
-  blog: Blog;
+  blog: BlogData;
 }
 export default function Home({ blog }: Props) {
   const router = useRouter();
@@ -45,7 +45,7 @@ export default function Home({ blog }: Props) {
             </h1>
             <div className="mt-5 border">
               <Image
-                src="/assets/posts/blog-cover-image.jpeg"
+                src="/assets/blog-cover-image.jpeg"
                 alt="#moroo Software Quality Assurance Test Automation Engineer"
                 layout="responsive"
                 objectFit="cover"

@@ -7,8 +7,10 @@ import emoji from 'node-emoji';
 import Prism from 'prismjs';
 import loadLanguages from 'prismjs/components/index';
 import createSVGCoverImage from './createSVGCoverImage';
+import { getPostByFileName } from './initBlog';
+import { Blog } from './blog';
 
-export function generateRssFeed(blog: Blog) {
+export function generateRssFeed(blog: BlogData) {
   const date = new Date();
   const author = {
     name: 'moroo',
@@ -83,7 +85,15 @@ export function generateRssFeed(blog: Blog) {
         return emoji.emojify(match);
       }
     };
-    const markdown = post.content.replace(/(.:[^:]+:.)/g, replacer);
+    const markdown = Blog.getPostContent(post.slug)?.replace(
+      /(.:[^:]+:.)/g,
+      replacer
+    );
+    // post.content.replace(/(.:[^:]+:.)/g, replacer);
+    if (!markdown) {
+      return;
+    }
+
     const html = marked.parse(markdown);
 
     const url = decodeURI(`https://blog.moroo.dev/posts/${post.slug}`);
@@ -93,7 +103,7 @@ export function generateRssFeed(blog: Blog) {
       title: post.title,
       id: url,
       link: url,
-      // description,
+      description,
       content: html,
       author: [author],
       date: new Date(post.updatedAt),

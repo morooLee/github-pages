@@ -18,7 +18,7 @@ const LINK_SVG_TAG: Element = s(
   'svg',
   {
     xmlns: 'http://www.w3.org/2000/svg',
-    class: 'text-2xl font-semibold mr-2',
+    class: 'font-semibold mr-2',
     width: '1em',
     height: '1em',
     fill: 'none',
@@ -73,6 +73,7 @@ export default async function compiledSource(
         //   },
         //   children: [LINK_SVG_TAG],
         // },
+        behavior: 'append',
         group(node: Element) {
           return h('.heading-' + node.tagName.charAt(1) + '-group');
         },

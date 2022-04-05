@@ -11,7 +11,7 @@ import SortingList from 'src/components/SortingList';
 import NoDataMessage from 'src/components/NoDataMessage';
 
 interface Props {
-  blog: Blog;
+  blog: BlogData;
 }
 export default function Posts({ blog }: Props) {
   const router = useRouter();
@@ -21,21 +21,21 @@ export default function Posts({ blog }: Props) {
 
   const [searchPosts, setSearchPosts] = useState<Post[]>([...blog.posts]);
 
-  function onSearchChange(event: ChangeEvent<HTMLInputElement>) {
-    const value = event.target.value;
-    if (value) {
-      const findPosts = blog.posts.filter(
-        ({ title, content }) => title.includes(value) || content.includes(value)
-      );
-      if (findPosts.length) {
-        setSearchPosts([...findPosts]);
-      } else {
-        setSearchPosts([]);
-      }
-    } else {
-      setSearchPosts([...blog.posts]);
-    }
-  }
+  // function onSearchChange(event: ChangeEvent<HTMLInputElement>) {
+  //   const value = event.target.value;
+  //   if (value) {
+  //     const findPosts = blog.posts.filter(
+  //       ({ title, content }) => title.includes(value) || content.includes(value)
+  //     );
+  //     if (findPosts.length) {
+  //       setSearchPosts([...findPosts]);
+  //     } else {
+  //       setSearchPosts([]);
+  //     }
+  //   } else {
+  //     setSearchPosts([...blog.posts]);
+  //   }
+  // }
 
   useEffect(() => {
     setSearchPosts([...blog.posts]);
@@ -81,7 +81,7 @@ export default function Posts({ blog }: Props) {
               handleDataSortingFunc={setSearchPosts}
             />
           </div>
-          <SearchInput
+          {/* <SearchInput
             placeholder="제목 또는 내용 검색..."
             dataList={blog.posts.map((post) => {
               return {
@@ -91,7 +91,7 @@ export default function Posts({ blog }: Props) {
               };
             })}
             onChange={onSearchChange}
-          />
+          /> */}
         </div>
         <div className="max-w-none px-5 pb-5">
           {searchPosts.length > 0 ? (

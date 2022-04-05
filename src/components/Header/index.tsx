@@ -8,7 +8,7 @@ import MainMenu from '../MainMenu';
 import { Media } from '../Media';
 
 interface Props {
-  blog: Blog;
+  blog: BlogData;
   currentPost?: Post;
 }
 export default function Header({ blog, currentPost }: Props) {
@@ -57,7 +57,7 @@ export default function Header({ blog, currentPost }: Props) {
           <Link href="/" as="/">
             <a className="h-10 w-10 justify-self-start relative cursor-pointer">
               <Image
-                src="/assets/moroo.png"
+                src="/assets/moroo.svg"
                 alt="Moroo Logo"
                 layout="responsive"
                 objectFit="cover"
@@ -124,7 +124,7 @@ export default function Header({ blog, currentPost }: Props) {
             </Link>
           </nav>
           <div className="h-10 xl:w-62 2xl:w-80 pl-5 lg:px-5 flex flex-row justify-end text-2xl gap-5">
-            <button onClick={toggleDarkMode}>
+            <button onClick={toggleDarkMode} aria-label="Expend Button">
               {isDarkMode ? (
                 <RiMoonLine aria-label="Dark Mode" />
               ) : (
@@ -135,11 +135,9 @@ export default function Header({ blog, currentPost }: Props) {
               <button
                 onClick={handleMobileMenuOnclick}
                 className="text-4xl align-middle"
+                aria-label="Hamburger Menu Button"
               >
-                <RiMenuFill
-                  className="hover:scale-100"
-                  aria-label="Hamburger Menu"
-                />
+                <RiMenuFill className="hover:scale-100" />
               </button>
             </Media>
           </div>

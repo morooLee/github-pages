@@ -9,7 +9,7 @@ import Adsense from 'src/components/Adsense';
 
 interface Props {
   children: ReactNode;
-  blog: Blog;
+  blog: BlogData;
 }
 export default function MainLayout({ children, blog }: Props) {
   return (

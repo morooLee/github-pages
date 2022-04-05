@@ -4,7 +4,7 @@
         <title>Moroo Blog</title>
         <link>https://blog.moroo.dev</link>
         <description>Software QA 및 테스트 자동화에 대한 이야기</description>
-        <lastBuildDate>Sun, 03 Apr 2022 21:01:34 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 05 Apr 2022 20:12:27 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <language>ko-KR</language>
@@ -26,10 +26,887 @@
         <category>Markup</category>
         <category>Markdown</category>
         <item>
+            <title><![CDATA[마크다운에 대해 알아보기]]></title>
+            <link>https://blog.moroo.dev/posts/마크다운에-대해-알아보기</link>
+            <guid>https://blog.moroo.dev/posts/마크다운에-대해-알아보기</guid>
+            <pubDate>Tue, 05 Apr 2022 15:00:00 GMT</pubDate>
+            <description><![CDATA[마크다운의 역사 및 철학 등 마크다운에 대해 알아보고 기본 문법을 사용하는 법을 배워봅니다.]]></description>
+            <content:encoded><![CDATA[<h2 id="마크다운">마크다운</h2>
+<p>2004년 John Gruber(Aaron Swartz가 도움)가 개발했으며 일반 텍스트 문서를 XHTML(또는 HTML)로 변환하기 위한 <a href="http://daringfireball.net/projects/markdown/syntax">구문 설명</a> 및 <a href="https://www.perl.org/">Perl</a> 스크립트(<code>Markdown.pl</code>)로 2004년에 출시하였습니다. (개발 당시 일반 텍스트 형식의 이메일에서 가장 큰 영감을 얻었다고 합니다.)</p>
+<p>이 후, 일부는 구문을 확장한 형태로, 일부는 HTML 이외의 문서로 변환되는 등 다양한 언어로 확장 개발되었습니다.</p>
+<p>웹사이트에서 HTML의 문서 작성을 대체하는 것으로 시작하였으나, 현재는 전세계 수백만명의 사람들이 문서를 작성할 때 사용하고 있습니다.</p>
+<p>마크다운의 확장자는 <code>.md</code> 또는 <code>.markdown</code> 두가지를 사용할 수 있지만, <code>.md</code>가 압도적으로 많이 쓰이고 있습니다.</p>
+<blockquote>
+<p>공식 사이트: <a href="https://daringfireball.net/projects/markdown">https://daringfireball.net/projects/markdown</a></p>
+</blockquote>
+<h2 id="tl-dr">TL; DR</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Markdown 1</th>
+<th align="left">Markdown 2</th>
+<th align="left">View</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"># Heading 1</td>
+<td align="left">Heading 1<br/>------------</td>
+<td align="left"><h1>Heading 1</h1></td>
+</tr>
+<tr>
+<td align="left">## Heading 2</td>
+<td align="left">Heading 2<br/>========</td>
+<td align="left"><h2>Heading 2</h2></td>
+</tr>
+<tr>
+<td align="left">### Heading 3</td>
+<td align="left"></td>
+<td align="left"><h3>Heading 3</h3></td>
+</tr>
+<tr>
+<td align="left">#### Heading 4</td>
+<td align="left"></td>
+<td align="left"><h4>Heading 4</h4></td>
+</tr>
+<tr>
+<td align="left">##### Heading 5</td>
+<td align="left"></td>
+<td align="left"><h5>Heading 5</h5></td>
+</tr>
+<tr>
+<td align="left">###### Heading 6</td>
+<td align="left"></td>
+<td align="left"><h6>Heading 6</h6></td>
+</tr>
+<tr>
+<td align="left">&gt; Blockquote</td>
+<td align="left"></td>
+<td align="left"><blockquote>Blockquote</blockquote></td>
+</tr>
+<tr>
+<td align="left">- List<br/>- List<br/>- List</td>
+<td align="left">- List<br/>- List<br/>- List</td>
+<td align="left"><ul><li>List</li><li>List</li><li>List</li></ul></td>
+</tr>
+<tr>
+<td align="left">1. One<br/>2. Two<br/>3. Three</td>
+<td align="left">1) One<br/>2) Two<br/>3) Three</td>
+<td align="left"><ol><li>One</li><li>Two</li><li>Three</li></ol></td>
+</tr>
+<tr>
+<td align="left">`Inline Code`</td>
+<td align="left"></td>
+<td align="left"><code className="inline-code">Inline Code</code></td>
+</tr>
+<tr>
+<td align="left">```<br/># code block<br/>print &#39;3 backticks or&#39;<br/>print &#39;indent 4 spaces&#39;<br/> ```</td>
+<td align="left"></td>
+<td align="left"><pre><code># code block<br/>print '3 backticks or'<br/>print 'indent 4 spaces'</code></pre></td>
+</tr>
+<tr>
+<td align="left">---</td>
+<td align="left">***</td>
+<td align="left"><hr/></td>
+</tr>
+<tr>
+<td align="left">[Moroo Blog](<a href="https://blog.moroo.dev">https://blog.moroo.dev</a>)</td>
+<td align="left">[Moroo Blog][blog]<br/>⋮<br/>[blog]: <a href="https://blog.moroo.dev">https://blog.moroo.dev</a></td>
+<td align="left"><a href="https://blog.moroo.dev">Moroo Blog</a></td>
+</tr>
+<tr>
+<td align="left">*Italic*</td>
+<td align="left">_Italic_</td>
+<td align="left"><em>Italic</em></td>
+</tr>
+<tr>
+<td align="left">**Bold**</td>
+<td align="left">__Bold__</td>
+<td align="left"><strong>Bold</strong></td>
+</tr>
+<tr>
+<td align="left">![Moroo Logo](/assets/moroo.svg)</td>
+<td align="left">[Moroo Logo][logo]<br/>⋮<br/>[logo]: /assets/moroo.svg</td>
+<td align="left"><img src="/assets/moroo.svg" alt="Moroo Logo" width="40" height="40" /></td>
+</tr>
+</tbody></table>
+<h2 id="마크다운-철학">마크다운 철학</h2>
+<p><a href="https://daringfireball.net/projects/markdown/syntax#philosophy">마크다운의 철학</a>은 <code>가능한 한 읽기 쉽고 쓰기 쉽게, 그러나 가독성 있게</code> 입니다.</p>
+<p>마크다운으로 작성한 문서는 그 자체가 일반 텍스트 문서로써 그대로 게시(출판)할 수 있어야 한다는 개념으로 마크다운을 다른 경량 마크업들과 구별되는 것이 바로 이 철학에서 나오는 가독성입니다.</p>
+<blockquote>
+<p>The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible. The idea is that a Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions.</p>
+<p><em>(Markdown의 구문에 대한 최우선 설계 목표는 가능한 한 읽기 쉽게 만드는 것입니다. 마크다운 형식의 문서는 태그나 지정된 서식들이 보이지 않고 문서 자체가 일반 텍스트처럼 보여서 수정없이 있는 그대로 게시할 수 있어야 한다는 개념입니다.)</em></p>
+<p><a href="https://daringfireball.net/projects/markdown/">https://daringfireball.net/projects/markdown/</a> 발췌...</p>
+</blockquote>
+<p>예를 들어, <code>*단어*</code>처럼 단어 주위의 별표시는 그 자체가 <strong>단어</strong>를 강조한 것처럼 보입니다.
+그리고 그것을 변환하면 <strong>Bold</strong> 처리가 됩니다.</p>
+<p>아래는 <a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a>의 샘플 내용으로 AsciiDoc으로 작성한 문서와 마크다운으로 작성한 문서를 비교한 것입니다.</p>
+<p><strong>AsciiDoc</strong></p>
+<pre><code class="language-asciidoc"><span class="token list-punctuation punctuation">1.</span> List item one.
+<span class="token line-continuation punctuation">+</span>
+List item one continued with a second paragraph followed by an
+Indented block.
+<span class="token line-continuation punctuation">+</span>
+<span class="token literal-block"><span class="token punctuation">.................</span>
+$ ls *.sh
+$ mv *.sh ~/tmp
+<span class="token punctuation">.................</span></span>
+<span class="token line-continuation punctuation">+</span>
+List item continued with a third paragraph.
+
+<span class="token list-punctuation punctuation">2.</span> List item two continued with an open block.
+<span class="token line-continuation punctuation">+</span>
+<span class="token other-block"><span class="token punctuation">--</span>
+This paragraph is part of the preceding list item.
+
+<span class="token list-punctuation punctuation">a.</span> This list is nested and does not require explicit item
+continuation.
+<span class="token line-continuation punctuation">+</span>
+This paragraph is part of the preceding list item.
+
+<span class="token list-punctuation punctuation">b.</span> List item b.
+
+This paragraph belongs to item two of the outer list.
+<span class="token punctuation">--</span></span>
+</code></pre>
+<p><strong>Markdown</strong></p>
+<pre><code class="language-markdown"><span class="token list punctuation">1.</span>  List item one.
+
+<span class="token code keyword">    List item one continued with a second paragraph followed by an
+    Indented block.</span>
+
+<span class="token code keyword">        $ ls *.sh
+        $ mv *.sh ~/tmp</span>
+
+<span class="token code keyword">    List item continued with a third paragraph.</span>
+
+<span class="token list punctuation">2.</span>  List item two continued with an open block.
+
+<span class="token code keyword">    This paragraph is part of the preceding list item.</span>
+
+<span class="token code keyword">    1. This list is nested and does not require explicit item continuation.</span>
+
+<span class="token code keyword">       This paragraph is part of the preceding list item.</span>
+
+<span class="token code keyword">    2. List item b.</span>
+
+<span class="token code keyword">    This paragraph belongs to item two of the outer list.</span>
+</code></pre>
+<p>위의 두 문서를 수정없이 현재 그대로 게시(출판)한다고 했을 때 AsciiDoc은 문서로써의 가독성이 현저히 떨어지고 가공 없이는 게시(출판)이 불가능해 보이는 반면, 마크다운은 그 자체로도 문서의 서식이 잘 갖추어져 있어서 어떤 가공 없이도 게시(출판)가 가능해 보입니다.</p>
+<h2 id="마크다운-목적">마크다운 목적</h2>
+<p>마크다운 구문으로 대체할 수 있는 HTML의 태그는 극히 일부로, 마크다운의 구문은 HTML 태그들의 하위 집합인 셈입니다. 따라서, 마크다운이 HTML과 같거나 HTML을 대체할 수 있는 것은 압니다.</p>
+<p>마크다운의 목적은 산문을 쉽게 읽고, 쓰고, 편집할 수 있게 하는 것으로 HTML이 출판의 개념이라면 마크다운은 쓰기의 개념으로 마크다운은 HTML에서 텍스트로 전달할 수 있는 문제만 해결합니다.</p>
+<h2 id="마크다운-안의-html-사용">마크다운 안의 HTML 사용</h2>
+<p>위에 언급한 바와 같이 마크다운의 구문은 HTML 태그의 하위집합입니다. 따라서, 마크다운 구문으로 할 수 없는 것들은 HTML 태그를 그대로 사용하면 됩니다.</p>
+<h3 id="html-블록-내-마크다운-구문-처리">HTML 블록 내 마크다운 구문 처리</h3>
+<p>마크다운 안에서 HTML 태그를 사용할 때는 HTML 블록 안에서 마크다운 구문을 사용할 수 없습니다.</p>
+<pre><code class="language-markdown">This is a regular paragraph.
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span><span class="token italic"><span class="token punctuation">*</span><span class="token content">Foo</span><span class="token punctuation">*</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span>
+
+This is another regular paragraph.
+</code></pre>
+<p>위의 예시에서 <code>&lt;td&gt;</code>사이의 <code>*Foo*</code>는 <strong>Bold</strong> 처리가 되지 않습니다.<br><strong>Bold</strong> 처리를 하고 싶다면 <code>&lt;td&gt;&lt;b&gt;Foo&lt;/b&gt;&lt;/td&gt;</code>와 같이 직접 <code>&lt;b&gt;</code> 태그를 추가하면 됩니다.</p>
+<h3 id="block-level-태그-처리">Block-level 태그 처리</h3>
+<p>유일한 제약 사항으로는 블록 수준의 HTML 요소들(<code>&lt;div&gt;</code>, <code>&lt;table&gt;</code>, <code>&lt;pre&gt;</code>, <code>&lt;p&gt;</code> 등)을 마크다운 안에서 사용할 때는 시작과 끝을 빈 줄로 감싸서 다른 내용들과 분리해야 하며, 블록의 시작과 끝은 탭이나 공백으로 들여쓰지 않아야 합니다.</p>
+<p>예를 들어, 마크다운 내에 <code>&lt;table&gt;</code>을 추가한다고 하면 아래와 같이 위, 아래 문장 사이에 빈 줄을 추가하여 분리시켜야 합니다.</p>
+<pre><code class="language-markdown">This is a regular paragraph.
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Foo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span>
+
+This is another regular paragraph.
+</code></pre>
+<h3 id="span-level-처리">Span-level 처리</h3>
+<p>Span-level의 HTML 태그들(<code>&lt;span&gt;</code>, <code>&lt;cite&gt;</code>, <code>&lt;del&gt;</code> 등)은 마크다운 내에 어디든 사용이 가능합니다.<br>마크다운 구문으로 표현이 가능한 태그들도 마크다운 형식 대신 HTML 태그로 사용할 수도 있습니다.</p>
+<p>주로 사용하는 것은 이미지로 마크다운 구문으로 이미지를 구현할 경우 이미지 크기를 지정할 수가 없어서 이미지 크기를 지정해야 하는 경우 HTML 태그인 <code>&lt;img&gt;</code>를 직접 사용하는 경우가 많습니다.</p>
+<h4 id="마크다운-이미지-구문">마크다운 이미지 구문</h4>
+<pre><code class="language-markdown">![Alt text](/path/to/img.jpg &#39;Optional title&#39;)
+</code></pre>
+<h4 id="html-이미지-태그">HTML 이미지 태그</h4>
+<pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span>
+  <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Alt text<span class="token punctuation">"</span></span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/path/to/img.jpg<span class="token punctuation">"</span></span>
+  <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Optional title<span class="token punctuation">"</span></span>
+  <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span>
+  <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span>
+<span class="token punctuation">/></span></span>
+</code></pre>
+<h3 id="html-특수문자에-대한-자동-이스케이프-처리">HTML 특수문자에 대한 자동 이스케이프 처리</h3>
+<p>HTML에서는 이미 사용중이거나 사용 예정으로 잡아둔 문자들이 있습니다.<br>이러한 문자들은 사용이 불가능해서 이를 <a href="https://www.w3schools.com/html/html_entities.asp">문자 엔티티(Character Entity)</a>라고 하는 것으로 대체해서 사용합니다.</p>
+<p>이 중에 마크다운에서는 <code>&lt;</code>, <code>&amp;</code> 는 같은 경우 각각 HTML 태그의 시작 및 링크 주소에서 많이 사용되므로 따로 이스케이프 처리를 하지 않아도 자동으로 이스케이프 처리를 해줍니다.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Character</th>
+<th>Description</th>
+<th>Entity Name</th>
+<th>Entity Number</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>&lt;</code></td>
+<td>less than</td>
+<td><code>&amp;lt;</code></td>
+<td><code>&amp;#60;</code></td>
+</tr>
+<tr>
+<td align="center"><code>&amp;</code></td>
+<td>ampersand</td>
+<td><code>&amp;amp;</code></td>
+<td><code>&amp;#38;</code></td>
+</tr>
+</tbody></table>
+<p>따라서, 마크다운 안에서는 <code>&lt;</code> 및 <code>&amp;</code>를 그대로 사용하면 됩니다.</p>
+<p>다만 주의하셔야 하는 점이 위에 언급한 바와 같이 HTML 블록 안에서는 마크다운 구문을 사용 할 수 없으므로 각각 <code>&amp;lt;</code>와 <code>&amp;amp;</code>로 직접 이스케이프 처리를 해주어야 합니다.</p>
+<h3 id="마크다운-구문점에-대한-이스케이프-처리">마크다운 구문점에 대한 이스케이프 처리</h3>
+<p>위의 상황과 반대로 마크다운에서도 구문점으로 사용하는 문자들이 있는데 이는 마크다운 내에서 직접 사용을 할 수가 없습니다.
+예를 들어 반지름이 10인 원의 넓이를 구하는 식인 <code>10*10*3.14=314</code>를 마크다운 내에서 그대로 작성하면 <strong>10<em>10</em>3.14=314</strong> 이런식으로 마크다운 구문이 적용되어서 원치 않는 결과가 발생됩니다.</p>
+<p>따라서, 이렇게 마크다운 구문점으로 사용하는 문자들을 리터럴 문자 그대로 보여주고자 하는 경우 백스페이스키인 <code>\</code>를 앞에 사용해 주면 됩니다.</p>
+<p>위의 예를 다시 들면,
+<strong>10*10*3.14=314</strong>를 작성하고자 한다면 <code>10\*10\*3.14=314</code> 이렇게 사용하면 됩니다.</p>
+<h2 id="마크다운-기본-문법구문">마크다운 기본 문법(구문)</h2>
+<h3 id="단락-및-줄바꿈">단락 및 줄바꿈</h3>
+<h4 id="단락">단락</h4>
+<p>마크다운에서 단락을 만들려면 문장과 문장 사이에 하나 이상의 빈줄을 추가하면 됩니다.
+이는 HTML에서 <code>&lt;br /&gt;</code>로 단락을 구분 짓는 것이 아닌 Block-level로 구분하여 단락을 짓는 방식입니다.</p>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown">첫번째 문장과 두번째 문장 사이에 단락을 추가하고 싶으면
+
+이런식으로 문장 사이에 빈줄을 추가하면 됩니다.
+
+
+
+이렇게 빈줄 여러개를 추가해도 단락은 하나밖에 생성되지 않습니다.
+</code></pre>
+<p><strong>[결과]</strong></p>
+<blockquote>
+<p>첫번째 문장과 두번째 문장 사이에 단락을 추가하고 싶으면</p>
+<p>이런식으로 문장 사이에 빈줄을 추가하면 됩니다.</p>
+<p>이렇게 빈줄 여러개를 추가해도 단락은 하나밖에 생성되지 않습니다.</p>
+</blockquote>
+<h4 id="줄바꿈">줄바꿈</h4>
+<p>마크다운에서는 <code>&lt;br /&gt;</code>을 줄바꿈으로 사용하는데 이를 마크다운에서 사용하기 위해서는 줄바꿈을 하고 싶은 위치에서 두개 이상의 공백을 추가하고 개행(Return 입력)을 하면 됩니다.</p>
+<p><em>(아래 예시에 있는 문장 중 첫번째 줄을 전체 선택하거나 끝까지 드래그 해보시면 뒤에 두개 이상의 공백을 확인할 수 있습니다.)</em></p>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown">마크다운에서 줄바꿈을 사용하고 싶으면  
+이렇게 2개 이상의 공백을 추가하면 됩니다.
+</code></pre>
+<p><strong>[결과]</strong></p>
+<blockquote>
+<p>마크다운에서 줄바꿈을 사용하고 싶으면<br>이렇게 2개 이상의 공백을 추가하고 개행(Return 입력)을 하면 됩니다.</p>
+</blockquote>
+<h3 id="headers-헤더">Headers (헤더)</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="left">Markdown</th>
+<th align="center">HTML</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Header 1</td>
+<td align="left"><code># {title}</code></td>
+<td align="center"><code>&lt;h1&gt;{title}&lt;/h1&gt;</code></td>
+</tr>
+<tr>
+<td align="center">Header 2</td>
+<td align="left"><code>## {title}</code></td>
+<td align="center"><code>&lt;h2&gt;{title}&lt;/h2&gt;</code></td>
+</tr>
+<tr>
+<td align="center">Header 3</td>
+<td align="left"><code>### {title}</code></td>
+<td align="center"><code>&lt;h3&gt;{title}&lt;/h3&gt;</code></td>
+</tr>
+<tr>
+<td align="center">Header 4</td>
+<td align="left"><code>#### {title}</code></td>
+<td align="center"><code>&lt;h4&gt;{title}&lt;/h4&gt;</code></td>
+</tr>
+<tr>
+<td align="center">Header 5</td>
+<td align="left"><code>##### {title}</code></td>
+<td align="center"><code>&lt;h5&gt;{title}&lt;/h5&gt;</code></td>
+</tr>
+<tr>
+<td align="center">Header 6</td>
+<td align="left"><code>###### {title}</code></td>
+<td align="center"><code>&lt;h6&gt;{title}&lt;/h6&gt;</code></td>
+</tr>
+</tbody></table>
+<p>마크다운의 기본 구문에서는 아래 두가지 방식을 사용할 수 있습니다.</p>
+<ul>
+<li><a href="https://docutils.sourceforge.io/mirror/setext.html">Setext</a></li>
+<li><a href="http://www.aaronsw.com/2002/atx/">atx</a></li>
+</ul>
+<h4 id="setext">Setext</h4>
+<p>Setext 방식은 <code>&lt;h1&gt;</code>은 등호(<code>=</code>)를, <code>&lt;h2&gt;</code>는 대시(<code>-</code>)를 문장 다음 줄에 밑줄 형태로 사용해서 구현할 수 있으며 Setext 방식으로는 <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code> 만 구현할 수 있어서 대중적으로 사용하지는 않습니다.<br>(<code>=</code> 또는 <code>-</code> 갯수에 상관없이 작동합니다.)</p>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown"><span class="token title important">H1 제목입니다.
+<span class="token punctuation">===========</span></span>
+<span class="token title important">H2 제목입니다.
+<span class="token punctuation">-----------</span></span>
+</code></pre>
+<p><strong>[결과]</strong></p>
+<blockquote>
+<h1>H1 제목입니다.</h1>
+
+<h2>H2 제목입니다.</h2>
+</blockquote>
+<h4 id="atx">atx</h4>
+<p>atx 방식은 해시(<code>#</code>)의 갯수를 헤더 태그들인 <code>&lt;h1&gt;</code> ~ <code>&lt;h6&gt;</code> 6가지의 태그 숫자와 매칭해서 <code>&lt;h1&gt;</code>은 <code>#</code>으로 <code>&lt;h2&gt;</code>는 <code>##</code>으로, <code>&lt;h3&gt;</code>은 <code>###</code>과 같은 식으로 구현합니다.</p>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> H1 제목입니다.</span>
+
+<span class="token title important"><span class="token punctuation">##</span> H2 제목입니다.</span>
+
+<span class="token title important"><span class="token punctuation">###</span> H3 제목입니다.</span>
+
+<span class="token title important"><span class="token punctuation">####</span> H4 제목입니다.</span>
+
+<span class="token title important"><span class="token punctuation">#####</span> H5 제목입니다.</span>
+
+<span class="token title important"><span class="token punctuation">######</span> H6 제목입니다.</span>
+</code></pre>
+<p><strong>[결과]</strong></p>
+<blockquote>
+<h1>H1 제목입니다.</h1>
+
+<h2>H2 제목입니다.</h2>
+
+<h3>H3 제목입니다.</h3>
+
+<h4>H4 제목입니다.</h4>
+
+<h5>H5 제목입니다.</h5>
+
+<h6>H6 제목입니다.</h6>
+</blockquote>
+<p>선택적으로 atx 스타일은 문장 마지막에 해시(<code>#</code>)를 추가하여 닫을 수 있습니다.
+이는 따른 추가적인 기능없이 오로지 가독성을 위한 것입니다.</p>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> H1 제목입니다. <span class="token punctuation">#</span></span>
+
+<span class="token title important"><span class="token punctuation">##</span> H2 제목입니다. <span class="token punctuation">##</span></span>
+
+<span class="token title important"><span class="token punctuation">###</span> H3 제목입니다. <span class="token punctuation">###</span></span>
+</code></pre>
+<p><strong>[결과]</strong></p>
+<blockquote>
+<h1>H1 제목입니다.</h1>
+
+<h2>H2 제목입니다.</h2>
+
+<h3>H3 제목입니다.</h3>
+</blockquote>
+<h3 id="blockquote-인용">BlockQuote (인용)</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Markdown</th>
+<th align="center">HTML</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">BlockQuote</td>
+<td align="center"><code>&gt; {content}</code></td>
+<td align="center"><code>&lt;blockquote&gt;{content}&lt;/blockquote&gt;</code></td>
+</tr>
+</tbody></table>
+<p>마크다운은 인용을 위해 이메일 스타일인 <code>&gt;</code> 문자를 사용합니다.<br>모든 줄 앞에 <code>&gt;</code> 추가하면 됩니다.</p>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown"><span class="token blockquote punctuation">></span> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+<span class="token blockquote punctuation">></span> consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+<span class="token blockquote punctuation">></span> Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+<span class="token blockquote punctuation">></span>
+<span class="token blockquote punctuation">></span> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+<span class="token blockquote punctuation">></span> id sem consectetuer libero luctus adipiscing.
+</code></pre>
+<p><strong>[결과]</strong></p>
+<blockquote>
+<p>This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
+<p>Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.</p>
+<p>BlockQuote(인용)은 중복으로 사용 가능합니다.</p>
+</blockquote>
+<h4 id="blockquote-중복">BlockQuote 중복</h4>
+<p>BlockQuote(인용)은 <code>&gt;</code> 문자를 연속으로 사용하는 방식으로 중복 사용이 가능합니다.</p>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown"><span class="token blockquote punctuation">></span> BlockQuote(인용)은 중복으로 사용 가능합니다.
+<span class="token blockquote punctuation">></span>
+<span class="token blockquote punctuation">> ></span> 이중 중복
+<span class="token blockquote punctuation">> ></span>
+<span class="token blockquote punctuation">> > ></span> 삼중 중복
+<span class="token blockquote punctuation">> > ></span>
+<span class="token blockquote punctuation">> > > ></span> 이런식으로 중복이 가능합니다.
+</code></pre>
+<p><strong>[결과]</strong></p>
+<blockquote>
+<p>BlockQuote(인용)은 중복으로 사용 가능합니다.</p>
+<blockquote>
+<p>이중 중복</p>
+<blockquote>
+<p>삼중 중복</p>
+<blockquote>
+<p>이런식으로 중복이 가능합니다.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="blockquote-안에서-마크다운-문법-사용하기">BlockQuote 안에서 마크다운 문법 사용하기</h4>
+<p>BlockQuote 안에서 마크다운 문법을 얼마든지 사용 가능합니다.</p>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown"><span class="token blockquote punctuation">></span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">BlockQuote(인용) 안에서 마크다운 문법을 사용할 수 있습니다.</span><span class="token punctuation">**</span></span>
+<span class="token blockquote punctuation">></span>
+<span class="token blockquote punctuation">></span> <span class="token list punctuation">1.</span> <span class="token code-snippet code keyword">`첫번째`</span> 순서
+<span class="token blockquote punctuation">></span> <span class="token list punctuation">2.</span> <span class="token code-snippet code keyword">`두번째`</span> 순서
+<span class="token blockquote punctuation">></span>
+<span class="token blockquote punctuation">></span> <span class="token url">[<span class="token content">Moroo Blog</span>](<span class="token url">https://blog.moroo.dev</span>)</span> 이런식으로 링크 사용도 가능합니다.
+</code></pre>
+<p><strong>[결과]</strong></p>
+<blockquote>
+<p><strong>BlockQuote(인용) 안에서 마크다운 문법을 사용할 수 있습니다.</strong></p>
+<ol>
+<li><code>첫번째</code> 순서</li>
+<li><code>두번째</code> 순서</li>
+</ol>
+<p><a href="https://blog.moroo.dev">Moroo Blog</a> 이런식으로 링크 사용도 가능합니다.</p>
+</blockquote>
+<h3 id="lists-목록">Lists (목록)</h3>
+<p>마크다운에서는 순서가 있는 목록(번호)과 순서가 없는 목록(기호)을 지원합니다.</p>
+<h4 id="ordered-list-순서가-있는-목록">Ordered List (순서가 있는 목록)</h4>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Markdown</th>
+<th align="center">HTML</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Ordered List</td>
+<td align="center"><code>1. {list}</code></td>
+<td align="center"><code>&lt;ol&gt;&lt;li&gt;{list}&lt;/li&gt;&lt;/ol&gt;</code></td>
+</tr>
+</tbody></table>
+<p>순서가 있는 목록은 숫자 다음에 마침표(<code>.</code>)로 사용이 가능합니다.<br>하위 목록은 탭으로 구현합니다.</p>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown"><span class="token list punctuation">1.</span> 첫번째 항목
+   <span class="token list punctuation">1.</span> 첫번째 목록의 첫번째 하위 항목
+   <span class="token list punctuation">2.</span> 첫번째 목록의 두번째 하위 항목
+<span class="token list punctuation">2.</span> 두번째 항목
+<span class="token list punctuation">3.</span> 세번째 항목
+</code></pre>
+<p><strong>[결과]</strong></p>
+<ol>
+<li>첫번째 항목<ol>
+<li>첫번째 목록의 첫번째 하위 항목</li>
+<li>첫번째 목록의 두번째 하위 항목</li>
+</ol>
+</li>
+<li>두번째 항목</li>
+<li>세번째 항목</li>
+</ol>
+<p>순서는 작성한 순번과 상관없이 1번부터 순차적으로 채번됩니다.</p>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown"><span class="token list punctuation">1.</span> 첫번째 항목
+   <span class="token list punctuation">1.</span> 첫번째 목록의 첫번째 하위 항목
+   <span class="token list punctuation">1.</span> 첫번째 목록의 두번째 하위 항목
+<span class="token list punctuation">3.</span> <span class="token code-snippet code keyword">`3`</span>으로 적어도 <span class="token code-snippet code keyword">`2`</span>로 자동 채번됩니다.
+<span class="token list punctuation">4.</span> <span class="token code-snippet code keyword">`3`</span> 다음인 <span class="token code-snippet code keyword">`4`</span>로 적었어도 자동 채번으로 인해 <span class="token code-snippet code keyword">`3`</span>으로 변경됩니다.
+<span class="token list punctuation">2.</span> 숫자가 적어도 해당 순번에 맞게 <span class="token code-snippet code keyword">`4`</span>로 채번됩니다.
+</code></pre>
+<p><strong>[결과]</strong></p>
+<ol>
+<li>첫번째 항목<ol>
+<li>첫번째 목록의 첫번째 하위 항목</li>
+<li>첫번째 목록의 두번째 하위 항목</li>
+</ol>
+</li>
+<li><code>3</code>으로 적어도 <code>2</code>로 자동 채번됩니다.</li>
+<li><code>3</code> 다음인 <code>4</code>로 적었어도 자동 채번으로 인해 <code>3</code>으로 변경됩니다.</li>
+<li>숫자가 적어도 해당 순번에 맞게 <code>4</code>로 채번됩니다.</li>
+</ol>
+<h4 id="unordered-list-순서가-없는-목록">Unordered List (순서가 없는 목록)</h4>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Markdown</th>
+<th align="center">HTML</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Unordered List</td>
+<td align="center"><code>- {list}</code><br/><code>* {list}</code><br/><code>- {list}</code></td>
+<td align="center"><code>&lt;ul&gt;&lt;li&gt;{list}&lt;/li&gt;&lt;/ul&gt;</code></td>
+</tr>
+</tbody></table>
+<p>정렬되지 않은 목록은 별표( <code>*</code> ), 더하기( <code>+</code> ), 하이픈( <code>-</code> ) 세가지로 사용 가능합니다.
+마찬가지로 탭을 이용하여 하위 목록을 구현할 수 있으며 표시자를 혼합해서 사용해도 됩니다.</p>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown"><span class="token list punctuation">-</span> Color
+  <span class="token list punctuation">*</span> Red
+  <span class="token list punctuation">*</span> Green
+  <span class="token list punctuation">*</span> Blue
+<span class="token list punctuation">-</span> Animal
+  <span class="token list punctuation">*</span> Cat
+  <span class="token list punctuation">*</span> Dog
+</code></pre>
+<p><strong>[결과]</strong></p>
+<ul>
+<li>Color<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+</li>
+<li>Animal<ul>
+<li>Cat</li>
+<li>Dog</li>
+</ul>
+</li>
+</ul>
+<h3 id="code-코드">Code (코드)</h3>
+<p>코드 블록은 블록안에 있는 텍스트를 문자 그대로 해석합니다.
+따라서 태그, 마크업, 코드 등을 작성할 때 유용하게 사용할 수 있습니다.</p>
+<h4 id="inline-code-인라인-코드">Inline Code (인라인 코드)</h4>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Markdown</th>
+<th align="center">HTML</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Inline Code</td>
+<td align="center"><code className="inline-code">&#96;&#123;source&#125;&#96;</code></td>
+<td align="center"><code>&lt;code&gt;{source}&lt;/code&gt;</code></td>
+</tr>
+</tbody></table>
+<p>인라인 코드는 문자 사이에 작성할 수 있으며 키보드 1번 왼쪽에 있는 <code className="inline-code">&#96;</code> 문자 한개를 사용하며 구현할 수 있습니다.<br>HTML로 변환 시 <code>&lt;code&gt;</code> 태그로 래핑됩니다.</p>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown"><span class="token list punctuation">-</span> <span class="token code-snippet code keyword">`&lt;a>`</span> 태그는 href 속성으로 이동할 수 있는 하이퍼링크를 만들어 주는 태그입니다.
+<span class="token list punctuation">-</span> 자바스크립트에서는 <span class="token code-snippet code keyword">`const now = new Date();`</span>로 현재 시간을 구할 수 있습니다.
+</code></pre>
+<p><strong>[결과]</strong></p>
+<ul>
+<li><code>&lt;a&gt;</code> 태그는 href 속성으로 이동할 수 있는 하이퍼링크를 만들어 주는 태그입니다.</li>
+<li>자바스크립트에서는 <code>const now = new Date();</code>로 현재 시간을 구할 수 있습니다.</li>
+</ul>
+<h4 id="code-block-코드-블록">Code Block (코드 블록)</h4>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="left">Markdown</th>
+<th align="center">HTML</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Code Block</td>
+<td align="left"><code className="inline-code">&#96;&#96;&#96;&#123;source&#125;&#96;&#96;&#96;</code></td>
+<td align="center"><code>&lt;pre&gt;&lt;code&gt;{source}&lt;/code&gt;&lt;/pre&gt;</code></td>
+</tr>
+</tbody></table>
+<p>코드 블록은 주로 여러줄로 작성된 코드를 표현하기 위해 사용되며, <code className="inline-code">&#96;</code> 세개를 사용하여 <code className="inline-code">&#96;&#96;&#96;</code>로 구현합니다.<br>HTML로 변환 시 <code>&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</code> 태그로 래핑됩니다.<br><strong>(코드 블록은 다른 문법들과 다르게 끝에 <code className="inline-code">&#96;&#96;&#96;</code>로 다시 닫아 주어야 합니다.)</strong></p>
+<p>최근에는 <code className="inline-code">&#96;&#96;&#96;typescript</code> 처럼 <code className="inline-code">&#96;&#96;&#96;</code> 바로 뒤에 작성하려는 코드의 언어명을 입력하여서 구문 강조를 해주기도 합니다.</p>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown"><span class="token code"><span class="token punctuation">```</span><span class="token code-language">typescript</span>
+<span class="token code-block language-typescript language-typescript language-typescript language-typescript language-typescript language-typescript language-typescript language-typescript language-typescript language-typescript language-typescript language-typescript language-typescript language-typescript language-typescript language-typescript language-typescript language-typescript">class Student {
+  fullName: string;
+  constructor(
+    public firstName: string,
+    public middleInitial: string,
+    public lastName: string
+  ) {
+    this.fullName = firstName + ' ' + middleInitial + ' ' + lastName;
+  }
+}
+
+interface Person {
+  firstName: string;
+  lastName: string;
+}
+
+function greeter(person: Person) {
+  return 'Hello, ' + person.firstName + ' ' + person.lastName;
+}
+
+let user = new Student('Jane', 'M.', 'User');
+
+document.body.textContent = greeter(user);</span>
+<span class="token punctuation">```</span></span>
+</code></pre>
+<p><strong>[결과]</strong></p>
+<pre><code class="language-typescript"><span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token punctuation">{</span>
+  fullName<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span>
+    <span class="token keyword">public</span> firstName<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    <span class="token keyword">public</span> middleInitial<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    <span class="token keyword">public</span> lastName<span class="token operator">:</span> <span class="token builtin">string</span>
+  <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>fullName <span class="token operator">=</span> firstName <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> middleInitial <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> lastName<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
+  firstName<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+  lastName<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">greeter</span><span class="token punctuation">(</span>person<span class="token operator">:</span> Person<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token string">'Hello, '</span> <span class="token operator">+</span> person<span class="token punctuation">.</span>firstName <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> person<span class="token punctuation">.</span>lastName<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token string">'Jane'</span><span class="token punctuation">,</span> <span class="token string">'M.'</span><span class="token punctuation">,</span> <span class="token string">'User'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>textContent <span class="token operator">=</span> <span class="token function">greeter</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p>ℹ️ <strong>정보</strong><br>코드 발췌: <a href="https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html#classes">Typescript - Class</a></p>
+</blockquote>
+<h3 id="horizontal-rolles-수평선">Horizontal Rolles (수평선)</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Markdown</th>
+<th align="center">HTML</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Horizontal Rolles</td>
+<td align="center"><code>---</code> , <code>***</code>, <code>___</code></td>
+<td align="center"><code>&lt;hr /&gt;</code></td>
+</tr>
+</tbody></table>
+<p>화면상에 가로로 긴 줄을 출력해며, 단락과 단락을 나누는 듯 레이아웃을 구분할 때 많이 사용합니다.</p>
+<blockquote>
+<p>⚠️ <strong>주의</strong><br>수평선을 추가하기 위해 <code>---</code>와 같이 하이픈 세개를 텍스트 바로 밑에 추가할 경우 수평선이 아닌 헤더 1로 변경되니 하이픈(<code>-</code>)으로 사용하지 않거나, 항상 한칸 띄어놓고 사용하셔야 합니다. (<a href="/posts/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0#setext">Setext</a>)</p>
+</blockquote>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown"><span class="token title important">단락 1 (헤더로 변환)
+<span class="token punctuation">---</span></span>
+
+단락 2
+___
+단락 3
+
+<span class="token hr punctuation">---</span>
+단락 4 (한칸을 띄우면 수평선으로 변환)
+</code></pre>
+<p><strong>[결과]</strong></p>
+<h1>단락 1 (헤더로 변환)</h1>
+
+<p>단락 2</p>
+<hr>
+<p>단락 3</p>
+<hr>
+<p>단락 4 (한칸을 띄우면 수평선으로 변환)</p>
+<h3 id="link-링크">Link (링크)</h3>
+<h4 id="일반-방식">일반 방식</h4>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Markdown</th>
+<th align="center">HTML</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Anchor</td>
+<td align="center"><code>[{title}]({url})</code></td>
+<td align="center"><code>&lt;a href=&quot;{url}&quot;&gt;{title}&lt;/a&gt;</code></td>
+</tr>
+</tbody></table>
+<p>대괄호<code>[]</code>와 소괄호<code>()</code>를 이용해서 링크를 생성합니다.<br>대괄호안에는 링크의 타이틀을 입력하고 소괄호 안에는 링크의 url을 입력합니다.<br><em>소괄호<code>()</code> 안에 url 다음 한칸 띄우고 따옴표<code>&quot;</code> 사이에 title 속성을 입력할 수도 있습니다.</em></p>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown"><span class="token list punctuation">-</span> <span class="token url">[<span class="token content">Moroo Blog</span>](<span class="token url">https://blog.moroo.dev</span>)</span>
+<span class="token list punctuation">-</span> 이 [링크](https://blog.moroo.dev '타이틀 속성')에 마우스를 올리면 타이틀 속성이 표시됩니다.
+</code></pre>
+<p><strong>[결과]</strong></p>
+<ul>
+<li><a href="https://blog.moroo.dev">Moroo Blog</a></li>
+<li>이 <a href="https://blog.moroo.dev" title="타이틀 속성">링크</a>에 마우스를 올리면 타이틀 속성이 표시됩니다.</li>
+</ul>
+<p>위 두개의 링크에 대한 HTML은 아래와 같습니다.</p>
+<pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://blog.moroo.dev<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Moroo Blog<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://blog.moroo.dev<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>속성 타이틀<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>링크<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+</code></pre>
+<h4 id="참조-방식">참조 방식</h4>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="left">Markdown</th>
+<th align="center">HTML</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Anchor</td>
+<td align="left">사용: <code>[{title}][{id}]</code><br/>참조: <code>[{id}]: {url}</code></td>
+<td align="center"><code>&lt;a href=&quot;{url}&quot;&gt;{title}&lt;/a&gt;</code></td>
+</tr>
+<tr>
+<td align="center">Anchor</td>
+<td align="left">사용: <code>[{title}][]</code><br/>참조: <code>[{title}]: {url}</code></td>
+<td align="center"><code>&lt;a href=&quot;{url}&quot;&gt;{title}&lt;/a&gt;</code></td>
+</tr>
+</tbody></table>
+<p>링크를 생성하는 또다른 방식으로는 참조 방식이 있는데 이것은 문서 내 임의의 위치에 id와 url을 세트로 하는 링크 목록을 만들고 이렇게 만들어 둔 링크를 다른 곳에서 id로 참조해서 url을 가져오는 방식입니다.<br>(title과 id가 동일한 경우 id를 생략할 수 있습니다.)</p>
+<p>이 참조 방식은 동일한 링크를 여러곳에서 사용할 때 유용하며 마크다운 문서 내 링크 주소가 한 곳에 모두 모여 있어서 문서 내 흐름을 방해하지 않습니다.</p>
+<blockquote>
+<p><strong>여기서 임의로 만들어둔 링크 목록은 HTML로 전환 시 제거되어 화면에는 표시되지는 않습니다.</strong></p>
+</blockquote>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown"><span class="token url">[<span class="token content">Moroo Blog</span>][<span class="token variable">blog</span>]</span> <span class="token italic"><span class="token punctuation">_</span><span class="token content">(아래 참조는 결과 화면에서는 제거가 되어 보이지 않습니다.)</span><span class="token punctuation">_</span></span>
+
+.
+.
+.
+
+<span class="token url-reference url"><span class="token punctuation">[</span><span class="token variable">blog</span><span class="token punctuation">]</span><span class="token punctuation">:</span> https://blog.moroo.dev</span>
+</code></pre>
+<p><strong>[결과]</strong></p>
+<p><a href="https://blog.moroo.dev">Moroo Blog</a> (아래 참조는 결과 화면에서는 제거가 되어 보이지 않습니다.)</p>
+<p>.<br>.<br>.</p>
+<h3 id="emphasis-강조">Emphasis (강조)</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Markdown</th>
+<th align="center">HTML</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">em</td>
+<td align="center"><code>*{content}*</code><br/><code>_{content}_</code></td>
+<td align="center"><code>&lt;em&gt;{content}&lt;/em&gt;</code></td>
+</tr>
+<tr>
+<td align="center">strong</td>
+<td align="center"><code>**{content}**</code><br/><code>__{content}__</code></td>
+<td align="center"><code>&lt;strong&gt;{content}&lt;/strong&gt;</code></td>
+</tr>
+</tbody></table>
+<p>마크다운에서는 <code>*</code>와 <code>_</code>로 강조 표시를 해 줄 수 있습니다.<br>HTML로 변환 시 한개만 사용했을 때는 <code>&lt;em&gt;</code>로, 두개를 사용하였을 경우 <code>&lt;strong&gt;</code>으로 각각 변환됩니다.</p>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown"><span class="token italic"><span class="token punctuation">*</span><span class="token content">한개</span><span class="token punctuation">*</span></span>만 사용했을 때는 <span class="token code-snippet code keyword">`&lt;em>`</span>으로 변환되며,  
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">두개</span><span class="token punctuation">**</span></span>를 사용했을 때는 <span class="token code-snippet code keyword">`&lt;strong>`</span>으로 변환됩니다.
+</code></pre>
+<p><strong>[결과]</strong></p>
+<p><em>한개</em>만 사용했을 때는 <code>&lt;em&gt;</code>으로 변환되며,<br><strong>두개</strong>를 사용했을 때는 <code>&lt;strong&gt;</code>으로 변환됩니다.</p>
+<h3 id="image-이미지">Image (이미지)</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="left">Markdown</th>
+<th align="center">HTML</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Image</td>
+<td align="left"><code>![{alt}]({source})</code></td>
+<td align="center"><code>&lt;img src=&quot;{source}&quot; alt=&quot;{alt}&quot; /&gt;</code></td>
+</tr>
+<tr>
+<td align="center">Image</td>
+<td align="left">사용: <code>![{alt}][{id}]</code><br/>참조: <code>[{id}]: {source}</code></td>
+<td align="center"><code>&lt;img src=&quot;{source}&quot; alt=&quot;{alt}&quot; /&gt;</code></td>
+</tr>
+</tbody></table>
+<p>이미지 사용법은 앞에 느낌표<code>!</code>를 붙이는 거 빼곤 <a href="/posts/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0#link-%EB%A7%81%ED%81%AC">링크</a> 사용법과 거의 동일합니다.<br>느낌표<code>!</code>로 시작해서 대괄호<code>[]</code> 안에는 Alt 속성 값을 넣고, 소괄호<code>()</code>안에는 이미지 소스를 넣으면 됩니다.<br>(소스 뒤에 따옴표<code>&quot;</code>를 이용하여 타이틀 속성을 추가할 수 있습니다.)</p>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-markdown">![Moroo Logo](/assets/moroo.svg &#39;Moroo Blog Logo&#39;)
+</code></pre>
+<p><strong>[결과]</strong></p>
+<p><img src="/assets/moroo.svg" alt="Moroo Logo" title="Moroo Blog Logo"></p>
+<p>앞서 <a href="/posts/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0#span-level-%EC%B2%98%EB%A6%AC">Span-level 처리</a>에서 말했다시피 마크다운에서 이미지 처리 시 <code>width</code> 및 <code>height</code>를 지정할 수가 없습니다.
+그래서 이미지 같은 경우에는 대부분 마크다운 문법이 아닌 <code>&lt;img /&gt;</code> HTML 태그를 직접 사용하곤 합니다.</p>
+<p><strong>[예시]</strong></p>
+<pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/moroo.svg<span class="token punctuation">"</span></span>
+  <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Moroo Logo<span class="token punctuation">"</span></span>
+  <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span>
+  <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span>
+  <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Moroo Blog Logo<span class="token punctuation">"</span></span>
+<span class="token punctuation">/></span></span>
+</code></pre>
+<p><strong>[결과]</strong></p>
+<img src="/assets/moroo.svg" alt="Moroo Logo" width="40" height="40" title="Moroo Blog Logo" />
+
+<h2 id="common-mark">Common Mark</h2>
+<p>2004년 처음 John Gruber가 마크다운을 개발하고 벌써 18년이라는 세월이 흘렀습니다.
+초기 마크다운의 모호성으로 인하여 여러 파생들이 생겨났으며 이로 인하여 같은 마크다운 문서라 하지라도 어디서 어떻게 구문 분석을 했는지에 따라서 그 결과가 서로 다르게 나왔습니다.
+(같은 마크다운 문서일지라도, Github, Slack, Jira, Notion 등 다양한 플랫폼에서 서로 다르게 구문이 분석되거나 분석 자체가 실패하기도 합니다.)</p>
+<p>이에, 마크다운 구문을 공식적으로 지정하고자 <a href="https://commonmark.org/">Common Mark</a> 프로젝트가 진행중입니다.</p>
+<blockquote>
+<p>ℹ️ <a href="https://commonmark.org/#why">https://commonmark.org</a>에서 발췌...</p>
+<p>Why is CommonMark needed?
+John Gruber’s canonical description of Markdown’s syntax does not specify the syntax unambiguously.</p>
+<p>In the absence of a spec, early implementers consulted the original Markdown.pl code to resolve these ambiguities. But Markdown.pl was quite buggy, and gave manifestly bad results in many cases, so it was not a satisfactory replacement for a spec. Markdown.pl was last updated December 17th, 2004.</p>
+<p>Because there is no unambiguous spec, implementations have diverged considerably over the last 10 years. As a result, users are often surprised to find that a document that renders one way on one system (say, a GitHub wiki) renders differently on another (say, converting to docbook using Pandoc). To make matters worse, because nothing in Markdown counts as a “syntax error,” the divergence often isn’t discovered right away.</p>
+<p>There’s no standard test suite for Markdown; MDTest is the closest thing we have. The only way to resolve Markdown ambiguities and inconsistencies is Babelmark, which compares the output of 20+ implementations of Markdown against each other to see if a consensus emerges.</p>
+<p>We propose a standard, unambiguous syntax specification for Markdown, along with a suite of comprehensive tests to validate Markdown implementations against this specification. We believe this is necessary, even essential, for the future of Markdown.</p>
+<p>That’s what we call CommonMark.</p>
+</blockquote>
+<h2 id="마무리">마무리</h2>
+<p>지금까지 마크다운에 대해서 알아보고 문법에 대해 배워봤습니다.</p>
+<p>개인적으로 저는 마크다운이 배우기 쉽고, 사용하기 편리하며 여러 플랫폼에서 사용 가능한 점이 좋아서 좋아합니다.
+마크다운만 잘 사용하셔도 어느 플랫폼에서든 문서 작성을 쉽게 하실 수 있을거라 생각합니다.</p>
+<p>추후 기회가 되면 <a href="https://commonmark.org">Common Mark(cmark)</a>와 <a href="https://github.github.com/gfm">GitHub Flavored Markdown(GFM)</a> 에 대해 포스팅 해보겠습니다.</p>
+<p>감사합니다. :wave:</p>
+<h2 id="참고한-사이트">참고한 사이트</h2>
+<blockquote>
+<ul>
+<li><a href="https://ko.wikipedia.org/wiki/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4">https://ko.wikipedia.org/wiki/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4</a></li>
+<li><a href="https://daringfireball.net/projects/markdown">https://daringfireball.net/projects/markdown</a></li>
+<li><a href="https://daringfireball.net/projects/markdown/syntax">https://daringfireball.net/projects/markdown/syntax</a></li>
+<li><a href="https://www.npmjs.com/package/remark-gemoji">https://www.npmjs.com/package/remark-gemoji</a></li>
+<li><a href="https://www.w3schools.com/html/html_entities.asp">https://www.w3schools.com/html/html_entities.asp</a></li>
+<li><a href="https://commonmark.org">https://commonmark.org</a></li>
+<li><a href="https://github.github.com/gfm">https://github.github.com/gfm</a></li>
+<li><a href="https://docutils.sourceforge.io/mirror/setext.html">https://docutils.sourceforge.io/mirror/setext.html</a></li>
+<li><a href="http://www.aaronsw.com/2002/atx">http://www.aaronsw.com/2002/atx</a></li>
+<li><a href="https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html#classes">https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html#classes</a></li>
+</ul>
+</blockquote>
+]]></content:encoded>
+            <author>moroo.lee@gmail.com (moroo)</author>
+            <category domain="https://blog.moroo.dev/categories">Tech</category>
+            <category domain="https://blog.moroo.dev/categories">Technology</category>
+            <category domain="https://blog.moroo.dev/categories">IT</category>
+            <category domain="https://blog.moroo.dev/categories/Markup">Markup</category>
+            <category domain="https://blog.moroo.dev/categories/Markup/Markdown">Markdown</category>
+            <enclosure url="https://blog.moroo.dev/assets/posts/마크다운에-대해-알아보기/post-cover-image.jpeg" length="0" type="image/jpeg"/>
+        </item>
+        <item>
             <title><![CDATA[깃허브 기반의 마크다운 이모지 모음]]></title>
             <link>https://blog.moroo.dev/posts/깃허브-기반의-마크다운-이모지-모음</link>
             <guid>https://blog.moroo.dev/posts/깃허브-기반의-마크다운-이모지-모음</guid>
             <pubDate>Sun, 20 Mar 2022 15:00:00 GMT</pubDate>
+            <description><![CDATA[깃허브 플랫폼에서 마크다운 문서에 사용 가능한 이모지들의 Short Code 모음집]]></description>
             <content:encoded><![CDATA[<h2 id="이모지">이모지</h2>
 <h3 id="이모지란">이모지란?</h3>
 <p>이모지는 일본어 絵文字(えもじ, 絵/繪(그림) + 文字(문자))의 합성어로 그림 형태의 유니코드 문자입니다.<br>이모지에 대한 자세한 내용은 <a href="/posts/%EC%9D%B4%EB%AA%A8%EC%A7%80-%EB%B0%8F-%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0">이모지 및 이모티콘에 대한 이야기</a>에서 다루었으니 궁금 하시거나 관심 있으신 분은 한번 읽어보는 것을 추천드립니다.</p>
@@ -38,6 +915,8 @@
 <h2 id="깃허브-기반의-이모지-모음">깃허브 기반의 이모지 모음</h2>
 <p>마크다운에서 사용하는 이모지의 Short Codes는 이모지를 구현하는 플랫폼마다 다릅니다.<br>예를 들어 여자 경찰의 :policeman: 이모지인 경우 <a href="https://github.com">Github</a>에서는 Short Code가 <code>:policeman:</code>인데 반면, <a href="https://slack.com/intl/ko-kr">Slack</a>에서는 <code>:female-police-officer:</code>이고, <a href="https://emojipedia.org">Emojipedia</a>에서는 <code>:woman_police_officer:</code>로 사용합니다.<br>Short Codes 관련해서 보다 자세한 내용은 <a href="https://emojipedia.org/shortcodes">Emoji Shortcodes</a>에서 확인 가능합니다.</p>
 <p>본론으로 돌아와 아래 이모지 모음집은 Github에서 사용하는 Short Codes를 기반으로 만든 모음집입니다.<br>따라서, 다른 플랫폼에서는 이모지가 보이지 않을 수 있는 점 참고 바랍니다.</p>
+<span className="emoji">
+
 <h3 id="smileys--emotion">Smileys &amp; Emotion</h3>
 <h4 id="face-smiling">Face Smiling</h4>
 <table>
@@ -6831,66 +7710,68 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/atom.png?v8" width="20" height="20" title=":atom:" alt=":atom:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/atom.png?v8" width="40" height="40" title=":atom:" alt=":atom:" /></td>
 <td><code>:atom:</code></td>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/basecamp.png?v8" width="20" height="20" title=":basecamp:" alt=":basecamp:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/basecamp.png?v8" width="40" height="40" title=":basecamp:" alt=":basecamp:" /></td>
 <td><code>:basecamp:</code></td>
 </tr>
 <tr>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/basecampy.png?v8" width="20" height="20" title=":basecampy:" alt=":basecampy:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/basecampy.png?v8" width="40" height="40" title=":basecampy:" alt=":basecampy:" /></td>
 <td><code>:basecampy:</code></td>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/bowtie.png?v8" width="20" height="20" title=":bowtie:" alt=":bowtie:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/bowtie.png?v8" width="40" height="40" title=":bowtie:" alt=":bowtie:" /></td>
 <td><code>:bowtie:</code></td>
 </tr>
 <tr>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/electron.png?v8" width="20" height="20" title=":electron:" alt=":electron:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/electron.png?v8" width="40" height="40" title=":electron:" alt=":electron:" /></td>
 <td><code>:electron:</code></td>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/feelsgood.png?v8" width="20" height="20" title=":feelsgood:" alt=":feelsgood:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/feelsgood.png?v8" width="40" height="40" title=":feelsgood:" alt=":feelsgood:" /></td>
 <td><code>:feelsgood:</code></td>
 </tr>
 <tr>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/finnadie.png?v8" width="20" height="20" title=":finnadie:" alt=":finnadie:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/finnadie.png?v8" width="40" height="40" title=":finnadie:" alt=":finnadie:" /></td>
 <td><code>:finnadie:</code></td>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/goberserk.png?v8" width="20" height="20" title=":goberserk:" alt=":goberserk:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/goberserk.png?v8" width="40" height="40" title=":goberserk:" alt=":goberserk:" /></td>
 <td><code>:goberserk:</code></td>
 </tr>
 <tr>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/godmode.png?v8" width="20" height="20" title=":godmode:" alt=":godmode:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/godmode.png?v8" width="40" height="40" title=":godmode:" alt=":godmode:" /></td>
 <td><code>:godmode:</code></td>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/hurtrealbad.png?v8" width="20" height="20" title=":hurtrealbad:" alt=":hurtrealbad:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/hurtrealbad.png?v8" width="40" height="40" title=":hurtrealbad:" alt=":hurtrealbad:" /></td>
 <td><code>:hurtrealbad:</code></td>
 </tr>
 <tr>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/neckbeard.png?v8" width="20" height="20" title=":neckbeard:" alt=":neckbeard:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/neckbeard.png?v8" width="40" height="40" title=":neckbeard:" alt=":neckbeard:" /></td>
 <td><code>:neckbeard:</code></td>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/octocat.png?v8" width="20" height="20" title=":octocat:" alt=":octocat:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/octocat.png?v8" width="40" height="40" title=":octocat:" alt=":octocat:" /></td>
 <td><code>:octocat:</code></td>
 </tr>
 <tr>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/rage1.png?v8" width="20" height="20" title=":rage1:" alt=":rage1:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/rage1.png?v8" width="40" height="40" title=":rage1:" alt=":rage1:" /></td>
 <td><code>:rage1:</code></td>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/rage2.png?v8" width="20" height="20" title=":rage2:" alt=":rage2:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/rage2.png?v8" width="40" height="40" title=":rage2:" alt=":rage2:" /></td>
 <td><code>:rage2:</code></td>
 </tr>
 <tr>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/rage3.png?v8" width="20" height="20" title=":rage3:" alt=":rage3:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/rage3.png?v8" width="40" height="40" title=":rage3:" alt=":rage3:" /></td>
 <td><code>:rage3:</code></td>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/rage4.png?v8" width="20" height="20" title=":rage4:" alt=":rage4:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/rage4.png?v8" width="40" height="40" title=":rage4:" alt=":rage4:" /></td>
 <td><code>:rage4:</code></td>
 </tr>
 <tr>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/shipit.png?v8" width="20" height="20" title=":shipit:" alt=":shipit:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/shipit.png?v8" width="40" height="40" title=":shipit:" alt=":shipit:" /></td>
 <td><code>:shipit:</code></td>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/suspect.png?v8" width="20" height="20" title=":suspect:" alt=":suspect:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/suspect.png?v8" width="40" height="40" title=":suspect:" alt=":suspect:" /></td>
 <td><code>:suspect:</code></td>
 </tr>
 <tr>
-<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/trollface.png?v8" width="20" height="20" title=":trollface:" alt=":trollface:" /></td>
+<td align="center"><img className="emoji" src="https://github.githubassets.com/images/icons/emoji/trollface.png?v8" width="40" height="40" title=":trollface:" alt=":trollface:" /></td>
 <td><code>:trollface:</code></td>
 <td align="center"></td>
 <td></td>
 </tr>
 </tbody></table>
+</span>
+
 <h2 id="remark-gemoji">remark-gemoji</h2>
 <p>마크다운을 HTML로 변환 시 이모지를 깃허브 기반의 이모지로 사용하고 싶으시면 <a href="https://remark.js.org">Remark</a> Plug-in 중에 <a href="https://www.npmjs.com/package/remark-gemoji">remark-gemoji</a>를 설치하면 됩니다.<br>자세한 사용법은 <a href="https://github.com/remarkjs/remark-gemoji#readme">README</a>를 참고 바랍니다.</p>
 <h2 id="참고한-사이트">참고한 사이트</h2>
@@ -6915,6 +7796,7 @@
             <link>https://blog.moroo.dev/posts/이모지-및-이모티콘에-대한-이야기</link>
             <guid>https://blog.moroo.dev/posts/이모지-및-이모티콘에-대한-이야기</guid>
             <pubDate>Fri, 18 Mar 2022 15:00:00 GMT</pubDate>
+            <description><![CDATA[이모지 및 이모티콘이 무엇인지 알아보고 이모지의 유니코드 결합 방식에 대해 배워봅시다.]]></description>
             <content:encoded><![CDATA[<h2 id="이모지">이모지</h2>
 <p>이모지는 일본어 絵文字(えもじ, 絵/繪(그림) + 文字(문자))의 합성어로 그림 형태의 유니코드 문자입니다.<br><em>(사물의 형상을 본따서 만드는 상형문자 같은 경우도 이모지라고 볼 수도 있을 것 같네요...)</em></p>
 <h3 id="이모지-역사">이모지 역사</h3>
@@ -7132,6 +8014,7 @@ Slack에서는 <code>👨:skin-tone-6:</code> 방식으로 피부 스킨 조합�
             <link>https://blog.moroo.dev/posts/nvm-installation-with-mac</link>
             <guid>https://blog.moroo.dev/posts/nvm-installation-with-mac</guid>
             <pubDate>Thu, 17 Mar 2022 15:00:00 GMT</pubDate>
+            <description><![CDATA[NVM이 무엇인지 간략하게 설명하고 Mac OS 환경에서 Homebrew를 통해 NVM을 설치하고 NVM으로 Node를 관리하는 법을 알아봅니다.]]></description>
             <content:encoded><![CDATA[<h2 id="nvm-이란">NVM 이란?</h2>
 <p>NVM은 <code>Node Version Manager</code>의 약자로 말 그대로 노드의 버전을 관리하는 프로그램입니다.</p>
 <p>여러 프로젝트를 진행하다보면 각 프로젝트 별로 노드 버전을 달리해야 하는데 이럴 때 NVM으로 현재 사용중인 노드의 버전을 원하는 버전으로 마음대로 변경하고 설치가 가능하며 관리 또한 용이합니다.</p>
@@ -7319,6 +8202,7 @@ Running <span class="token function">node</span> v17.5.0 <span class="token punc
             <link>https://blog.moroo.dev/posts/webdriverio-before-beginning</link>
             <guid>https://blog.moroo.dev/posts/webdriverio-before-beginning</guid>
             <pubDate>Thu, 03 Mar 2022 15:00:00 GMT</pubDate>
+            <description><![CDATA[WebdriverIO 시리즈를 시작하기 전에 필자가 WebdriverIO를 접하게 된 계기 및 간략한 소개 글입니다.]]></description>
             <content:encoded><![CDATA[<h2 id="webdriverio를-접하게된-계기">WebdriverIO를 접하게된 계기</h2>
 <p>넥슨에서 근무하고 있을 때 ActiveX가 중단됨에 따라 유저의 PC 사양을 수집하던 것을 EXE 프로그램으로 전환해야 하는 QA 업무를 맞게 되었습니다.<br>넥슨에서 서비스하는 약 100여개가 되는 모든 게임들을 IE7 ~ IE11, Edge, Chrome, Firefox 브라우저 환경에서 확인해야 했습니다.<br>테스트 케이스가 약 100개인 테스트를 800번 진행해야 했죠. 그것도 혼자서... :scream:</p>
 <p>C# WPF를 이용하여 업무 자동화 프로그램을 토이 프로젝트로 몇번 진행한 경험을 토대로 자동화에 눈을 돌렸고 그때 처음으로 WebdriverIO를 접하게 되었습니다. (그때 당시 WebdriverIO가 버전 3에서 4로 넘어가는 시기였는데 벌써 버전 7까지 나왔네요...)</p>
@@ -7421,6 +8305,7 @@ Running <span class="token function">node</span> v17.5.0 <span class="token punc
             <link>https://blog.moroo.dev/posts/webdriverio-installation</link>
             <guid>https://blog.moroo.dev/posts/webdriverio-installation</guid>
             <pubDate>Thu, 03 Mar 2022 15:00:00 GMT</pubDate>
+            <description><![CDATA[Typescript 기반의 WebdriverIO를 설치하는 법에 대해 설명하는 글입니다.]]></description>
             <content:encoded><![CDATA[<blockquote>
 <p>⚠️ 경고<br>이 포스트는 WebdriverIO 의 최신 버전 (&gt;=7.x)에 대한 설치 가이드입니다.<br>이 전 버전을 원하시는 경우 <a href="https://webdriver.io/versions">이 전 버전의 WebdriverIO 웹사이트</a>를 참조해 주세요.</p>
 </blockquote>
@@ -7733,6 +8618,7 @@ Spec Files:      <span class="token number">1</span> passed, <span class="token 
             <link>https://blog.moroo.dev/posts/qa-developer-memes</link>
             <guid>https://blog.moroo.dev/posts/qa-developer-memes</guid>
             <pubDate>Tue, 15 Feb 2022 15:00:00 GMT</pubDate>
+            <description><![CDATA[QA와 Developer의 이해 관계를 보여주는 밈들에 대해서 QA 관점에서 가볍게 바라본 지극히 개인적인 이야기입니다.]]></description>
             <content:encoded><![CDATA[<p>최근에 <code>QA와 Developer의 이해 관계</code> 와 관련된 밈들을 많이 보게 되었습니다.<br>대부분의 밈들이 해학적으로 잘 풀어내서 공감도 많이 받고 즐겁게 봤었는데요.</p>
 <p>그 중에 몇몇 밈들은 개발자 관점에서 그려지거나 QA 역할과는 모순된 부분들이 있어서 어떤 점이 문제로 생각되었는 지와 QA 관점에서 어떤 밈이 제일 괜찮았는지에 대해 가볍게 얘기해 보려 합니다.</p>
 <mark>

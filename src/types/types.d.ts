@@ -1,5 +1,5 @@
 declare module 'public/blog.json' {
-  const blog: Blog;
+  const blog: BlogData;
   export default blog;
 }
 
@@ -52,9 +52,9 @@ interface Post {
   tags: string[];
   series: { name: string; number: number } | null;
   published: boolean;
-  content: string;
+  // path: string;
 }
-interface Blog {
+interface BlogData {
   posts: Post[];
   categories: Category[];
   tags: Tag[];

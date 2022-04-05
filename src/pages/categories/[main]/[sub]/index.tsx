@@ -15,7 +15,7 @@ import Script from 'next/script';
 interface Props {
   category: Category;
   posts: Post[];
-  blog: Blog;
+  blog: BlogData;
 }
 export default function SubCategories({ category, posts, blog }: Props) {
   const router = useRouter();
@@ -25,22 +25,22 @@ export default function SubCategories({ category, posts, blog }: Props) {
 
   const [searchPosts, setSearchPosts] = useState<Post[]>([...posts]);
 
-  function onSearchChange(event: ChangeEvent<HTMLInputElement>) {
-    const value = event.target.value;
-    if (value) {
-      const findPosts = blog.posts.filter(
-        ({ title, content }) => title.includes(value) || content.includes(value)
-      );
+  // function onSearchChange(event: ChangeEvent<HTMLInputElement>) {
+  //   const value = event.target.value;
+  //   if (value) {
+  //     const findPosts = blog.posts.filter(
+  //       ({ title, content }) => title.includes(value) || content.includes(value)
+  //     );
 
-      if (findPosts.length) {
-        setSearchPosts([...findPosts]);
-      } else {
-        setSearchPosts([]);
-      }
-    } else {
-      setSearchPosts([...posts]);
-    }
-  }
+  //     if (findPosts.length) {
+  //       setSearchPosts([...findPosts]);
+  //     } else {
+  //       setSearchPosts([]);
+  //     }
+  //   } else {
+  //     setSearchPosts([...posts]);
+  //   }
+  // }
 
   useEffect(() => {
     setSearchPosts([...posts]);
@@ -95,7 +95,7 @@ export default function SubCategories({ category, posts, blog }: Props) {
             data={searchPosts}
             handleDataSortingFunc={setSearchPosts}
           />
-          <SearchInput
+          {/* <SearchInput
             placeholder="제목 또는 내용 검색..."
             dataList={posts.map(({ slug, title }) => {
               return {
@@ -105,7 +105,7 @@ export default function SubCategories({ category, posts, blog }: Props) {
               };
             })}
             onChange={onSearchChange}
-          />
+          /> */}
         </div>
         <div className="max-w-none px-5 pb-5">
           {searchPosts.length > 0 ? (

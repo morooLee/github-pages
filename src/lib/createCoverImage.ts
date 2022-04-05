@@ -17,7 +17,7 @@ interface CreatePostCoverImageOptions {
 }
 
 export function createBlogCoverImage() {
-  const rootDir = path.join(process.cwd(), 'public/assets/posts');
+  const rootDir = path.join(process.cwd(), 'public/assets');
   const blogImageFileName = 'blog-cover-image.jpeg';
   const blogImagePath = path.join(rootDir, blogImageFileName);
 

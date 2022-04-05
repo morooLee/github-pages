@@ -27,6 +27,7 @@ export default function CopyToClipboardButton(props: Props) {
       type="button"
       onClick={handleOnClick}
       data-clipboard={props['data-clipboard']}
+      aria-label="clipboard"
     ></button>
   );
 }

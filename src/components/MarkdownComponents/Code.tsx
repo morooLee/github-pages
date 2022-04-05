@@ -25,14 +25,15 @@ export default function Code({ children, className }: Props) {
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <code
-        // className={`${className} rounded-lg border my-5 overflow-y-auto`}
-        // style={{
-        //   ...style,
-        //   padding: '1.25rem',
-        //   marginTop: '1.25rem',
-        //   marginBottom: '1.25rem',
-        //   backgroundColor: 'var(--color-bg-inset)',
-        // }}
+          lang={language}
+          // className={`${className} rounded-lg border my-5 overflow-y-auto`}
+          // style={{
+          //   ...style,
+          //   padding: '1.25rem',
+          //   marginTop: '1.25rem',
+          //   marginBottom: '1.25rem',
+          //   backgroundColor: 'var(--color-bg-inset)',
+          // }}
         >
           {tokens.map((line, i) => (
             <p key={i} {...getLineProps({ line, key: i })}>
@@ -45,6 +46,6 @@ export default function Code({ children, className }: Props) {
       )}
     </Highlight>
   ) : (
-    <code>{children}</code>
+    <code className="inline-code">{children}</code>
   );
 }
