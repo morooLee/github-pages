@@ -1,7 +1,7 @@
 import React, { createContext, ReactNode, useContext, useState } from 'react';
 import blogJson from 'public/blog.json';
 
-type BlogContext = Blog;
+type BlogContext = BlogData;
 const initialState: BlogContext = blogJson;
 const BlogContext = createContext<BlogContext>(initialState);
 
