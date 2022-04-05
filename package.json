@@ -6,7 +6,7 @@
       "preset": "emotion"
     }
   },
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "init": "ts-node ./src/lib/init.ts",
     "dev": "next dev",
@@ -34,9 +34,9 @@
     "gray-matter": "^4.0.3",
     "hastscript": "^7.0.2",
     "imagemin-gifsicle": "^7.0.0",
-    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
-    "imagemin-svgo": "^10.0.1",
+    "imagemin-svgo": "^9.0.0",
     "marked": "^4.0.12",
     "mini-svg-data-uri": "^1.4.4",
     "next": "^12.1.0",
